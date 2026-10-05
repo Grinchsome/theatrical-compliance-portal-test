@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stage Electrics – Mechanical Theatre Equipment Compliance</title>
+
+<style>
+  :root{
+    --bg:#f6f8fa;
+    --surface:#ffffff;
+    --text:#1f2328;
+    --muted:#667085;
+    --border:#d0d7de;
+    --shadow:0 10px 22px rgba(0,0,0,0.08);
+    --primary:#005a8f;
+    --primaryHover:#0077b6;
+    --chipBg:#e6f2fb;
+    --chipText:#005a8f;
+
+    --badgeLolerBg:#fef3c7;
+    --badgeLolerText:#92400e;
+
+    --badgePuwerBg:#dbeafe;
+    --badgePuwerText:#1e40af;
+
+    --badgeBsBg:#dcfce7;
+    --badgeBsText:#166534;
+  }
+
+  [data-theme="dark"]{
+    --bg:#0b0f14;
+    --surface:#111827;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --border:#253041;
+    --shadow:0 10px 22px rgba(0,0,0,0.45);
+    --primary:#39a0ff;
+    --primaryHover:#67b7ff;
+    --chipBg:#0b2a44;
+    --chipText:#cfe9ff;
+
+    --badgeLolerBg:#3a2a00;
+    --badgeLolerText:#fbbf24;
+
+    --badgePuwerBg:#0b1f44;
+    --badgePuwerText:#93c5fd;
+
+    --badgeBsBg:#0b2e1a;
+    --badgeBsText:#86efac;
+  }
+
+  body{
+    font-family:"Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    max-width:1100px;
+    margin:1rem auto;
+    padding:0 1rem;
+    line-height:1.6;
+  }
+
+  .header{
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:1rem;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+    min-width:0;
+  }
+  .brand img{
+    width:46px;
+    height:46px;
+    border-radius:10px;
+    object-fit:contain;
+    background:var(--surface);
+    border:1px solid var(--border);
+  }
+  .brand .titles{ min-width:0; }
+  .brand h1{
+    font-size:1.25rem;
+    margin:0;
+    color:var(--primary);
+    line-height:1.2;
+  }
+  .brand p{
+    margin:0.15rem 0 0 0;
+    color:var(--muted);
+    font-size:0.9rem;
+  }
+
+  .header-actions{
+    display:flex;
+    gap:0.6rem;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  .toggle{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    padding:0.35rem 0.6rem;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    cursor:pointer;
+    user-select:none;
+    font-size:0.9rem;
+  }
+  .toggle:hover{ border-color: rgba(57,160,255,0.55); }
+  .toggle .dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:var(--muted);
+  }
+  [data-theme="dark"] .toggle .dot{ background:var(--primary); }
+
+  .card{
+    background:var(--surface);
+    border-radius:14px;
+    padding:1.2rem;
+    margin-top:1rem;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+  }
+
+  h2{ margin:0.2rem 0; }
+  h3{ margin:0.9rem 0 0.4rem 0; }
+
+  label{
+    display:block;
+    margin:0.6rem 0;
+    font-weight:600;
+  }
+  select, :is(input[type="text"], input[type="search"]){
+    padding:0.65rem 0.75rem;
+    margin-top:0.35rem;
+    font-size:1rem;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    outline:none;
+  }
+  select:focus, :is(input[type="text"], input[type="search"]):focus{
+    border-color: rgba(57,160,255,0.7);
+    box-shadow:0 0 0 3px rgba(57,160,255,0.18);
+  }
+
+  button{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:0.6rem 1.1rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    transition:background 0.2s ease, transform 0.1s ease;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
+  }
+  button:hover{ background:var(--primaryHover); transform:translateY(-1px); }
+  button:active{ transform:translateY(0); }
+
+  button.secondary{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
+    box-shadow:none;
+  }
+  button.secondary:hover{
+    border-color: rgba(57,160,255,0.55);
+    background: rgba(57,160,255,0.10);
+  }
+
+  /* Mobile */
+  select, :is(input[type="text"], input[type="search"]), .card button{ width:100%; box-sizing:border-box; }
+  @media (min-width:768px){
+    body{ margin:2rem auto; padding:0; }
+    select, :is(input[type="text"], input[type="search"]){ width:auto; min-width:420px; }
+    .card button{ width:auto; }
+  }
+
+  img{ max-width:100%; height:auto; border-radius:10px; }
+
+  .muted{ color:var(--muted); font-size:0.92rem; margin:0.3rem 0 0 0; }
+
+  .chip{
+    display:inline-block;
+    padding:0.2rem 0.55rem;
+    border-radius:999px;
+    background:var(--chipBg);
+    color:var(--chipText);
+    font-size:0.78rem;
+    margin-left:0.45rem;
+    border:1px solid rgba(208,215,222,0.7);
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+
+  .badge{
+    display:inline-block;
+    padding:0.18rem 0.55rem;
+    border-radius:999px;
+    font-size:0.78rem;
+    font-weight:700;
+    margin-left:0.5rem;
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+  .badge.loler{ background:var(--badgeLolerBg); color:var(--badgeLolerText); }
+  .badge.puwer{ background:var(--badgePuwerBg); color:var(--badgePuwerText); }
+  .badge.bs{ background:var(--badgeBsBg); color:var(--badgeBsText); }
+.badge.abtt{
+  background:#5b3a82;
+  color:#ffffff;
+}
+
+  .outlined{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0.9rem 1rem;
+    background: rgba(57,160,255,0.06);
+    margin-top:0.5rem;
+    margin-bottom:1rem;
+  }
+  [data-theme="dark"] .outlined{ background: rgba(0,0,0,0.15); }
+
+  .reg-block{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0.9rem 1rem;
+    margin-bottom:0.9rem;
+    background:var(--surface);
+  }
+  .reg-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.8rem;
+    flex-wrap:wrap;
+  }
+  .reg-title{ margin:0; font-size:1rem; }
+  .reg-actions{ display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; }
+  .reg-details{ margin-top:0.6rem; display:none; }
+  .reg-details p{ margin:0.4rem 0; }
+
+  ul{ padding-left:1.2rem; margin:0.4rem 0 0 0; }
+
+  .disclaimer{
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-top:1.2rem;
+    border-top:1px solid var(--border);
+    padding-top:0.8rem;
+  }
+
+/* IMAGE LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.92);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+/* Make equipment images look tappable */
+.equipment-image {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.equipment-image:hover {
+  transform: scale(1.02);
+}
+/* Equipment gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.7rem;
+  background: var(--surface);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+/* ==================================================
+   MOBILE-FIRST APP STYLE LAYOUT
+   ================================================== */
+
+/* Overall page */
+body {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: #d9d9d9;
+  color: var(--text);
+}
+
+/* Faded background image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+    url("images/portal_background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Top bar */
+.topbar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+}
+
+.topbar img {
+  max-height: 80px;
+  max-width: 240px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Hero title */
+.hero {
+  text-align: center;
+  padding: 1.1rem 1rem 1.3rem 1rem;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #003cff;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
+  font-weight: 500;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.35);
+}
+
+.hero p {
+  margin: 1rem 0 0 0;
+  color: #111111;
+  font-size: clamp(1rem, 4vw, 1.7rem);
+  letter-spacing: 0.04em;
+}
+
+/* Cards – mobile first */
+.card {
+  max-width: none;
+  margin: 1.2rem 1rem;
+  background: rgba(255,255,255,0.85);
+  border-radius: 26px;
+  border: 1px solid #d0d7de;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  padding: 1.4rem;
+}
+
+/* Bigger headings inside cards */
+.card h2,
+.card h3 {
+  line-height: 1.2;
+}
+
+/* Inputs */
+:is(input[type="text"], input[type="search"]),
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
+  font-size: 1.05rem;
+}
+
+/* Main buttons */
+button,
+#galleryToggle,
+#checkButton {
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  font-size: 1.05rem;
+}
+
+/* Make main buttons full width on phone */
+.card > button,
+.button-row button,
+#galleryToggle,
+#checkButton {
+  width: 100%;
+  max-width: 760px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button row spacing */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* Gallery cards on phone */
+.gallery {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+/* Dark mode */
+[data-theme="dark"] body::before {
+  background:
+    linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
+    url("images/portal_background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+[data-theme="dark"] .topbar {
+  background: #111827;
+}
+
+[data-theme="dark"] .hero p {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .card {
+  background: rgba(17,24,39,0.85);
+}
+
+/* ==================================================
+   DESKTOP WIDER LAYOUT
+   ================================================== */
+
+@media (min-width: 900px) {
+  .topbar {
+    padding: 1rem 3rem;
+  }
+
+  .topbar img {
+    max-height: 95px;
+    max-width: 340px;
+  }
+
+  .hero {
+    padding: 2rem 1rem 2.4rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 4.2rem;
+  }
+
+  .hero p {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.65);
+  }
+
+[data-theme="dark"] .card {
+  background: rgba(17,24,39,0.65);
+}
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+
+  :is(input[type="text"], input[type="search"]),
+  select {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small phone tidy-up */
+@media (max-width: 480px) {
+  .topbar img {
+    max-height: 60px;
+    max-width: 210px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+.intro-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 1rem;
+}
+  .card {
+    margin: 1rem 0.7rem;
+    padding: 1.2rem;
+    border-radius: 22px;
+  }
+
+}
+.intro-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 1rem;
+}
+/* Gallery image frame */
+.gallery-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 16px !important;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.95);
+  padding: 0.4rem;
+  box-sizing: border-box;
+}
+
+/* Dark mode gallery image frame */
+[data-theme="dark"] .gallery-card img {
+  background: rgba(17,24,39,0.95);
+  border: 1px solid var(--border);
+}
+.gallery-filters { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1rem; }
+.gallery-filters button { flex:1; width:auto; margin:0; background:var(--surface); color:var(--primary); border:1px solid var(--primary); }
+.gallery-filters button[aria-pressed="true"] { background:var(--primary); color:var(--surface); }
+.gallery-card:focus-visible { outline:3px solid var(--primary); outline-offset:3px; }
+</style>
+
+</head>
+<body>
+    <div class="topbar">
+  <img id="logoImg" src="images/stage_electrics_logo.webp" alt="Stage Electrics logo" />
+
+  <div id="themeToggle" class="toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
+    <span class="dot"></span>
+    <span id="themeLabel">Dark mode</span>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>Mechanical Theatre<br>Equipment Compliance</h1>
+  <p>LOLER · PUWER · BS EN 17206 · ABTT <br>Guidance Portal</p>
+</div>
+
+  <p class="muted intro-text">
+    This is a guidance aid only, providing a high-level view of how LOLER, PUWER, BS EN 17206 and ABTT Technical Standards
+    relate to common theatre equipment.
+  </p>
+
+<div class="card">
+  <div class="card">
+
+
+  <button type="button" id="galleryToggle" aria-expanded="false" aria-controls="gallerySection">Equipment Gallery</button>
+  <div id="gallerySection" hidden>
+    <h2>Equipment Gallery</h2>
+    <div class="gallery-filters" role="group" aria-label="Filter equipment">
+      <button type="button" id="allEquipmentFilter" aria-pressed="true">All Equipment</button>
+      <button type="button" id="roteEquipmentFilter" aria-pressed="false">ROTE</button>
+    </div>
+    <label>Search equipment
+      <input type="search" id="gallerySearch" placeholder="Search equipment by name" />
+    </label>
+    <p id="galleryCount" class="muted" aria-live="polite"></p>
+    <p class="muted">Tap an image to open that equipment.</p>
+    <div id="equipmentGallery" class="gallery"></div>
+  </div>
+</div>
+  <div class="card">
+    <h3>Select equipment by name</h3>
+    <label>
+      Search by name
+      <input type="text" id="searchInput" placeholder="Start typing, e.g. 'hoist' or 'track'" />
+    </label>
+    <label>
+      Equipment
+      <select id="equipmentSelect">
+        <option value="">-- Select equipment --</option>
+
+        <optgroup label="Lifting Equipment">
+          <option value="counterweight_set">Counterweight Set</option>
+          <option value="electric_chain_hoist">Electric Chain Hoist</option>
+          <option value="manual_chain_hoist">Manual Chain Hoist</option>
+          <option value="electric_winch">Electric Winch</option>
+          <option value="manual_winch">Manual Winch</option>
+          <option value="drill_drive_winch">Drill Drive Winch</option>
+          <option value="integrated_lifting_system">Integrated Lifting System</option>
+          <option value="internally_wired_bar">48mm OD Internally Wired Bar</option>
+          <option value="lighting_bar_grid">Lighting Bar Grid</option>          
+          <option value="unibar_system">Unibar system</option>
+          <option value="pulley">Pulley</option>
+          <option value="rigging_point">Rigging Point</option>
+          <option value="rope_set">Rope Set</option>
+          <option value="flying_iron">Flying Iron</option>
+        </optgroup>
+
+        <optgroup label="Accessories">
+          <option value="beam_clamp">Beam Clamp</option>
+          <option value="round_slings">Round Slings</option>
+          <option value="web_slings">Web Slings</option>
+          <option value="bow_shackles">Bow Shackles</option>
+          <option value="dee_shackles">Dee Shackles</option>
+          <option value="safety_bow_shackles">Safety Bow Shackles</option>
+          <option value="half_coupler">Half Coupler</option>
+          <option value="hanging_clamp">Hanging Clamp with Eye Nut</option>
+          <option value="hanging_clamp_with_pink_eye">Hanging Clamp with Pink Eye</option>
+          <option value="ceiling_saddle">Ceiling Saddle</option>        
+          <option value="pipe_hanging_clamp">Pipe Hanging Clamp</option>
+          <option value="pipe_wall_bracket">Pipe Wall Bracket</option>
+          <option value="beam_trolley">Lifting Beam Trolley</option>
+          <option value="stand">Lighting Stand</option>
+          <option value="wedge_sockets">Wedge Sockets</option>
+          <option value="wire_rope_clamps">Wire Rope Clamps</option>
+          <option value="hook_clamps">Hook Clamps</option>
+          <option value="boom_arms">Boom Arm</option>
+          <option value="u_bolt">U Bolt</option>
+          <option value="twisted_boom_arm">Twisted Boom Arm</option>
+        </optgroup>
+
+        <optgroup label="General Equipment">
+          <option value="gantry">Gantry</option>
+          <option value="line_array_suspension">Line Array Suspension</option>
+          <option value="pantograph">Pantograph</option>
+          <option value="projector_bracket">Projector Bracket</option>
+          <option value="projector_screen_bracket">Projector Screen Suspension/Bracket</option>
+          <option value="studio_rail">Studio Rail</option>
+          <option value="swivel_leg_bar">Swivel Leg Bar</option>
+        </optgroup>
+
+        <optgroup label="Aluminium Truss">
+          <option value="box_truss">Box Truss</option>
+          <option value="triangle_truss">Triangle Truss</option>
+          <option value="ladder_truss">Ladder Truss</option>
+          <option value="box_truss_grid">Box truss grid</option>
+          <option value="ladder_truss_grid">Ladder truss grid</option>
+          <option value="triangle_truss_grid">Triangle truss grid</option>
+          <option value="truss_adaptor">Truss Adaptor</option>
+        </optgroup>
+
+        <optgroup label="Curtain Track">
+          <option value="doughty_six_curtain_track">Doughty Six curtain track</option>         
+          <option value="doughty_rail_curtain_track">Doughty Rail curtain track</option>          
+          <option value="hall_t400_curtain_track">Hall Stage T400 curtain track</option>          
+          <option value="hall_t60_curtain_track">Hall Stage T60 curtain track</option>
+          <option value="hall_t70_curtain_track">Hall Stage T70 curtain track</option>        
+          <option value="triple_e_2way_curtain_track">Triple E 2-way curtain track</option>
+          <option value="triple_e_erail_curtain_track">Triple E E-rail curtain track</option>
+          <option value="triple_e_unitrack_curtain_track">Triple E Unitrack curtain track</option>
+          <option value="triple_e_unibeam_curtain_track">Triple E Unibeam curtain track</option>
+          <option value="stage_track_easy_track">Stage Track Easy Track</option>
+          <option value="stage_track_easy_track_lite">Stage Track Easy Track Lite</option>
+          <option value="stage_track_sta">Stage Track STA</option>
+          <option value="stage_track_stb">Stage Track STB</option>
+          <option value="stage_track_stc">Stage Track STC</option>
+        </optgroup>
+
+        <optgroup label="Lighting Bars">
+          <option value="bar_48mm_plain_steel">48mm OD Plain Steel Bar</option>
+          <option value="bar_48mm_plain_aluminium">48mm OD Plain Aluminium Bar</option>
+        </optgroup>
+
+      </select>
+    </label>
+    <button id="checkButton">Check regulations</button>
+  </div>
+
+  <div id="results"></div>
+  
+<script>
+/****************************************************
+ * THEME (dark mode toggle with persistence)
+ ****************************************************/
+(function initTheme(){
+  const saved = localStorage.getItem("se_theme");
+  if (saved === "dark" || saved === "light") {
+    document.documentElement.setAttribute("data-theme", saved);
+  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+})();
+
+const themeToggle = document.getElementById("themeToggle");
+const themeLabel = document.getElementById("themeLabel");
+
+function currentTheme(){
+  return document.documentElement.getAttribute("data-theme") || "light";
+}
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  localStorage.setItem("se_theme", t);
+  themeLabel.textContent = (t === "dark") ? "Light mode" : "Dark mode";
+}
+setTheme(currentTheme());
+
+themeToggle.addEventListener("click", function(){
+  setTheme(currentTheme() === "dark" ? "light" : "dark");
+});
+themeToggle.addEventListener("keydown", function(e){
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    setTheme(currentTheme() === "dark" ? "light" : "dark");
+  }
+});
+
+// Logo fallback
+const logoImg = document.getElementById("logoImg");
+logoImg.onerror = function(){ logoImg.style.display = "none"; };
+
+/****************************************************
+ * CONFIG
+ ****************************************************/
+const PLACEHOLDER_IMAGE = "images/placeholder.webp";
+
+/****************************************************
+ * RULES (full equipment list retained)
+ ****************************************************/
+const complianceRules = {
+  regulations: {
+
+    LOLER_1998: {
+      code: "LOLER 1998",
+      name: "Lifting Operations and Lifting Equipment Regulations 1998",
+      type: "Regulation",
+      region: "UK"
+    },
+
+    PUWER_1998: {
+      code: "PUWER 1998",
+      name: "Provision and Use of Work Equipment Regulations 1998",
+      type: "Regulation",
+      region: "UK"
+    },
+
+    BS_EN_17206_2020: {
+      code: "BS EN 17206:2020",
+      name: "Entertainment technology — Machinery for stages and other production areas",
+      type: "Standard",
+      region: "UK / EU"
+    },
+
+    ABTT_TECHNICAL_STANDARDS: {
+      code: "ABTT Technical Standards",
+      name: "Technical Standards for Places of Entertainment",
+      type: "Industry Guidance / Good Practice",
+      region: "UK"
+    }
+
+  },
+regulationGuides: {
+  LOLER_1998: {
+    title: "Learn more about LOLER",
+    points: [
+      "LOLER applies to lifting equipment and lifting operations used at work.",
+      "It requires lifting operations to be properly planned, supervised and carried out safely.",
+      "Lifting equipment must be strong, stable, suitable and clearly marked with its SWL or WLL.",
+      "Lifting equipment and lifting accessories must be thoroughly examined by a competent person.",
+      "Records of thorough examination should be kept and defects acted on."
+    ]
+  },
+
+  PUWER_1998: {
+    title: "Learn more about PUWER",
+    points: [
+      "PUWER applies to work equipment used at work.",
+      "Equipment must be suitable for its intended use and environment.",
+      "Work equipment must be maintained so it remains safe.",
+      "Where deterioration could create risk, equipment must be inspected at suitable intervals.",
+      "Users must have adequate information, instruction and training."
+    ]
+  },
+
+  BS_EN_17206_2020: {
+    title: "Learn more about BS EN 17206",
+    points: [
+      "BS EN 17206 is the entertainment technology standard for machinery used on stages and production areas.",
+      "It covers safety requirements for lifting and moving equipment used in entertainment environments.",
+      "It includes requirements for load-bearing components, control systems, safety functions and prevention of uncontrolled movement.",
+      "It also supports inspection, testing, commissioning, documentation and competent operation."
+    ]
+  },
+
+  ABTT_TECHNICAL_STANDARDS: {
+    title: "Learn more about ABTT Technical Standards",
+    points: [
+      "ABTT Technical Standards provide recognised UK theatre-industry good practice for places of entertainment.",
+      "They are guidance rather than legislation, but they support safe design, installation, inspection, maintenance and operation.",
+      "They help users understand theatre-specific risks and expected good practice.",
+      "They sit alongside legal duties such as LOLER and PUWER, and technical standards such as BS EN 17206."
+    ]
+  }
+},
+
+  /****************************************************
+   * EQUIPMENT CLASSES – shared rules and education
+   ****************************************************/
+      equipmentClasses: [
+        {
+          id: "powered_lifting_machine",
+          name: "Powered lifting machines (electric hoists and winches)",
+          description: "Equipment that uses powered mechanisms (motors or drill drives) to lift or move loads such as bars, truss or scenery.",
+          regulationRules: [
+            {
+              regulationId: "LOLER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Powered lifting machines are lifting equipment. LOLER applies in full, including planning, strength and stability, marking and thorough examination.",
+              education: [
+                { part: "Regulation 4 – Strength and stability", summary: "The hoist, winch and all supporting structures must be strong and stable enough for the intended loads with appropriate safety factors." },
+                { part: "Regulation 7 – Marking of lifting equipment", summary: "Safe working load (SWL or WLL) and other critical information must be clearly marked so users know the limits." },
+                { part: "Regulation 8 – Organisation of lifting operations", summary: "Lifting operations must be properly planned, supervised and carried out by competent persons." },
+                { part: "Regulation 9 – Thorough examination and inspection", summary: "A competent person must thoroughly examine the lifting machine at suitable intervals and provide written reports, with records kept." }
+              ]
+            },
+            {
+              regulationId: "PUWER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Powered lifting machines are work equipment and must be suitable, maintained and used safely under PUWER.",
+              education: [
+                { part: "Regulation 4 – Suitability of work equipment", summary: "The machine must be suitable for entertainment use, the environment, and the loads and duty cycle expected." },
+                { part: "Regulation 5 – Maintenance", summary: "The equipment must be maintained so it remains safe, with planned maintenance and defect rectification." },
+                { part: "Regulation 8 – Information and instructions", summary: "Users must have access to instructions, user guides and safe systems of work for the hoist or winch." },
+                { part: "Regulation 9 – Inspection", summary: "Where there is a significant risk from deterioration, the equipment must be inspected at suitable intervals between thorough examinations." }
+              ]
+            },
+            {
+              regulationId: "BS_EN_17206_2020",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "BS EN 17206 sets the main safety requirements for entertainment lifting machinery, including powered hoists and winches.",
+              education: [
+                { part: "Safety requirements and protective measures", summary: "The design and selection must prevent dangerous failures and uncontrolled movements of loads." },
+                { part: "Control systems and safety functions", summary: "Control systems, limits and safety functions must meet defined performance levels appropriate to the risk." },
+                { part: "Verification, inspection and testing", summary: "Equipment must be verified, tested and documented before first use and after significant modification or repair." },
+                { part: "Competence and documentation", summary: "Operators and maintainers must be competent, and documentation such as manuals and inspection records must be available." }
+              ]
+            },
+            {
+              regulationId: "ABTT_TECHNICAL_STANDARDS",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "ABTT Technical Standards support recognised theatre-industry good practice for the installation, inspection, maintenance and operation of powered lifting machinery, including hoists, winches, controls, limits and associated safety systems.",
+              education: [
+                {
+                  part: "Industry good practice",
+                  summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+                },
+                {
+                  part: "Inspection and maintenance",
+                  summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+                },
+                {
+                  part: "Venue-specific risk",
+                  summary: "The suitability of the equipment should be considered in relation to the venue, installation, use, access, environment and foreseeable risk."
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          id: "manual_lifting_machine",
+          name: "Manual lifting machines (manual hoists, winches and counterweight sets)",
+          description: "Equipment where the lifting effort is applied manually, including manual chain hoists, hand winches, rope sets and counterweight sets.",
+          regulationRules: [
+            {
+              regulationId: "LOLER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Manual lifting machines are lifting equipment. LOLER applies, even though there is no motor.",
+              education: [
+                { part: "Regulation 4 – Strength and stability", summary: "The machine, suspension points and supporting structure must safely withstand all loads and dynamic effects." },
+                { part: "Regulation 7 – Marking of lifting equipment", summary: "The SWL or WLL and any configuration limits must be clearly marked on the hoist, winch or system." },
+                { part: "Regulation 8 – Organisation of lifting operations", summary: "Flying and lifting operations must be planned, supervised and carried out by competent operators." },
+                { part: "Regulation 9 – Thorough examination and inspection", summary: "Regular thorough examinations by a competent person are required, with written reports and records kept." }
+              ]
+            },
+            {
+              regulationId: "PUWER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Manual hoists, winches and counterweight sets are work equipment and must comply with PUWER.",
+              education: [
+                { part: "Regulation 4 – Suitability", summary: "The equipment must be suitable for the type of load, travel, environment and duty expected." },
+                { part: "Regulation 5 – Maintenance", summary: "Manual gearboxes, chains, wire ropes and brakes must be maintained and defective parts replaced." },
+                { part: "Regulation 8 – Information and instructions", summary: "Users must be trained and given clear instructions on safe operation and limitations." },
+                { part: "Regulation 9 – Inspection", summary: "Where there is risk from deterioration (for example ropes or chains), inspections at suitable intervals are required." }
+              ]
+            },
+            {
+              regulationId: "BS_EN_17206_2020",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "When manual lifting machines form part of an entertainment lifting system, BS EN 17206 is the primary safety standard.",
+              education: [
+                { part: "Load bearing components", summary: "Hoists, counterweight sets and line sets must meet design factors and requirements for load bearing components." },
+                { part: "Prevention of uncontrolled movement", summary: "Devices such as brakes and locking mechanisms must prevent uncontrolled descent or drift." },
+                { part: "Inspection and testing", summary: "The system must be inspected and tested, with the results documented before use and periodically." }
+               ]
+            },
+            {
+              regulationId: "ABTT_TECHNICAL_STANDARDS",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "ABTT Technical Standards support recognised theatre-industry good practice for the safe use, inspection, maintenance and operation of manually operated lifting equipment, including counterweight sets, manual hoists, manual winches and rope-operated systems.",
+              education: [
+                {
+                  part: "Industry good practice",
+                  summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+                },
+                {
+                  part: "Inspection and maintenance",
+                  summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+                },
+                {
+                  part: "Venue-specific risk",
+                  summary: "The suitability of the equipment should be considered in relation to the venue, installation, use, access, environment and foreseeable risk."
+                }
+              ]
+            }
+          ]
+        },
+
+
+        {
+          id: "lifting_accessory",
+          name: "Lifting accessories (slings, shackles, clamps, pulleys, rigging points)",
+          description: "Items used to connect the load to the lifting machinery or structure, such as slings, shackles, clamps and rigging points.",
+          regulationRules: [
+            {
+              regulationId: "LOLER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Lifting accessories are explicitly covered by LOLER. They must be suitable, marked and thoroughly examined.",
+              education: [
+                { part: "Regulation 4 – Strength and stability", summary: "Accessories must have sufficient strength and stability for the worst-case loading and configuration." },
+                { part: "Regulation 7 – Marking", summary: "WLL or SWL, angle limits and any configuration limits must be clearly marked, or traceable via tags or certificates." },
+                { part: "Regulation 9 – Thorough examination", summary: "Accessories require thorough examination by a competent person at suitable intervals, typically more frequently than machines." }
+              ]
+            },
+            {
+              regulationId: "PUWER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "As work equipment, accessories must be suitable, maintained and used correctly.",
+              education: [
+                { part: "Regulation 4 – Suitability", summary: "Choosing the correct accessory for the load type, connection point and angle is a key part of suitability." },
+                { part: "Regulation 5 – Maintenance", summary: "Accessories must be withdrawn from service if damaged, worn, corroded or otherwise defective." },
+                { part: "Regulation 9 – Inspection", summary: "Visual pre-use checks are essential, backed up by formal inspections where risk justifies it." }
+              ]
+            },
+            {
+              regulationId: "BS_EN_17206_2020",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "When used in entertainment lifting systems, accessories must meet the load bearing and safety requirements of BS EN 17206.",
+              education: [
+                { part: "Load paths and redundancy", summary: "Accessories form part of the overall load path and must be compatible with the intended levels of safety and redundancy." },
+                { part: "Secondary suspensions", summary: "Where required, accessories used as secondary suspensions must be correctly sized and installed." }
+              ]
+            },
+            {
+              regulationId: "ABTT_TECHNICAL_STANDARDS",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "ABTT Technical Standards support recognised entertainment-industry good practice for the selection, identification, inspection and use of lifting accessories in places of entertainment.",
+              education: [
+                {
+                  part: "Industry good practice",
+                  summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+                },
+                {
+                  part: "Inspection and maintenance",
+                  summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+                },
+                {
+                  part: "Venue-specific risk",
+                  summary: "The suitability of the equipment should be considered in relation to the venue, installation, use, access, environment and foreseeable risk."
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          id: "structural_support",
+          name: "Structural supports (truss, bars, gantries, grids, swivel legs)",
+          description: "Elements that act as structural supports for loads or lifting systems, such as truss, lighting bars, gantries and grids.",
+          regulationRules: [
+            {
+              regulationId: "LOLER_1998",
+              appliesIf: [ { field: "context.usedToSuspendLoads", operator: "equals", value: true } ],
+              appliesResult: "conditional",
+              notes: "When the structure is used as part of a system to suspend or support loads, LOLER is relevant as it becomes part of the lifting equipment.",
+              education: [
+                { part: "Regulation 4 – Strength and stability", summary: "The structure and all connections must be strong and stable for the loads, spans and configurations in use." },
+                { part: "Regulation 7 – Marking", summary: "Working load limits per span or point should be clearly indicated and respected." },
+                { part: "Regulation 9 – Thorough examination", summary: "Truss and structural bars used as lifting equipment may require thorough examination according to a written scheme." }
+              ]
+            },
+            {
+              regulationId: "PUWER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "As work equipment, structural supports must be suitable for purpose and kept in a safe condition.",
+              education: [
+                { part: "Regulation 4 – Suitability", summary: "The type, grade and configuration of the structure must be suitable for the intended loads and environment." },
+                { part: "Regulation 5 – Maintenance", summary: "Damage such as bent chords, cracks, distortion or corrosion must be identified and the item taken out of service if unsafe." },
+                { part: "Regulation 9 – Inspection", summary: "Regular inspections help to identify damage from transport, installation or use." }
+              ]
+            },
+            {
+              regulationId: "BS_EN_17206_2020",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Structural components used in entertainment lifting systems are treated as load bearing components under BS EN 17206.",
+              education: [
+                { part: "Design factors for load bearing components", summary: "Truss and bars must meet appropriate design factors and verification requirements for load bearing components." },
+                { part: "Inspection and documentation", summary: "There must be defined inspection regimes, and records of inspection and verification." }
+              ]
+            },
+            {
+              regulationId: "ABTT_TECHNICAL_STANDARDS",
+              appliesIf: [],
+              appliesResult: "always",
+             notes: "ABTT Technical Standards support recognised theatre-industry good practice for load-bearing structures, suspension points, bars, truss and supporting arrangements.",
+              education: [
+                {
+                  part: "Industry good practice",
+                  summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+                },
+                {
+                  part: "Inspection and maintenance",
+                  summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+                },
+                {
+                  part: "Venue-specific risk",
+                  summary: "The suitability of the equipment should be considered in relation to the venue, installation, use, access, environment and foreseeable risk."
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+  id: "curtain_track",
+  name: "Curtain tracks and studio rails",
+  description: "Track systems that support and move soft goods such as curtains, cloths or light scenery.",
+  regulationRules: [
+    {
+      regulationId: "LOLER_1998",
+      appliesIf: [ { field: "context.usedToSuspendLoads", operator: "equals", value: true } ],
+      appliesResult: "conditional",
+      notes: "Where the track supports or moves loads that could create significant risk if they fell, LOLER principles on strength, stability and examination become relevant.",
+      education: [
+        { part: "Regulation 4 – Strength and stability", summary: "Fixings, supports and the track itself must be strong enough for the loads, travel and impact loads expected." },
+        { part: "Regulation 9 – Examination and inspection", summary: "Where a track carries significant loads, a competent person may need to include it in a scheme of examination." }
+      ]
+    },
+    {
+      regulationId: "PUWER_1998",
+      appliesIf: [],
+      appliesResult: "always",
+      notes: "Curtain tracks and studio rails used at work are work equipment and must comply with PUWER.",
+      education: [
+        { part: "Regulation 4 – Suitability", summary: "The track must be suitable for the type of curtain, cloth or load, including any curved or overlapped sections." },
+        { part: "Regulation 5 – Maintenance", summary: "Trolleys, carriers and fixings must be maintained to avoid jamming, derailing or failure." }
+      ]
+    },
+    {
+      regulationId: "BS_EN_17206_2020",
+      appliesIf: [],
+      appliesResult: "always",
+      notes: "When curtain tracks form part of an entertainment machinery system, they fall under BS EN 17206 requirements for load bearing and moving components.",
+      education: [
+        { part: "Load paths and interfaces", summary: "Tracks, carriers and fixings are part of the load path and must be compatible with the rest of the system." }
+      ]
+    },
+    {
+      regulationId: "ABTT_TECHNICAL_STANDARDS",
+      appliesIf: [],
+      appliesResult: "always",
+      notes: "ABTT Technical Standards provide recognised theatre-industry good practice for the safe installation, support, inspection and maintenance of curtain tracks and associated suspension systems.",
+      education: [
+        {
+          part: "Industry good practice",
+          summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+        },
+        {
+          part: "Inspection and maintenance",
+          summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+        }
+      ]
+    }
+  ]
+},
+        {
+          id: "general_support",
+          name: "General supports and brackets",
+          description: "Supports and brackets used to hold equipment in position, such as projector brackets and stands.",
+          regulationRules: [
+            {
+              regulationId: "LOLER_1998",
+              appliesIf: [ { field: "context.usedToSuspendLoads", operator: "equals", value: true } ],
+              appliesResult: "conditional",
+              notes: "Where a support or bracket is used to suspend a load and failure would present a lifting-type risk, LOLER principles of strength and stability may be relevant.",
+              education: [
+                { part: "Regulation 4 – Strength and stability", summary: "The bracket or stand and its fixings must be strong enough for the load and any foreseeable misuse." }
+              ]
+            },
+            {
+              regulationId: "PUWER_1998",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "These items are work equipment and are clearly covered by PUWER.",
+              education: [
+                { part: "Regulation 4 – Suitability", summary: "The support must be suitable for the equipment type, load and mounting surface." },
+                { part: "Regulation 5 – Maintenance", summary: "Fasteners, locking devices and telescopic sections must be maintained so they do not loosen or collapse." }
+              ]
+            },
+            {
+              regulationId: "BS_EN_17206_2020",
+              appliesIf: [],
+              appliesResult: "always",
+              notes: "Where supports form part of an entertainment lifting or suspension system, they must be compatible with BS EN 17206 safety principles.",
+              education: [
+                { part: "Integration into the lifting system", summary: "Supports must be assessed as part of the overall load path and system design." }
+              ]
+},
+{
+  regulationId: "ABTT_TECHNICAL_STANDARDS",
+  appliesIf: [],
+  appliesResult: "always",
+  notes: "ABTT Technical Standards provide recognised UK theatre-industry good practice for the installation, inspection, maintenance and operation of entertainment equipment.",
+  education: [
+    {
+      part: "Industry good practice",
+      summary: "Equipment should be installed, maintained and inspected by competent persons familiar with theatre and entertainment environments."
+    },
+    {
+      part: "Inspection and maintenance",
+      summary: "Inspection frequencies, record keeping and maintenance procedures should follow recognised entertainment industry practice."
+    },
+    {
+      part: "Venue-specific risk",
+      summary: "The suitability of the equipment should be considered in relation to the venue, installation, use, access, environment and foreseeable risk."
+    }
+  ]
+}
+]
+}
+],
+
+      /****************************************************
+       * INDIVIDUAL EQUIPMENT TYPES – mapped to classes
+       ****************************************************/
+      equipmentTypes: [
+        // Lifting Equipment
+        { id: "counterweight_set", name: "Counterweight Set", category: "Lifting Equipment", classId: "manual_lifting_machine",
+          description: "Counterweight flying set used to lift and balance bars, scenery or cloths.", image: "images/counterweight_set.webp",
+
+  images: [
+    "images/counterweight_set.webp",
+    "images/counterweight_set_2.webp",
+    "images/counterweight_set_3.webp"
+  ],
+
+equipmentInfo: [
+  "A counterweight set is a manually operated flying system used to balance and move scenery, bars, curtains or other suspended loads.",
+  "The system relies on correct loading, correct balancing and competent operation.",
+  "The arbor, weights, guide rails, ropes, head blocks, loft blocks, operating lines and terminations form one complete load path.",
+  "Loads should only be added, removed or altered by competent persons following site procedures.",
+  "The set should be clearly identified, and the operating limits and loading arrangements should be known."
+],
+
+whatToCheck: [
+  "Check that the arbor, weights and retaining arrangements are secure and correctly fitted.",
+  "Inspect wire ropes, fibre ropes, terminations, clamps, thimbles and fixings for wear, damage, corrosion or distortion.",
+  "Check head blocks, loft blocks and pulleys for wear, free rotation, alignment and secure fixing.",
+  "Check that guide rails, tracks or guides are secure, aligned and free from obstruction.",
+  "Check that the set runs smoothly without abnormal noise, snatching, rubbing or uncontrolled movement.",
+  "Confirm that the load is correctly balanced and that loading procedures are being followed.",
+  "Check that identification, SWL/WLL information and inspection records are available where required.",
+  "Look for signs of unauthorised alteration, missing components, loose fixings or damaged operating lines."
+],
+
+  documents: [
+  {
+    title: "Counterweight Set Datasheet",
+    file: "documents/counterweight_set_technical_datasheet.pdf"
+  }
+]
+},
+
+        { id: "electric_chain_hoist", name: "Electric Chain Hoist", category: "Lifting Equipment", classId: "powered_lifting_machine",
+          description: "Powered chain hoist for lifting and suspending loads such as truss or bars.", image: "images/electric_chain_hoist.webp" },
+
+        { id: "manual_chain_hoist", name: "Manual Chain Hoist", category: "Lifting Equipment", classId: "manual_lifting_machine",
+          description: "Hand chain hoist for lifting and suspending loads without a motor.", image: "images/manual_chain_hoist.webp",
+
+  images: [
+    "images/manual_chain_hoist.webp",
+    "images/manual_chain_hoist_2.webp",
+    "images/manual_chain_hoist_3.webp"
+  ],
+
+equipmentInfo: [
+  "A manual chain hoist is a hand-operated lifting appliance used to raise, lower or suspend loads.",
+  "It relies on a load chain, hand chain, gearing, brake and hooks to control the load safely.",
+  "The hoist must only be used within its rated capacity and in accordance with manufacturer instructions.",
+  "The suspension point, hook, shackles and any accessories must be suitable for the load and lifting arrangement.",
+  "Manual chain hoists should be operated by competent persons and should not be used if movement is rough, slipping or uncontrolled."
+],
+
+whatToCheck: [
+  "Check that the hoist rating is legible and suitable for the intended load.",
+  "Inspect the load chain for wear, elongation, corrosion, twisting, damaged links or contamination.",
+  "Check the hand chain for damage, free movement and correct seating.",
+  "Inspect top and bottom hooks for distortion, cracks, wear, damaged safety catches or incorrect seating.",
+  "Check that the brake holds the load and that the hoist operates smoothly without slipping or jumping.",
+  "Check the hoist body for cracks, missing fixings, damaged covers or signs of impact.",
+  "Confirm that the suspension point and any shackles or slings are suitable and correctly fitted.",
+  "Check inspection records and remove from service if there are defects or uncertainty over condition."
+],
+
+  documents: [
+    {
+      title: "Manual Chain Hoist Technical Datasheet",
+      file: "documents/manual_chain_hoist_technical_datasheet.pdf"
+    }
+  ]
+},
+
+        { id: "electric_winch", name: "Electric Winch", category: "Lifting Equipment", classId: "powered_lifting_machine",
+          description: "Powered winch used to raise and lower loads via wire ropes or similar.", image: "images/electric_winch.webp" },
+
+        { id: "manual_winch", name: "Manual Winch", category: "Lifting Equipment", classId: "manual_lifting_machine",
+          description: "Hand operated winch used to lift or tension loads.", image: "images/manual_winch.webp" },
+
+        { id: "drill_drive_winch", name: "Drill Drive Winch", category: "Lifting Equipment", classId: "powered_lifting_machine",
+          description: "Winch driven by a power drill or similar tool, used for lifting or moving loads.", image: "images/drill_drive_winch.webp" },
+
+        { id: "integrated_lifting_system", name: "Integrated Lifting System", category: "Lifting Equipment", classId: "powered_lifting_machine",
+          description: "Integrated lifting or flying system, such as a motorised bar or multi-axis stage machinery.", image: "images/integrated_lifting_system.webp" },
+
+        { id: "internally_wired_bar", name: "48mm OD Internally Wired Bar", category: "Lifting Equipment", classId: "structural_support",
+          description: "Internally wired bar treated as part of a lifting system, supporting loads and power.", image: "images/internally_wired_bar.webp" },
+
+        { id: "lighting_bar_grid", name: "Lighting Bar Grid", category: "Lifting Equipment", classId: "structural_support",
+          description: "A grid of lighting bars used as a structural support for loads.", image: "images/lighting_bar_grid.webp",
+
+ images: [
+    "images/lighting_bar_grid.webp",
+    "images/lighting_bar_grid_2.webp",
+    "images/lighting_bar_grid_3.webp"
+  ],
+
+  equipmentInfo: [
+        "A lighting bar grid is a fixed or suspended arrangement of lighting bars used to support luminaires, cabling and associated production equipment.",
+    "The grid should only be loaded within its designed Safe Working Load / Working Load Limit and any stated point-load or distributed-load limits.",
+    "Loads should be evenly distributed where possible, and any concentrated loads should be checked against the grid design and supporting structure.",
+    "The grid, suspension points, fixings, brackets and supporting structure should be considered as one complete load path.",
+    "Any internally wired sections, sockets, cable management and electrical containment should be protected from mechanical damage.",
+    "Only competent persons should alter, load, inspect or modify the grid arrangement."
+
+  ],
+
+  whatToCheck: [
+     "Check that the grid is securely fixed or suspended and that all visible fixings, clamps, brackets and supports are present and tight.",
+    "Inspect bars for bending, dents, cracks, corrosion, excessive wear, deformation or signs of overloading.",
+    "Check welded joints, bolted connections and tube intersections for cracks, movement, missing bolts or loose fittings.",
+    "Confirm that Safe Working Load / Working Load Limit information is known, legible and appropriate for the intended use.",
+    "Check that luminaires and other suspended equipment are correctly attached using suitable clamps and secondary suspensions where required.",
+    "Inspect suspension points, drop rods, wires, chains, beam clamps or other supports for damage, corrosion, distortion or incorrect installation.",
+    "Check that loads are not concentrated in one area unless the grid has been designed and verified for that loading.",
+    "Check that cables are supported, managed and not causing trip, snagging, strain or abrasion risks.",
+    "Look for signs of unauthorised modification, drilled holes, added fixings, damaged paint exposing corrosion, or non-standard repairs.",
+    "Confirm that the grid has been inspected in accordance with the site inspection regime and that any defects have been recorded and acted upon."
+
+  ],
+
+  documents: [
+    {
+      title: "Lighting Bar Grid Datasheet",
+      file: "documents/lighting_bar_grid_datasheet.pdf"
+    }
+  ]
+},
+
+        { id: "unibar_system", name: "Unibar system", category: "Lifting Equipment", classId: "powered_lifting_machine",
+          description: "Motorised Unibar or similar system used for raising and lowering bars or tracks.", image: "images/unibar_system.webp" },
+
+        { id: "pulley", name: "Pulley", category: "Lifting Equipment", classId: "lifting_accessory",
+          description: "Pulley or sheave used to change direction or path of ropes or wire ropes.", image: "images/pulley.webp" },
+
+        { id: "rigging_point", name: "Rigging Point", category: "Lifting Equipment", classId: "lifting_accessory",
+          description: "Fixed or removable point from which lifting equipment or loads are suspended.", image: "images/rigging_point.webp" },
+
+        { id: "rope_set", name: "Rope Set", category: "Lifting Equipment", classId: "manual_lifting_machine",
+          description: "Line set using ropes to raise and lower bars or scenery.", image: "images/rope_set.webp" },
+
+        { id: "flying_iron", name: "Flying Iron", category: "Lifting Equipment", classId: "lifting_accessory",
+          description: "Iron or bracket used to attach a flown piece to a lifting line or bar.", image: "images/flying_iron.webp" },
+
+        // Accessories
+        { id: "beam_clamp", name: "Beam Clamp", category: "Accessory", classId: "lifting_accessory",
+          description: "Clamp used to create a lifting point on a suitable beam.", image: "images/beam_clamp.webp" },
+
+        { id: "round_slings", name: "Round Slings", category: "Accessory", classId: "lifting_accessory",
+          description: "Textile round slings used for wrapping or choking loads.", image: "images/round_slings.webp" },
+
+        { id: "web_slings", name: "Web Slings", category: "Accessory", classId: "lifting_accessory",
+          description: "Flat webbing slings used to support or lift loads.", image: "images/web_slings.webp" },
+        {
+  id: "line_array_suspension",
+  name: "Line Array Suspension",
+  category: "Audio Suspension",
+  classId: "lifting_accessory",
+
+  description: "Suspension systems used to support flown line array loudspeaker systems.",
+
+  image: "images/line_array_suspension.webp",
+
+  equipmentInfo: [
+    "Suspension systems must only be used within manufacturer-rated configurations.",
+    "All flying hardware must be compatible with the loudspeaker system.",
+    "Load calculations should include dynamic loading and array angles."
+  ],
+
+  whatToCheck: [
+    "All locking pins fitted and secured.",
+    "No deformation in flying frames.",
+    "No damage to suspension hardware.",
+    "Manufacturer documentation available.",
+    "Safe Working Load markings legible."
+  ]
+},
+
+        {
+  id: "bow_shackles",
+  name: "Bow Shackles",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Bow shackles used as connecting elements in lifting assemblies, typically where multiple sling legs or wider connections are required.",
+  image: "images/bow_shackles.webp",
+          
+          images: [
+    "images/bow_shackles.webp",
+    "images/bow_shackles_2.webp",
+    "images/bow_shackles_3.webp"
+  ],
+
+  equipmentInfo: [
+    "Only rated shackles with identifiable markings should be used.",
+    "SWL/WLL markings must remain legible.",
+    "Pins must be correctly secured."
+  ],
+
+  whatToCheck: [
+    "No deformation or thread damage.",
+    "Correct pin fitted.",
+    "Markings legible.",
+    "No excessive corrosion."
+  ],
+          
+documents: [
+    {
+      title: "Shackles Technical Datasheet",
+      file: "documents/shackles_datasheet.pdf"
+    }
+  ]
+},
+{
+  id: "dee_shackles",
+  name: "Dee Shackles",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Dee shackles used as connecting elements in lifting assemblies, typically for straight-line loading applications.",
+  image: "images/dee_shackles.webp",
+
+images: [
+    "images/dee_shackles.webp",
+    "images/dee_shackles_2.webp",
+    "images/dee_shackles_3.webp"
+  ],
+
+  equipmentInfo: [
+    "Only rated shackles with identifiable markings should be used.",
+    "SWL/WLL markings must remain legible.",
+    "Pins must be correctly secured."
+  ],
+
+  whatToCheck: [
+    "No deformation or thread damage.",
+    "Correct pin fitted.",
+    "Markings legible.",
+    "No excessive corrosion."
+  ],
+
+ documents: [
+    {
+      title: "Shackles Technical Datasheet",
+      file: "documents/shackles_datasheet.pdf"
+    }
+  ]
+},
+        {
+  id: "safety_bow_shackles",
+  name: "Safety Bow Shackles",
+  category: "Accessory",
+  classId: "lifting_accessory",
+
+  description: "Safety bow shackles used in entertainment rigging and suspension systems.",
+
+  image: "images/safety_bow_shackles.webp",
+
+          images: [
+    "images/safety_bow_shackles.webp",
+    "images/safety_bow_shackles_2.webp",
+    "images/safety_bow_shackles_3.webp"
+  ],
+
+  equipmentInfo: [
+    "Only rated shackles with identifiable markings should be used.",
+    "SWL/WLL markings must remain legible.",
+    "Pins must be correctly secured."
+  ],
+
+  whatToCheck: [
+    "No deformation or thread damage.",
+    "Correct pin fitted.",
+    "Markings legible.",
+    "No excessive corrosion."
+  ],
+          documents: [
+    {
+      title: "Shackles Technical Datasheet",
+      file: "documents/shackles_datasheet.pdf"
+    }
+  ]
+},
+        { id: "half_coupler", name: "Half Coupler", category: "Accessory", classId: "lifting_accessory",
+          description: "Half Coupler used to connect tubes, truss or bars in rigging systems.", image: "images/half_coupler.webp" },
+
+{
+  id: "hanging_clamp",
+  name: "Hanging Clamp with Eye Nut",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Used to create a secure hanging point from a 48-51 mm tube or truss chord. Ideal for trussing as it will not damage the chords.",
+  image: "images/hanging_clamp.webp",
+
+  images: [
+    "images/hanging_clamp.webp",
+    "images/hanging_clamp_2.webp",
+    "images/hanging_clamp_3.webp"
+  ],
+
+  equipmentInfo: [
+    "Used to provide a secure suspension point from a suitable 48-51 mm tube.",
+    "Commonly used for suspending wire-hung loads, lightweight scenic items, signs, drapes, practicals, or other approved rigged items where a rated eye point is required.",
+    "Intended to create a rated eye point for suspended loads.",
+    "Should only be used within its stated WLL/SWL and as part of a properly assessed rigging system."
+  ],
+
+  whatToCheck: [
+    "That the clamp is the correct type and rating for the intended application.",
+    "Confirm that the tube size is suitable, typically 48-51 mm.",
+    "Inspect the clamp body for cracks, distortion, dents, excessive wear, corrosion, or any signs of impact damage.",
+    "Clamp should close properly around the tube and sit squarely without forcing.",
+    "Check clamp is marked or identifiable, and that the rating is known."
+  ],
+
+  documents: [
+    {
+      title: "Hanging Clamp Technical Datasheet",
+      file: "documents/hanging_clamp_datasheet.pdf"
+    }
+  ]
+},
+
+{
+  id: "hanging_clamp_with_pink_eye",
+  name: "Hanging Clamp with Pink Eye",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Used to create a secure hanging point accommodating less favourable load directions. Commonly used for suspending wire-hung loads, scenic items, signs, drapes, practicals, loudspeakers, or other approved rigged items where a rated eye point is required.",
+  image: "images/hanging_clamp_with_pink_eye.webp",
+
+  images: [
+    "images/hanging_clamp_with_pink_eye.webp",
+    "images/hanging_clamp_with_pink_eye_2.webp",
+    "images/hanging_clamp_with_pink_eye_3.webp"
+  ],
+
+  equipmentInfo: [
+    "Used to provide a secure suspension point from a suitable 48-51 mm tube.",
+    "Commonly used for suspending wire-hung loads, lightweight scenic items, signs, drapes, practicals, or other approved rigged items where a rated eye point is required.",
+    "Intended to create a rated eye point for suspended loads.",
+    "Should only be used within its stated WLL/SWL and as part of a properly assessed rigging system.",
+    "Unlike standard eye nut, articulated Pink Eyes accommodate less favourable load directions when used correctly."
+  ],
+
+  whatToCheck: [
+    "That the clamp is the correct type and rating for the intended application.",
+    "Confirm that the tube size is suitable, typically 48-51 mm.",
+    "Inspect the clamp body for cracks, distortion, dents, excessive wear, corrosion, or any signs of impact damage.",
+    "Clamp should close properly around the tube and sit squarely without forcing.",
+    "Check clamp is marked or identifiable, and that the rating is known."
+  ],
+
+  documents: [
+    {
+      title: "Hanging Clamp with Pink Eye Technical Datasheet",
+      file: "documents/hanging_clamp_with_pink_eye_datasheet.pdf"
+    }
+  ]
+},
+        { id: "ceiling_saddle", name: "Ceiling Saddle", category: "Accessory", classId: "lifting_accessory",
+          description: "Ceiling saddle used to support bars or pipes from structural members.", image: "images/ceiling_saddle.webp" },
+
+        { id: "pipe_hanging_clamp", name: "Pipe Hanging Clamp", category: "Accessory", classId: "lifting_accessory",
+          description: "Clamp used for suspending pipe or bar from structure.", image: "images/pipe_hanging_clamp.webp" },
+
+        { id: "pipe_wall_bracket", name: "Pipe Wall Bracket", category: "Accessory", classId: "general_support",
+          description: "Bracket used to fix a bar or pipe to a wall.", image: "images/pipe_wall_bracket.webp" },
+
+        { id: "beam_trolley", name: "Lifting Beam Trolley", category: "Accessory", classId: "lifting_accessory",
+          description: "Trolley running on a beam to provide a movable lifting or suspension point.", image: "images/beam_trolley.webp" },
+
+        { id: "stand", name: "Lighting Stand", category: "Accessory", classId: "general_support",
+          description: "Stand or support used to hold equipment such as luminaires or projectors.", image: "images/stand.webp" },
+
+        { id: "wedge_sockets", name: "Wedge Sockets", category: "Accessory", classId: "lifting_accessory",
+          description: "End terminations for wire ropes using a wedge socket fitting.", image: "images/wedge_sockets.webp" },
+
+        { id: "wire_rope_clamps", name: "Wire Rope Clamps", category: "Accessory", classId: "lifting_accessory",
+          description: "Clamps used to form terminations in wire ropes where permitted.", image: "images/wire_rope_clamps.webp" },
+
+        { id: "hook_clamps", name: "Hook Clamps", category: "Accessory", classId: "lifting_accessory",
+          description: "Clamps used to attach equipment such as luminaires to bars or truss.", image: "images/hook_clamps.webp" },
+
+        { id: "boom_arms", name: "Boom Arm", category: "Accessory", classId: "lifting_accessory",
+          description: "Arms clamped to bars to carry side-lighting or other loads.", image: "images/boom_arms.webp" },
+
+        { id: "u_bolt", name: "U Bolt", category: "Accessory", classId: "lifting_accessory",
+          description: "U-bolt used as a fixing or attachment point in rigging assemblies.", image: "images/u_bolt.webp" },
+
+        { id: "twisted_boom_arm", name: "Twisted Boom Arm", category: "Accessory", classId: "lifting_accessory",
+          description: "Boom arm arrangement allowing twisted or angled positions for mounting equipment.", image: "images/twisted_boom_arm.webp" },
+
+        // General Equipment
+        { id: "gantry", name: "Gantry", category: "General Equipment", classId: "structural_support",
+          description: "Gantry structure used to support lifting machines, truss or loads.", image: "images/gantry.webp" },    
+
+        { id: "pantograph", name: "Pantograph", category: "General Equipment", classId: "general_support",
+          description: "Pantograph used to support and position equipment such as luminaires or microphones.", image: "images/pantograph.webp" },
+
+        { id: "projector_bracket", name: "Projector Bracket", category: "General Equipment", classId: "general_support",
+          description: "Bracket used to mount projectors to ceilings, walls or bars.", image: "images/projector_bracket.webp" },
+
+        { id: "projector_screen_bracket", name: "Projector Screen Suspension/Bracket", category: "General Equipment", classId: "general_support",
+          description: "Support or bracket used to suspend or mount projection screens.", image: "images/projector_screen_bracket.webp" },
+
+        { id: "studio_rail", name: "Studio Rail", category: "General Equipment", classId: "curtain_track",
+          description: "Studio or lighting rail used for suspending and moving equipment or soft goods.", image: "images/studio_rail.webp" },
+
+        { id: "swivel_leg_bar", name: "Swivel Leg Bar", category: "General Equipment", classId: "structural_support",
+          description: "Bar with swivel legs providing a structural support for equipment.", image: "images/swivel_leg_bar.webp" },
+
+        // Aluminium Truss
+        { id: "box_truss", name: "Box Truss", category: "Aluminium Truss", classId: "structural_support",
+          description: "Box section aluminium truss used to support loads or form grids.", image: "images/box_truss.webp" },
+
+        { id: "triangle_truss", name: "Triangle Truss", category: "Aluminium Truss", classId: "structural_support",
+          description: "Triangular aluminium truss used as a structural support or part of a grid.", image: "images/triangle_truss.webp" },
+
+        { id: "ladder_truss", name: "Ladder Truss", category: "Aluminium Truss", classId: "structural_support",
+          description: "Ladder truss used as a light duty structural element or edge member.", image: "images/ladder_truss.webp" },
+
+        { id: "box_truss_grid", name: "Box truss grid", category: "Aluminium Truss", classId: "structural_support",
+          description: "Grid built from box truss supporting multiple loads across an area.", image: "images/box_truss_grid.webp" },
+
+        { id: "ladder_truss_grid", name: "Ladder truss grid", category: "Aluminium Truss", classId: "structural_support",
+          description: "Grid built from ladder truss for lighter duty applications.", image: "images/ladder_truss_grid.webp" },
+
+        { id: "triangle_truss_grid", name: "Triangle truss grid", category: "Aluminium Truss", classId: "structural_support",
+          description: "Grid built from triangle truss supporting distributed loads.", image: "images/triangle_truss_grid.webp" },
+
+        { id: "truss_adaptor", name: "Truss Adaptor", category: "Aluminium Truss", classId: "lifting_accessory",
+          description: "Adaptor used to connect truss to lifting devices such as stands or hoists.", image: "images/truss_adaptor.webp" },
+
+        // Curtain Track
+        { id: "doughty_six_curtain_track", name: "Doughty Six curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Doughty Six curtain track system for soft goods.", image: "images/doughty_six_curtain_track.webp" },
+
+        { id: "doughty_six_overlap_curtain_track", name: "Doughty Six overlap curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Doughty Six overlap track with overlapping curtains.", image: "images/doughty_six_overlap_curtain_track.webp", hideFromGallery: true },
+
+        { id: "doughty_rail_curtain_track", name: "Doughty Rail curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Doughty Rail curtain track system.", image: "images/doughty_rail_curtain_track.webp" },
+
+        { id: "doughty_rail_overlap_curtain_track", name: "Doughty Rail overlap curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Doughty Rail overlap curtain track system.", image: "images/doughty_rail_overlap_curtain_track.webp", hideFromGallery: true },
+
+        { id: "hall_t400_curtain_track", name: "Hall Stage T400 curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Hall Stage T400 curtain track system.", image: "images/hall_t400_curtain_track.webp" },
+
+        { id: "hall_t400_overlap_curtain_track", name: "Hall Stage T400 overlap curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Hall Stage T400 overlap curtain track.", image: "images/hall_t400_overlap_curtain_track.webp",
+  hideFromGallery: true },
+
+        {
+  id: "hall_t60_curtain_track",
+  name: "Hall Stage T60 curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Hall Stage T60 curtain track system.",
+  image: "images/hall_t60_curtain_track.webp",
+
+  images: [
+    "images/hall_t60_curtain_track.webp",
+    "images/hall_t60_curtain_track_2.webp",
+    "images/hall_t60_curtain_track_3.webp"
+  ],
+
+  equipmentInfo: [
+  "Hall Stage T60 curtain track is a medium-duty stage curtain track system used to support and operate curtains, drapes or soft goods.",
+  "Suspension fittings should be spaced at intervals not exceeding 1.5 m along the length of the track, unless manufacturer or project-specific information states otherwise.",
+  "Maximum recommended length should follow manufacturer guidance. Existing portal guidance notes 18 m for overlapping track and 9 m for single track arrangements.",
+  "Wheeled runners should be suitable for the curtain load. Existing portal guidance notes a runner capacity of 20 kg and recommends one runner per 300 mm of curtain length.",
+  "The track, runners, overlap arms, brackets, joints, suspension points and supporting structure should be considered as one complete load path.",
+  "Loads should be suitable for the track system and should not exceed the manufacturer’s recommended limits.",
+  "Any bends, overlaps, curves, masking arrangements or motorised/corded operation should be assessed as part of the complete installation."
+],
+
+whatToCheck: [
+  "Check that the track is straight, level and securely supported along its full length.",
+  "Check that suspension fittings are correctly spaced and that no section of track is unsupported beyond the recommended interval.",
+  "Inspect the track for dents, bending, twisting, cracks, corrosion, damaged running surfaces or signs of overloading.",
+  "Check all brackets, clamps, suspension rods, fixings and support points for looseness, corrosion, distortion or missing components.",
+  "Check that all track joints are correctly aligned, securely fixed and free from steps or gaps that could obstruct runners.",
+  "Inspect runners, carriers, hooks and overlap arms for wear, damage, missing parts or poor movement.",
+  "Check that curtains or soft goods are correctly attached and that the load is evenly distributed where possible.",
+  "Operate the curtain where safe to do so and check for smooth travel, jamming, excessive friction, abnormal noise or derailing.",
+  "Check cord, pulley or operating components where fitted for wear, damage, poor alignment or unsafe routing.",
+  "Look for signs of unauthorised modification, non-standard fixings, overloaded sections or damage caused by impact or misuse.",
+  "Confirm that the track has been inspected in accordance with the site inspection regime and that defects have been recorded and acted upon."
+],
+
+  documents: [
+  {
+    title: "Hall Stage T60 Technical Datasheet",
+    file: "documents/hall_stage_t60_technical_datasheet.pdf"
+  }
+]
+},
+
+        { id: "hall_t70_curtain_track", name: "Hall Stage T70 curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Hall Stage T70 curtain track system.", image: "images/hall_t70_curtain_track.webp",
+
+  images: [
+    "images/hall_t70_curtain_track.webp",
+    "images/hall_t70_curtain_track_2.webp",
+    "images/hall_t70_curtain_track_3.webp"
+  ],
+
+          equipmentInfo: [
+  "Hall Stage T70 curtain track is a heavier-duty stage curtain track system used to support and operate curtains, drapes or soft goods.",
+  "Suspension fittings should be spaced at intervals not exceeding 2 m along the length of the track, unless manufacturer or project-specific information states otherwise.",
+  "Wheeled runners should be suitable for the curtain load. Existing portal guidance notes a runner capacity of 20 kg and recommends one runner per 300 mm of curtain length.",
+  "The track, runners, overlap arms, brackets, joints, suspension points and supporting structure should be considered as one complete load path.",
+  "Loads should be suitable for the track system and should not exceed the manufacturer’s recommended limits.",
+  "Any bends, overlaps, curves, masking arrangements or motorised/corded operation should be assessed as part of the complete installation.",
+  "Where the track forms part of a larger suspended or lifting arrangement, the supporting structure and fixing method should also be checked."
+],
+
+whatToCheck: [
+  "Check that the track is straight, level and securely supported along its full length.",
+  "Check that suspension fittings are correctly spaced and that no section of track is unsupported beyond the recommended interval.",
+  "Inspect the track for dents, bending, twisting, cracks, corrosion, damaged running surfaces or signs of overloading.",
+  "Check all brackets, clamps, suspension rods, fixings and support points for looseness, corrosion, distortion or missing components.",
+  "Check that all track joints are correctly aligned, securely fixed and free from steps or gaps that could obstruct runners.",
+  "Inspect runners, carriers, hooks and overlap arms for wear, damage, missing parts or poor movement.",
+  "Check that curtains or soft goods are correctly attached and that the load is evenly distributed where possible.",
+  "Operate the curtain where safe to do so and check for smooth travel, jamming, excessive friction, abnormal noise or derailing.",
+  "Check cord, pulley or operating components where fitted for wear, damage, poor alignment or unsafe routing.",
+  "Check for signs of excessive loading, especially where heavy drapes, acoustic curtains or masking are fitted.",
+  "Look for signs of unauthorised modification, non-standard fixings, overloaded sections or damage caused by impact or misuse.",
+  "Confirm that the track has been inspected in accordance with the site inspection regime and that defects have been recorded and acted upon."
+],
+
+  documents: [
+  {
+    title: "Hall Stage T70 Technical Datasheet",
+    file: "documents/hall_stage_t70_technical_datasheet.pdf"
+  }
+]
+},
+
+
+        { id: "hall_t60_overlap_curtain_track", name: "Hall Stage T60 overlap curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Hall Stage T60 overlap curtain track.", image: "images/hall_t60_overlap_curtain_track.webp",
+  hideFromGallery: true },
+
+        { id: "triple_e_2way_curtain_track", name: "Triple E 2-way curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Triple E 2-way curtain track system.", image: "images/triple_e_2way_curtain_track.webp" },
+
+        { id: "triple_e_erail_curtain_track", name: "Triple E E-rail curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Triple E E-rail curtain track system.", image: "images/triple_e_erail_curtain_track.webp" },
+
+        { id: "triple_e_unitrack_curtain_track", name: "Triple E Unitrack curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Triple E Unitrack curtain track system.", image: "images/triple_e_unitrack_curtain_track.webp" },
+
+        { id: "triple_e_unibeam_curtain_track", name: "Triple E Unibeam curtain track", category: "Curtain Track", classId: "curtain_track",
+          description: "Triple E Unibeam curtain track system.", image: "images/triple_e_unibeam_curtain_track.webp" },
+
+        { id: "stage_track_easy_track", name: "Stage Track Easy Track", category: "Curtain Track", classId: "curtain_track",
+          description: "Stage Track Easy curtain track system.", image: "images/stage_track_easy_track.webp" },
+
+        { id: "stage_track_easy_track_lite", name: "Stage Track Easy Track Lite", category: "Curtain Track", classId: "curtain_track",
+          description: "Light duty Stage Track Easy Track Lite system.", image: "images/stage_track_easy_track_lite.webp" },
+
+        { id: "stage_track_sta", name: "Stage Track STA", category: "Curtain Track", classId: "curtain_track",
+          description: "Stage Track STA curtain track system.", image: "images/stage_track_sta.webp" },
+
+        { id: "stage_track_stb", name: "Stage Track STB", category: "Curtain Track", classId: "curtain_track",
+          description: "Stage Track STB curtain track system.", image: "images/stage_track_stb.webp" },
+
+        { id: "stage_track_stc", name: "Stage Track STC", category: "Curtain Track", classId: "curtain_track",
+          description: "Stage Track STC curtain track system.", image: "images/stage_track_stc.webp" },
+
+        // Lighting Bars
+        { id: "bar_48mm_plain_steel", name: "48mm OD Plain Steel Bar", category: "Lighting Bar", classId: "structural_support",
+          description: "48mm diameter plain steel lighting or suspension bar.", image: "images/bar_48mm_plain_steel.webp" },
+
+        { id: "bar_48mm_plain_aluminium", name: "48mm OD Plain Aluminium Bar", category: "Lighting Bar", classId: "structural_support",
+          description: "48mm diameter plain aluminium lighting bar.", image: "images/bar_48mm_plain_aluminium.webp",
+
+images: [
+    "images/bar_48mm_plain_aluminium.webp",
+    "images/bar_48mm_plain_aluminium_2.webp",
+    "images/bar_48mm_plain_aluminium_3.webp"
+    ],
+equipmentInfo: [
+  "A 48mm OD plain aluminium bar is commonly used as a lightweight lighting or suspension bar for luminaires and other approved production equipment.",
+  "The bar should only be used within its designed Safe Working Load / Working Load Limit and any site-specific loading limits.",
+  "Aluminium bars are lighter than steel bars but may be more vulnerable to local damage, denting, deformation or inappropriate modification.",
+  "The bar, suspension points, couplers, brackets, fixings and supporting structure should be considered as one complete load path.",
+  "Loads should be evenly distributed where possible, and any concentrated loads should be checked against the bar design and support arrangement.",
+  "The bar should not be drilled, cut, modified or repaired unless assessed and approved by a competent person."
+],
+
+whatToCheck: [
+  "Check that the bar is straight and free from bending, twisting, dents, cracks, flattening or other deformation.",
+  "Inspect the surface for corrosion, deep scratches, gouges, impact damage or signs of excessive wear.",
+  "Check that the bar diameter and wall condition remain suitable for the clamps, couplers or fittings being used.",
+  "Confirm that the Safe Working Load / Working Load Limit is known and suitable for the intended load.",
+  "Check all suspension points, brackets, clamps, couplers, drop rods, chains or wires for damage, looseness, corrosion or incorrect fitting.",
+  "Check that luminaires and other suspended equipment are correctly attached using suitable clamps and secondary suspensions where required.",
+  "Look for signs of unauthorised modification, drilled holes, cuts, non-standard repairs or added fixings.",
+  "Check that loads are not concentrated in one area unless the bar and support arrangement have been designed and verified for that use.",
+  "Confirm that the supporting structure is suitable and shows no signs of movement, cracking, corrosion or distress.",
+  "Confirm that the bar has been inspected in accordance with the site inspection regime and that any defects have been recorded and acted upon."
+],
+
+  documents: [
+  {
+    title: "48mm OD Plain Aluminium Bar Technical Datasheet",
+    file: "documents/aluminium_lighting_bars_technical_data.pdf"
+  }
+]
+}
+
+      ]
+    };
+
+// ROTE membership is transcribed from ROTE Equipment.docx.
+// Keep existing IDs so images, datasheets and existing references remain valid.
+const roteEquipmentIds = new Set([
+  "integrated_lifting_system",
+  "bar_25mm_plain_steel",
+  "bar_32mm_plain_steel",
+  "bar_48mm_plain_steel",
+  "bar_60mm_plain_steel",
+  "bar_48mm_plain_aluminium",
+  "internally_wired_bar",
+  "bar_48mm_internally_wired_grid",
+  "bar_38mm_plain_steel_grid",
+  "bar_48mm_plain_steel_grid",
+  "bar_48mm_aluminium_grid",
+  "box_truss",
+  "ladder_truss",
+  "triangle_truss",
+  "box_truss_grid",
+  "ladder_truss_grid",
+  "triangle_truss_grid",
+  "doughty_six_curtain_track",
+  "doughty_six_overlap_curtain_track",
+  "doughty_rail_curtain_track",
+  "hall_t400_curtain_track",
+  "hall_t60_curtain_track",
+  "hall_t70_curtain_track",
+  "mole_richardson_curtain_track",
+  "studio_rail",
+  "triple_e_2way_curtain_track",
+  "triple_e_erail_curtain_track",
+  "triple_e_unitrack_curtain_track",
+  "triple_e_unibeam_curtain_track",
+  "stage_track_easy_track",
+  "stage_track_easy_track_lite",
+  "stage_track_sta",
+  "stage_track_stb",
+  "stage_track_stc",
+  "swivel_leg_bar",
+  "boom_arms",
+  "projector_bracket",
+  "projector_screen_bracket",
+  "speaker_bracket",
+  "line_array_suspension",
+  "electric_winch",
+  "manual_winch",
+  "drill_drive_winch",
+  "electric_chain_hoist",
+  "manual_chain_hoist",
+  "rope_set",
+  "counterweight_system",
+  "lifting_stand",
+  "stand",
+  "unibar_system",
+  "rigging_point",
+  "pantograph",
+  "temporary_staging",
+  "travelling_beam",
+  "beam_clamp",
+  "beam_trolley"
+]);
+const additionalEquipment = [
+  {
+    "id": "bar_25mm_plain_steel",
+    "name": "25mm OD Plain Steel Bar",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "25mm outside-diameter plain steel bar used to support production equipment.",
+    "image": "images/bar_25mm_plain_steel.webp"
+  },
+  {
+    "id": "bar_32mm_plain_steel",
+    "name": "32mm OD Plain Steel Bar",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "32mm outside-diameter plain steel bar used to support production equipment.",
+    "image": "images/bar_32mm_plain_steel.webp"
+  },
+  {
+    "id": "bar_60mm_plain_steel",
+    "name": "60mm OD Plain Steel Bar",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "60mm outside-diameter plain steel bar used to support production equipment.",
+    "image": "images/bar_60mm_plain_steel.webp"
+  },
+  {
+    "id": "bar_48mm_internally_wired_grid",
+    "name": "48mm OD Internally Wired Bar Grid",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "Grid formed from 48mm outside-diameter internally wired bars.",
+    "image": "images/bar_48mm_internally_wired_grid.webp"
+  },
+  {
+    "id": "bar_38mm_plain_steel_grid",
+    "name": "38mm OD Plain Steel Bar Grid",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "Grid formed from 38mm outside-diameter plain steel bars.",
+    "image": "images/bar_38mm_plain_steel_grid.webp"
+  },
+  {
+    "id": "bar_48mm_plain_steel_grid",
+    "name": "48mm OD Plain Steel Bar Grid",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "Grid formed from 48mm outside-diameter plain steel bars.",
+    "image": "images/bar_48mm_plain_steel_grid.webp"
+  },
+  {
+    "id": "bar_48mm_aluminium_grid",
+    "name": "48mm OD Aluminium Bar Grid",
+    "category": "Lighting Bar",
+    "classId": "structural_support",
+    "description": "Grid formed from 48mm outside-diameter aluminium bars.",
+    "image": "images/bar_48mm_aluminium_grid.webp"
+  },
+  {
+    "id": "counterweight_system",
+    "name": "Counterweight System",
+    "category": "Lifting Equipment",
+    "classId": "manual_lifting_machine",
+    "description": "Complete counterweight flying installation, including its supporting structure, ropes, blocks, guides and counterweight sets.",
+    "image": "images/counterweight_system.webp"
+  },
+  {
+    "id": "lifting_stand",
+    "name": "Lifting Stand",
+    "category": "Lifting Equipment",
+    "classId": "manual_lifting_machine",
+    "description": "Stand with a manually operated lifting mechanism for raising and supporting production equipment. The installed mechanism and intended use determine the applicable requirements.",
+    "image": "images/lifting_stand.webp"
+  },
+  {
+    "id": "mole_richardson_curtain_track",
+    "name": "Mole-Richardson Curtain Track",
+    "category": "Curtain Track",
+    "classId": "curtain_track",
+    "description": "Mole-Richardson curtain track and its supporting arrangement.",
+    "image": "images/mole_richardson_curtain_track.webp"
+  },
+  {
+    "id": "speaker_bracket",
+    "name": "Speaker Bracket",
+    "category": "General Equipment",
+    "classId": "general_support",
+    "description": "Bracket used to mount a loudspeaker to a suitable support.",
+    "image": "images/speaker_bracket.webp"
+  },
+  {
+    "id": "temporary_staging",
+    "name": "Temporary Staging",
+    "category": "General Equipment",
+    "classId": "structural_support",
+    "description": "Temporary stage platforms and their supporting structure.",
+    "image": "images/temporary_staging.webp"
+  },
+  {
+    "id": "travelling_beam",
+    "name": "Travelling Beam",
+    "category": "Lifting Equipment",
+    "classId": "structural_support",
+    "description": "Movable beam used as part of a lifting or suspension arrangement.",
+    "image": "images/travelling_beam.webp"
+  }
+];
+complianceRules.equipmentTypes.push(...additionalEquipment);
+complianceRules.equipmentTypes.forEach(function (item) {
+  item.isRote = roteEquipmentIds.has(item.id);
+});
+getEquipmentById("doughty_six_overlap_curtain_track").hideFromGallery = false;
+// The cradle and weights remain a distinct component for future related-asset links.
+getEquipmentById("counterweight_set").description = "Counterweight cradle (arbor) and weights forming a component of a counterweight system.";
+getEquipmentById("counterweight_set").equipmentInfo[0] = "A counterweight set is the cradle (arbor), weights and retaining arrangements within a counterweight system.";
+getEquipmentById("counterweight_set").equipmentInfo[2] = "When installed, the arbor and weights work with guide rails, ropes, head blocks, loft blocks, operating lines and terminations as one complete system load path.";
+getEquipmentById("counterweight_set").componentOf = "counterweight_system";
+getEquipmentById("counterweight_system").componentIds = ["counterweight_set"];
+
+/****************************************************
+ * HELPERS
+ ****************************************************/
+function getEquipmentById(id) {
+  return complianceRules.equipmentTypes.find(function (e) { return e.id === id; });
+}
+function getClassById(id) {
+  return complianceRules.equipmentClasses.find(function (c) { return c.id === id; });
+}
+function getRegulationById(id) {
+  return complianceRules.regulations[id];
+}
+
+function getValueFromContext(field, context) {
+  var parts = field.split(".");
+  var value = context;
+  for (var i = 1; i < parts.length; i++) {
+    var p = parts[i];
+    if (value && Object.prototype.hasOwnProperty.call(value, p)) value = value[p];
+    else return undefined;
+  }
+  return value;
+}
+
+function conditionMatches(condition, context) {
+  var value = getValueFromContext(condition.field, context);
+  if (condition.operator === "equals") return value === condition.value;
+  return false;
+}
+
+function evaluateCompliance(equipmentId, context) {
+  var equipment = getEquipmentById(equipmentId);
+  if (!equipment) throw new Error("Unknown equipment type: " + equipmentId);
+
+  var eqClass = getClassById(equipment.classId);
+  if (!eqClass) throw new Error("Unknown equipment class: " + equipment.classId);
+
+  var result = {
+    equipment: {
+  id: equipment.id,
+  name: equipment.name,
+  category: equipment.category,
+  description: equipment.description,
+  image: equipment.image || null,
+  images: equipment.images || [],
+  documents: equipment.documents || [],
+  equipmentInfo: equipment.equipmentInfo || [],
+  whatToCheck: equipment.whatToCheck || []
+},
+    equipmentClass: {
+      id: eqClass.id,
+      name: eqClass.name,
+      description: eqClass.description
+    },
+    regulations: []
+  };
+
+  eqClass.regulationRules.forEach(function (rule) {
+    var reg = getRegulationById(rule.regulationId);
+if (!reg) return;
+    var applies = "not_applicable";
+    if (!rule.appliesIf || rule.appliesIf.length === 0) {
+      applies = rule.appliesResult;
+    } else {
+      var allConditionsMet = rule.appliesIf.every(function (cond) { return conditionMatches(cond, context); });
+      applies = allConditionsMet ? rule.appliesResult : "not_applicable";
+    }
+    if (applies === "not_applicable") return;
+
+    result.regulations.push({
+      id: rule.regulationId,
+      code: reg.code,
+      name: reg.name,
+      type: reg.type,
+      region: reg.region,
+      applies: applies,
+      notes: rule.notes,
+      education: rule.education || []
+    });
+  });
+
+  return result;
+}
+
+/****************************************************
+ * UI WIRING
+ ****************************************************/
+var equipmentSelect = document.getElementById("equipmentSelect");
+var searchInput = document.getElementById("searchInput");
+var checkButton = document.getElementById("checkButton");
+var resultsDiv = document.getElementById("results");
+var equipmentGallery = document.getElementById("equipmentGallery");
+var galleryFilter = "all";
+var galleryToggle = document.getElementById("galleryToggle");
+var gallerySection = document.getElementById("gallerySection");
+galleryToggle.addEventListener("click", function () {
+  gallerySection.hidden = !gallerySection.hidden;
+  galleryToggle.setAttribute("aria-expanded", String(!gallerySection.hidden));
+  galleryToggle.textContent = gallerySection.hidden ? "Equipment Gallery" : "Close Equipment Gallery";
+});
+var gallerySearch = document.getElementById("gallerySearch");
+var allEquipmentFilter = document.getElementById("allEquipmentFilter");
+var roteEquipmentFilter = document.getElementById("roteEquipmentFilter");
+
+// Synchronise the existing selector with every equipment record, including new ROTE types.
+complianceRules.equipmentTypes.forEach(function (item) {
+  if (Array.from(equipmentSelect.options).some(function (option) { return option.value === item.id; })) return;
+  var group = Array.from(equipmentSelect.querySelectorAll("optgroup")).find(function (group) {
+    return group.label === item.category || (group.label === "Accessories" && item.category === "Accessory") || (group.label === "Lighting Bars" && item.category === "Lighting Bar");
+  });
+  if (!group) { group = document.createElement("optgroup"); group.label = item.category; equipmentSelect.appendChild(group); }
+  var option = document.createElement("option");
+  option.value = item.id; option.textContent = item.name; group.appendChild(option);
+});
+function setGalleryFilter(filter) {
+  galleryFilter = filter;
+  allEquipmentFilter.setAttribute("aria-pressed", String(filter === "all"));
+  roteEquipmentFilter.setAttribute("aria-pressed", String(filter === "rote"));
+  buildEquipmentGallery();
+}
+allEquipmentFilter.addEventListener("click", function () { setGalleryFilter("all"); });
+roteEquipmentFilter.addEventListener("click", function () { setGalleryFilter("rote"); });
+gallerySearch.addEventListener("input", buildEquipmentGallery);
+
+// Build visual equipment gallery
+function buildEquipmentGallery() {
+  if (!equipmentGallery) return;
+
+  equipmentGallery.innerHTML = "";
+
+  var visibleCount = 0;
+  var term = gallerySearch.value.trim().toLowerCase();
+  complianceRules.equipmentTypes.forEach(function (item) {
+    if (item.hideFromGallery || (galleryFilter === "rote" && !item.isRote) || (term && !item.name.toLowerCase().includes(term))) return;
+    visibleCount++;
+    
+    var card = document.createElement("div");
+    card.className = "gallery-card";
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", "Open " + item.name);
+    card.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); card.click(); }
+    });
+
+    var img = document.createElement("img");
+    img.src = item.image || PLACEHOLDER_IMAGE;
+    img.alt = item.name;
+    img.onerror = function () {
+
+  img.onerror = null;
+
+  if (img.src.indexOf("placeholder.webp") === -1) {
+    img.src = PLACEHOLDER_IMAGE;
+  }
+
+};
+
+    var title = document.createElement("div");
+    title.className = "gallery-card-title";
+    title.textContent = item.name;
+
+    card.appendChild(img);
+    card.appendChild(title);
+
+    card.addEventListener("click", function () {
+      equipmentSelect.value = item.id;
+      checkButton.click();
+
+      // Scroll to the result
+      document.getElementById("results").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+    equipmentGallery.appendChild(card);
+  });
+  document.getElementById("galleryCount").textContent = visibleCount + " equipment types" + (galleryFilter === "rote" ? " in ROTE" : "");
+  if (!visibleCount) {
+    var empty = document.createElement("p"); empty.className = "muted";
+    empty.textContent = "No equipment matches your search."; equipmentGallery.appendChild(empty);
+  }
+}
+
+buildEquipmentGallery();
+// Search filter
+searchInput.addEventListener("input", function () {
+  var term = this.value.toLowerCase();
+  for (var i = 0; i < equipmentSelect.options.length; i++) {
+    var opt = equipmentSelect.options[i];
+    if (!opt.value) continue;
+    var text = opt.text.toLowerCase();
+    opt.hidden = term && !text.includes(term);
+  }
+  // Auto select first visible option (optional)
+  var firstVisible = null;
+  for (var j = 0; j < equipmentSelect.options.length; j++) {
+    var opt2 = equipmentSelect.options[j];
+    if (!opt2.value) continue;
+    if (!opt2.hidden) { firstVisible = opt2; break; }
+  }
+  if (firstVisible) equipmentSelect.value = firstVisible.value;
+});
+
+checkButton.addEventListener("click", function () {
+  var equipmentId = equipmentSelect.value;
+  if (!equipmentId) { alert("Please select an equipment type."); return; }
+
+  // Context box removed: assume "used to suspend loads" to keep rules consistent.
+  var context = { usedToSuspendLoads: true };
+
+  var result;
+  try { result = evaluateCompliance(equipmentId, { context: context }); }
+  catch (e) { alert(e.message); return; }
+
+  displayResult(result);
+});
+
+function regBadgeClass(regId){
+  if (regId.indexOf("LOLER") === 0) return "loler";
+  if (regId.indexOf("PUWER") === 0) return "puwer";
+  if (regId.indexOf("BS_") === 0) return "bs";
+if (regId.indexOf("ABTT") === 0) return "abtt";
+  return "";
+}
+function regBadgeText(regId){
+  if (regId.indexOf("BS_") === 0) return "BS EN";
+  if (regId.indexOf("PUWER") === 0) return "PUWER";
+  if (regId.indexOf("ABTT") === 0) return "ABTT";
+  return "LOLER";
+}
+function getRegulationGuide(regId) {
+  if (!complianceRules.regulationGuides) return null;
+  return complianceRules.regulationGuides[regId] || null;
+}
+function displayResult(result) {
+  resultsDiv.innerHTML = "";
+
+  var container = document.createElement("div");
+  container.className = "card";
+
+  var title = document.createElement("h2");
+  title.textContent = result.equipment.name;
+  container.appendChild(title);
+
+  var cat = document.createElement("p");
+  cat.className = "muted";
+  cat.textContent = result.equipment.category + " · " + result.equipmentClass.name;
+  container.appendChild(cat);
+
+  // Image (with placeholder fallback)
+  var img = document.createElement("img");
+img.className = "equipment-image";
+
+img.alt = result.equipment.name;
+img.style.width = "100%";
+img.style.maxWidth = "520px";
+img.style.height = "auto";
+img.style.objectFit = "contain";
+img.style.display = "block";
+img.style.margin = "0.8rem 0 0.5rem 0";
+img.style.borderRadius = "18px";
+  img.src =
+  (result.equipment.images && result.equipment.images[0])
+  || result.equipment.image
+  || PLACEHOLDER_IMAGE;
+  img.onerror = function () {
+    if (img.src.indexOf("placeholder.webp") === -1) img.src = PLACEHOLDER_IMAGE;
+  };
+// Click image to enlarge
+img.addEventListener("click", function () {
+  document.getElementById("lightboxImg").src = img.src;
+  document.getElementById("lightbox").classList.add("show");
+});
+  container.appendChild(img);
+
+// Additional image thumbnails
+if (result.equipment.images && result.equipment.images.length > 1) {
+
+  var thumbRow = document.createElement("div");
+  thumbRow.style.display = "flex";
+  thumbRow.style.flexWrap = "wrap";
+  thumbRow.style.gap = "0.5rem";
+  thumbRow.style.marginTop = "0.8rem";
+
+  result.equipment.images.forEach(function (imagePath) {
+
+    var thumb = document.createElement("img");
+
+    thumb.src = imagePath;
+
+    thumb.style.width = "70px";
+    thumb.style.height = "70px";
+    thumb.style.objectFit = "cover";
+    thumb.style.borderRadius = "8px";
+    thumb.style.cursor = "pointer";
+    thumb.style.border = "2px solid var(--border)";
+
+    thumb.onerror = function () {
+
+  thumb.onerror = null;
+
+  thumb.src = PLACEHOLDER_IMAGE;
+
+};
+
+    thumb.addEventListener("click", function () {
+      img.src = imagePath;
+    });
+
+    thumbRow.appendChild(thumb);
+
+  });
+
+  container.appendChild(thumbRow);
+}
+
+  // Caption under image
+  var caption = document.createElement("p");
+  caption.className = "muted";
+  caption.style.fontStyle = "italic";
+  caption.style.marginTop = "0";
+  caption.style.marginBottom = "1rem";
+  caption.textContent = "Typical example – may differ from site installation";
+  container.appendChild(caption);
+
+  var desc = document.createElement("p");
+  desc.textContent = result.equipment.description;
+  container.appendChild(desc);
+
+  // Equipment info & what to check (outlined + toggle + icons)
+  function addToggleSection(titleText, showText, hideText, icon, lines) {
+    if (!lines || lines.length === 0) return;
+
+    var toggleBtn = document.createElement("button");
+    toggleBtn.className = "secondary";
+    toggleBtn.textContent = icon + " " + showText;
+    toggleBtn.style.margin = "0.2rem 0.5rem 0.6rem 0";
+
+    var section = document.createElement("div");
+    section.className = "outlined";
+    section.style.display = "none";
+
+    var h = document.createElement("h3");
+    h.textContent = titleText;
+    h.style.marginTop = "0";
+    section.appendChild(h);
+
+    var list = document.createElement("ul");
+    lines.forEach(function (line) {
+      var li = document.createElement("li");
+      li.textContent = line;
+      list.appendChild(li);
+    });
+    section.appendChild(list);
+
+    toggleBtn.addEventListener("click", function () {
+      var isHidden = section.style.display === "none";
+      section.style.display = isHidden ? "block" : "none";
+      toggleBtn.textContent = icon + " " + (isHidden ? hideText : showText);
+    });
+
+    container.appendChild(toggleBtn);
+    container.appendChild(section);
+  }
+
+  addToggleSection("Equipment information", "Equipment information", "Hide info", "ℹ️", result.equipment.equipmentInfo);
+  addToggleSection("What to check", "What to check", "Hide info", "✔️", result.equipment.whatToCheck);
+
+  // Regulations (collapsible)
+  var regsTitle = document.createElement("h3");
+  regsTitle.textContent = "Applicable regulations and standards";
+  container.appendChild(regsTitle);
+
+  result.regulations.forEach(function (r) {
+    var block = document.createElement("div");
+    block.className = "reg-block";
+
+    var head = document.createElement("div");
+    head.className = "reg-head";
+
+    var left = document.createElement("div");
+    var titleP = document.createElement("p");
+    titleP.className = "reg-title";
+    titleP.innerHTML = "<strong>" + r.code + "</strong> – " + r.name;
+
+    var badge = document.createElement("span");
+    badge.className = "badge " + regBadgeClass(r.id);
+    badge.textContent = regBadgeText(r.id);
+    titleP.appendChild(badge);
+
+    var appliesChip = document.createElement("span");
+    appliesChip.className = "chip";
+    appliesChip.textContent = (r.applies === "always") ? "Applies" : "Applies (conditional)";
+    titleP.appendChild(appliesChip);
+
+    left.appendChild(titleP);
+    head.appendChild(left);
+
+    var actions = document.createElement("div");
+    actions.className = "reg-actions";
+
+    var toggle = document.createElement("button");
+    toggle.className = "secondary";
+    toggle.textContent = "Show details";
+    actions.appendChild(toggle);
+
+var guide = getRegulationGuide(r.id);
+
+var learnToggle = null;
+var learnDetails = null;
+
+if (guide) {
+  learnToggle = document.createElement("button");
+  learnToggle.className = "secondary";
+  learnToggle.textContent = "Learn more";
+  actions.appendChild(learnToggle);
+}
+
+    head.appendChild(actions);
+    block.appendChild(head);
+
+    var details = document.createElement("div");
+    details.className = "reg-details";
+
+    var notes = document.createElement("p");
+    notes.textContent = r.notes;
+    details.appendChild(notes);
+
+    if (r.education && r.education.length > 0) {
+      var eduTitle = document.createElement("p");
+      eduTitle.innerHTML = "<em>Key points for this equipment:</em>";
+      details.appendChild(eduTitle);
+
+      var list = document.createElement("ul");
+      r.education.forEach(function (item) {
+        var li = document.createElement("li");
+        li.innerHTML = "<strong>" + item.part + ":</strong> " + item.summary;
+        list.appendChild(li);
+      });
+      details.appendChild(list);
+    }
+
+    toggle.addEventListener("click", function () {
+      var isHidden = details.style.display === "" || details.style.display === "none";
+      details.style.display = isHidden ? "block" : "none";
+      toggle.textContent = isHidden ? "Hide details" : "Show details";
+    });
+
+    block.appendChild(details);
+
+if (guide) {
+  learnDetails = document.createElement("div");
+  learnDetails.className = "outlined";
+  learnDetails.style.display = "none";
+
+  var learnTitle = document.createElement("h3");
+  learnTitle.textContent = guide.title;
+  learnTitle.style.marginTop = "0";
+  learnDetails.appendChild(learnTitle);
+
+  var learnList = document.createElement("ul");
+  guide.points.forEach(function (point) {
+    var li = document.createElement("li");
+    li.textContent = point;
+    learnList.appendChild(li);
+  });
+  learnDetails.appendChild(learnList);
+
+  learnToggle.addEventListener("click", function () {
+    var isHidden = learnDetails.style.display === "none";
+    learnDetails.style.display = isHidden ? "block" : "none";
+    learnToggle.textContent = isHidden ? "Hide learn more" : "Learn more";
+  });
+
+  block.appendChild(learnDetails);
+}
+
+container.appendChild(block);
+  });
+
+  var disclaimer = document.createElement("p");
+  disclaimer.className = "disclaimer";
+  disclaimer.textContent =
+    "This output is guidance only. It summarises how key parts of LOLER, PUWER and BS EN 17206 relate to the selected type of equipment. " +
+    "You must still follow manufacturer instructions, local procedures, a suitable and sufficient risk assessment, and any written scheme of examination agreed with a competent person.";
+  container.appendChild(disclaimer);
+
+// TECHNICAL DOCUMENTS
+if (result.equipment.documents && result.equipment.documents.length > 0) {
+  var docsBox = document.createElement("div");
+  docsBox.className = "outlined";
+  docsBox.style.marginTop = "1rem";
+
+  var docsTitle = document.createElement("h3");
+  docsTitle.textContent = "Technical data / extra information";
+  docsBox.appendChild(docsTitle);
+
+  result.equipment.documents.forEach(function(doc) {
+    var link = document.createElement("a");
+    link.href = doc.file;
+    link.target = "_blank";
+    link.style.display = "block";
+    link.style.marginBottom = "0.7rem";
+
+    var btn = document.createElement("button");
+    btn.textContent = doc.title;
+
+    link.appendChild(btn);
+    docsBox.appendChild(link);
+  });
+
+  container.appendChild(docsBox);
+}
+
+ resultsDiv.appendChild(container);
+}
+function toggleInfo(id) {
+
+  var section = document.getElementById(id);
+
+  if (section.style.display === "none" || section.style.display === "") {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+  }
+
+}
+</script>
+
+<!-- IMAGE LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <img id="lightboxImg" src="">
+</div>
+
+<script>
+// Close lightbox when tapped
+document.getElementById("lightbox").addEventListener("click", function () {
+  this.classList.remove("show");
+});
+</script>
+<div class="card">
+  <h3>Regulation information</h3>
+
+<div class="button-row">
+  <button onclick="toggleInfo('lolerInfo')">LOLER</button>
+  <button onclick="toggleInfo('puwerInfo')">PUWER</button>
+  <button onclick="toggleInfo('bsInfo')">BS EN 17206</button>
+  <button onclick="toggleInfo('abttInfo')">ABTT</button>
+</div>
+
+<!-- LOLER -->
+<div id="lolerInfo" class="outlined" style="display:none;">
+
+  <h3>LOLER 1998</h3>
+
+  <p>
+    The Lifting Operations and Lifting Equipment Regulations 1998 (LOLER)
+    apply to lifting equipment and lifting operations used at work.
+  </p>
+
+  <h4>Key theatre applications</h4>
+
+  <ul>
+    <li>Chain hoists</li>
+    <li>Motorised flying systems</li>
+    <li>Lifting beams</li>
+    <li>Truss systems</li>
+    <li>Suspension points</li>
+    <li>Lifting accessories such as shackles and slings</li>
+  </ul>
+
+  <h4>Main requirements</h4>
+
+  <ul>
+    <li>Equipment must be strong and stable.</li>
+    <li>Safe Working Loads must be clearly marked.</li>
+    <li>Lifting operations must be properly planned.</li>
+    <li>Equipment must be thoroughly examined by a competent person.</li>
+    <li>Defects must be recorded and acted upon.</li>
+  </ul>
+
+  <h4>Theatre considerations</h4>
+
+  <p>
+    Entertainment environments often involve dynamic loading, overhead
+    suspension and public safety risks. Inspection, maintenance and competent
+    operation are critical.
+  </p>
+
+<p>
+  <a href="documents/leea_mechanical_inspection_extract.pdf" target="_blank">
+    <button>Open LEEA inspection reference PDF</button>
+  </a>
+</p>
+
+</div>
+
+<!-- PUWER -->
+<div id="puwerInfo" class="outlined" style="display:none;">
+
+  <h3>PUWER 1998</h3>
+
+  <p>
+    The Provision and Use of Work Equipment Regulations 1998 (PUWER)
+    apply to work equipment used in the workplace.
+  </p>
+
+  <h4>Key theatre applications</h4>
+
+  <ul>
+    <li>Curtain tracks</li>
+    <li>Winches</li>
+    <li>Motor controllers</li>
+    <li>Access equipment</li>
+    <li>Portable tools</li>
+    <li>Powered stage machinery</li>
+  </ul>
+
+  <h4>Main requirements</h4>
+
+  <ul>
+    <li>Equipment must be suitable for use.</li>
+    <li>Equipment must be maintained in a safe condition.</li>
+    <li>Users must receive information and training.</li>
+    <li>Dangerous parts must be controlled.</li>
+    <li>Inspections must be carried out where deterioration could create risk.</li>
+  </ul>
+
+  <h4>Theatre considerations</h4>
+
+  <p>
+    PUWER applies broadly across entertainment venues and often overlaps
+    with LOLER where lifting equipment is involved.
+  </p>
+
+<p>
+  <a href="documents/puwer_guidance.pdf" target="_blank">
+    <button>Open PUWER Guidance PDF</button>
+  </a>
+</p>
+
+</div>
+
+<!-- BS EN -->
+<div id="bsInfo" class="outlined" style="display:none;">
+
+  <h3>BS EN 17206</h3>
+
+  <p>
+    BS EN 17206 is the European entertainment technology standard for
+    machinery used in stages and production areas.
+  </p>
+
+  <h4>Key theatre applications</h4>
+
+  <ul>
+    <li>Stage machinery</li>
+    <li>Motorised flying systems</li>
+    <li>Integrated control systems</li>
+    <li>Automated scenery movement</li>
+    <li>Load-bearing entertainment equipment</li>
+  </ul>
+
+  <h4>Main requirements</h4>
+
+  <ul>
+    <li>Risk reduction and safety functions.</li>
+    <li>Control system safety.</li>
+    <li>Prevention of uncontrolled movement.</li>
+    <li>Testing and commissioning.</li>
+    <li>Documentation and inspection requirements.</li>
+  </ul>
+
+  <h4>Theatre considerations</h4>
+
+  <p>
+    BS EN 17206 is highly relevant to modern performance venues using
+    automated or powered entertainment machinery.
+  </p>
+
+<p>
+  <a href="documents/bs_en_17206_summary.pdf" target="_blank">
+    <button>Open BS EN 17206 PDF</button>
+  </a>
+</p>
+
+</div>
+
+<!-- ABTT -->
+<div id="abttInfo" class="outlined" style="display:none;">
+
+  <h3>ABTT Technical Standards</h3>
+
+  <p>
+    ABTT Technical Standards provide recognised UK theatre-industry
+    good practice guidance for places of entertainment.
+  </p>
+
+  <h4>Key theatre applications</h4>
+
+  <ul>
+    <li>Theatre infrastructure</li>
+    <li>Suspension systems</li>
+    <li>Inspection and maintenance procedures</li>
+    <li>Operational safety management</li>
+    <li>Entertainment rigging practice</li>
+  </ul>
+
+  <h4>Main principles</h4>
+
+  <ul>
+    <li>Use competent persons.</li>
+    <li>Maintain inspection records.</li>
+    <li>Follow recognised industry practice.</li>
+    <li>Ensure safe operation and maintenance.</li>
+    <li>Consider venue-specific risks.</li>
+  </ul>
+
+  <h4>Theatre considerations</h4>
+
+  <p>
+    ABTT guidance complements legal duties such as LOLER and PUWER
+    and helps interpret good practice within entertainment environments.
+  </p>
+
+<p>
+  <a href="documents/abtt_technical_standards.pdf" target="_blank">
+    <button>Open ABTT Technical Standards PDF</button>
+  </a>
+</p>
+
+</div>
+</div>
+</body>
+</html>
