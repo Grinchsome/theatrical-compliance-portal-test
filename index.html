@@ -3214,8 +3214,334 @@ const roteEquipmentIds = new Set([
   "beam_trolley"
 ]);
 const additionalEquipment = [
-        
-      ];
+  {
+    id: "bar_25mm_plain_steel",
+    name: "25mm OD Plain Steel Bar",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "25mm outside-diameter plain steel bar used to support lightweight production equipment.",
+    image: "images/bar_25mm_plain_steel.webp",
+    images: [
+      "images/bar_25mm_plain_steel.webp",
+      "images/bar_25mm_plain_steel_2.webp",
+      "images/bar_25mm_plain_steel_3.webp"
+    ],
+    equipmentInfo: [
+      "A 25mm OD plain steel bar is a smaller diameter support bar that may be used for lightweight curtains, scenic items, practicals or other approved lightweight equipment.",
+      "It should only be used within its designed capacity and site-specific loading limits.",
+      "Because of its smaller diameter, it may not be suitable for standard lighting clamps or heavier production loads.",
+      "The bar, supports, brackets, fixings and supporting structure should be considered as one complete load path.",
+      "The intended use and loading should be checked carefully before equipment is attached."
+    ],
+    whatToCheck: [
+      "Check that the bar is suitable for the intended load and use.",
+      "Inspect the bar for bending, dents, cracks, corrosion, distortion or signs of overloading.",
+      "Confirm that the bar diameter is compatible with the fittings or clamps being used.",
+      "Check all brackets, supports, fixings and suspension points for damage, looseness or corrosion.",
+      "Check that the load is lightweight, correctly attached and evenly distributed where possible.",
+      "Look for signs of unauthorised modification, added holes, cuts, welding or poor repairs.",
+      "Check that the supporting structure is suitable and shows no signs of movement or damage.",
+      "Do not use for heavier lighting or rigging loads unless the capacity and suitability are confirmed.",
+      "Record and action any defects before continued use."
+    ]
+  },
+  {
+    id: "bar_32mm_plain_steel",
+    name: "32mm OD Plain Steel Bar",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "32mm outside-diameter plain steel bar used to support lightweight production equipment.",
+    image: "images/bar_32mm_plain_steel.webp",
+    images: [
+      "images/bar_32mm_plain_steel.webp",
+      "images/bar_32mm_plain_steel_2.webp",
+      "images/bar_32mm_plain_steel_3.webp"
+    ],
+    equipmentInfo: [
+      "A 32mm OD plain steel bar is a smaller support bar used for suitable lightweight production, scenic, curtain or equipment support applications.",
+      "It should only be used within its designed Safe Working Load / Working Load Limit and any site-specific restrictions.",
+      "The bar may not be suitable for all standard lighting clamps, so compatibility must be checked before use.",
+      "The bar, supports, brackets, fixings and supporting structure should be assessed as one complete load path.",
+      "Loads should be appropriate for the bar size, support spacing and fixing method."
+    ],
+    whatToCheck: [
+      "Check that the bar is suitable for the load, span and intended use.",
+      "Inspect the bar for bending, dents, cracks, corrosion, deformation or impact damage.",
+      "Confirm that clamps, couplers or fittings are compatible with the 32mm diameter.",
+      "Check all supports, brackets, fixings and suspension points for looseness, damage or corrosion.",
+      "Check that loads are correctly attached and do not exceed the known capacity of the bar.",
+      "Look for signs of unauthorised modification, drilling, welding, cuts or poor repairs.",
+      "Check that the supporting structure remains suitable and shows no signs of distress.",
+      "Remove from service or seek competent advice if rating or compatibility is uncertain.",
+      "Confirm that inspection records are available where required."
+    ]
+  },
+  {
+    id: "bar_48mm_internally_wired_grid",
+    name: "48mm OD Internally Wired Bar Grid",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "Grid formed from 48mm outside-diameter internally wired bars.",
+    image: "images/bar_48mm_internally_wired_grid.webp",
+    images: [
+      "images/bar_48mm_internally_wired_grid.webp",
+      "images/bar_48mm_internally_wired_grid_2.webp",
+      "images/bar_48mm_internally_wired_grid_3.webp"
+    ],
+    equipmentInfo: [
+      "A 48mm OD internally wired bar grid is a grid arrangement made from internally wired lighting bars containing electrical wiring, sockets or outlets.",
+      "The grid should be assessed both as a load-bearing structure and as electrical infrastructure.",
+      "The bars, suspension points, joints, brackets, fixings, wiring, socket outlets and supporting structure should be considered as one complete system.",
+      "Loads must remain within the designed Safe Working Load / Working Load Limit and any point-load or distributed-load limits.",
+      "Electrical outlets, cable entries and internal wiring should be protected from mechanical damage and unsuitable loading."
+    ],
+    whatToCheck: [
+      "Check that the grid is securely fixed or suspended and that all visible supports are sound.",
+      "Inspect bars for bending, dents, cracks, corrosion, deformation or signs of overloading.",
+      "Check welded joints, bolted connections, brackets, clamps and suspension points for cracks, movement, looseness or missing parts.",
+      "Confirm that loading information is known and suitable for the intended use.",
+      "Check that luminaires and other equipment are correctly clamped and fitted with secondary suspension where required.",
+      "Inspect socket outlets, cable entries, glands, covers and containment for damage, looseness or missing parts.",
+      "Check that cables are not strained, trapped, abraded, unsupported or exposed to mechanical damage.",
+      "Look for signs of unauthorised modification, drilled holes, non-standard repairs or damaged electrical containment.",
+      "Confirm that inspection and maintenance records cover both mechanical and electrical aspects where applicable."
+    ]
+  },
+  {
+    id: "bar_38mm_plain_steel_grid",
+    name: "38mm OD Plain Steel Bar",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "38mm outside-diameter plain steel bar used to support production equipment.",
+    image: "images/bar_38mm_plain_steel_grid.webp",
+    images: [
+      "images/bar_38mm_plain_steel_grid.webp",
+      "images/bar_38mm_plain_steel_grid_2.webp",
+      "images/bar_38mm_plain_steel_grid_3.webp"
+    ],
+    equipmentInfo: [
+      "A 38mm OD plain steel bar is a support bar used for suitable lighting, scenic, curtain or production equipment applications.",
+      "It should only be loaded within its designed capacity and any site-specific loading limits.",
+      "The bar diameter may not suit all standard clamps, so compatibility should be confirmed before use.",
+      "The bar, suspension points, brackets, fixings and supporting structure should be considered as one complete load path.",
+      "Loads should be appropriate for the bar size, span, support spacing and fixing method."
+    ],
+    whatToCheck: [
+      "Check that the bar is suitable for the intended load, span and application.",
+      "Inspect the bar for bending, dents, cracks, corrosion, deformation or signs of overloading.",
+      "Confirm that clamps, couplers or fittings are compatible with the 38mm diameter.",
+      "Check all brackets, supports, fixings and suspension points for looseness, damage or corrosion.",
+      "Check that loads are correctly attached and evenly distributed where possible.",
+      "Look for signs of unauthorised modification, drilled holes, welding, cuts, added fixings or poor repairs.",
+      "Check that the supporting structure is suitable and shows no signs of movement or damage.",
+      "Remove from service or seek competent advice if rating, compatibility or condition is uncertain.",
+      "Confirm that defects have been recorded and actioned."
+    ]
+  },
+  {
+    id: "bar_48mm_plain_steel_grid",
+    name: "48mm OD Plain Steel Bar Grid",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "Grid formed from 48mm outside-diameter plain steel bars.",
+    image: "images/bar_48mm_plain_steel_grid.webp",
+    images: [
+      "images/bar_48mm_plain_steel_grid.webp",
+      "images/bar_48mm_plain_steel_grid_2.webp",
+      "images/bar_48mm_plain_steel_grid_3.webp"
+    ],
+    equipmentInfo: [
+      "A 48mm OD plain steel bar grid is a fixed or suspended grid arrangement made from plain steel lighting bars.",
+      "The grid is used to support luminaires and other approved production equipment.",
+      "The bars, suspension points, brackets, joints, clamps, fixings and supporting structure should be assessed as one complete load path.",
+      "Loads should remain within the designed Safe Working Load / Working Load Limit and any point-load or distributed-load limits.",
+      "Load distribution should be considered carefully, especially where equipment is concentrated in one area."
+    ],
+    whatToCheck: [
+      "Check that the grid is securely fixed or suspended and that all visible supports are present and tight.",
+      "Inspect the bars for bending, dents, cracks, corrosion, deformation or signs of overloading.",
+      "Check welded joints, bolted connections, brackets, clamps and suspension points for cracks, movement, corrosion or missing parts.",
+      "Confirm that SWL/WLL or loading information is known and suitable for the intended load.",
+      "Check that luminaires and suspended equipment are correctly attached using suitable clamps and secondary suspensions where required.",
+      "Check that loads are evenly distributed where possible and not concentrated beyond the grid design.",
+      "Inspect the supporting structure for movement, corrosion, cracking or distress.",
+      "Look for unauthorised drilling, welding, added fixings, cuts or non-standard repairs.",
+      "Confirm that inspection records are available and defects have been recorded and actioned."
+    ]
+  },
+  {
+    id: "bar_48mm_aluminium_grid",
+    name: "48mm OD Aluminium Bar Grid",
+    category: "Lighting Bar",
+    classId: "structural_support",
+    description: "Grid formed from 48mm outside-diameter aluminium bars.",
+    image: "images/bar_48mm_aluminium_grid.webp",
+    images: [
+      "images/bar_48mm_aluminium_grid.webp",
+      "images/bar_48mm_aluminium_grid_2.webp",
+      "images/bar_48mm_aluminium_grid_3.webp"
+    ],
+    equipmentInfo: [
+      "A 48mm OD aluminium bar grid is a fixed or suspended grid arrangement made from aluminium lighting bars.",
+      "The grid is used to support luminaires and other approved production equipment where a lighter-weight bar system is required.",
+      "The bars, suspension points, brackets, joints, clamps, fixings and supporting structure should be assessed as one complete load path.",
+      "Aluminium bars may be more vulnerable to denting, local deformation, cracking or damage from unsuitable clamps.",
+      "Loads should remain within the designed Safe Working Load / Working Load Limit and any point-load or distributed-load limits."
+    ],
+    whatToCheck: [
+      "Check that the aluminium bar grid is securely fixed or suspended and correctly supported.",
+      "Inspect bars for bending, dents, flattening, cracks, corrosion, deformation or impact damage.",
+      "Check welded joints, bolted connections, brackets, clamps and suspension points for movement, cracks, looseness or missing parts.",
+      "Confirm that SWL/WLL or loading information is known and suitable for the intended use.",
+      "Check that clamps and fittings are suitable for aluminium bar and do not crush or damage the tube.",
+      "Check that luminaires and equipment are correctly attached and fitted with secondary suspension where required.",
+      "Check that loads are evenly distributed where possible and not concentrated beyond the grid design.",
+      "Look for unauthorised drilling, cutting, welding, added fixings or non-standard repairs.",
+      "Confirm that inspection records are available and defects have been recorded and actioned."
+    ]
+  },
+  {
+    id: "lifting_stand",
+    name: "Lifting Stand",
+    category: "Lifting Equipment",
+    classId: "manual_lifting_machine",
+    description: "Stand with a manually operated lifting mechanism for raising and supporting production equipment.",
+    image: "images/lifting_stand.webp",
+    images: [
+      "images/lifting_stand.webp",
+      "images/lifting_stand_2.webp",
+      "images/lifting_stand_3.webp"
+    ],
+    equipmentInfo: [
+      "A lifting stand is a portable or temporary support used to raise, support or suspend lighting, sound, truss, bars or other approved production equipment.",
+      "The stand, mast, legs, winch or lifting mechanism, locks, outriggers, head fitting and load should be assessed as one complete system.",
+      "The stand must only be used within its rated capacity, height limits and manufacturer instructions.",
+      "Stability is critical, especially where the load is raised high, offset, exposed to movement or used in public areas.",
+      "The floor or ground surface must be suitable for the imposed load and the stand footprint."
+    ],
+    whatToCheck: [
+      "Check that the lifting stand is suitable for the load, height and intended use.",
+      "Inspect legs, mast sections, collars, pins, locks, outriggers and base components for damage, wear or missing parts.",
+      "Check any winch, cable, belt, rope or lifting mechanism for wear, damage, correct operation and secure fixing.",
+      "Confirm that all locking pins, clamps, safety catches and height adjustment mechanisms engage correctly.",
+      "Check that the stand is stable, level and used on a suitable surface.",
+      "Confirm that the load is correctly attached, centred where required and fitted with secondary suspension where appropriate.",
+      "Look for signs of overload, bent sections, loose fittings, damaged threads or unauthorised modification.",
+      "Do not use if the stand is unstable, overloaded, damaged or missing locking parts."
+    ]
+  },
+  {
+    id: "mole_richardson_curtain_track",
+    name: "Mole-Richardson Curtain Track",
+    category: "Curtain Track",
+    classId: "curtain_track",
+    description: "Mole-Richardson curtain track and its supporting arrangement.",
+    image: "images/mole_richardson_curtain_track.webp",
+    images: [
+      "images/mole_richardson_curtain_track.webp",
+      "images/mole_richardson_curtain_track_2.webp",
+      "images/mole_richardson_curtain_track_3.webp"
+    ],
+    equipmentInfo: [
+      "Mole-Richardson curtain track is a curtain or studio track system used to support and operate curtains, drapes or production soft goods.",
+      "The track, runners, brackets, joints, suspension points and supporting structure should be assessed as one complete system.",
+      "The system should be suitable for the curtain weight, support spacing, layout and method of operation.",
+      "Older or less common track systems may need careful checking to confirm compatibility, condition and availability of replacement parts.",
+      "Loads must remain within known or verified capacity limits."
+    ],
+    whatToCheck: [
+      "Check that the track is securely fixed or suspended and correctly aligned.",
+      "Inspect the track for bending, twisting, dents, cracks, corrosion, wear or damaged running surfaces.",
+      "Check brackets, rods, clamps, bolts and fixings for looseness, damage, corrosion or missing parts.",
+      "Inspect joints and connection points for alignment, movement or poor fixing.",
+      "Check runners, carriers, hooks and operating components for wear, damage or poor movement.",
+      "Operate the curtain where safe and check for smooth travel, jamming, abnormal noise or derailing.",
+      "Confirm that the curtain load is suitable for the known capacity of the system.",
+      "Look for signs of obsolete, modified, non-standard or poorly repaired components.",
+      "Seek competent advice if rating, compatibility or condition is uncertain."
+    ]
+  },
+  {
+    id: "speaker_bracket",
+    name: "Speaker Bracket",
+    category: "General Equipment",
+    classId: "general_support",
+    description: "Bracket used to mount a loudspeaker to a suitable support.",
+    image: "images/speaker_bracket.webp",
+    images: [
+      "images/speaker_bracket.webp",
+      "images/speaker_bracket_2.webp",
+      "images/speaker_bracket_3.webp"
+    ],
+    equipmentInfo: [
+      "A speaker bracket is used to mount a loudspeaker to a wall, ceiling, truss, pole or other suitable structure.",
+      "The bracket, loudspeaker, fixings, safety suspension and supporting structure should be assessed as one complete load path.",
+      "Speaker brackets must be suitable for the weight, fixing pattern, orientation and dynamic effects of the loudspeaker.",
+      "Adjustable brackets should be correctly locked to prevent movement during use.",
+      "Where required, a secondary suspension or safety bond should be fitted."
+    ],
+    whatToCheck: [
+      "Check that the bracket is suitable for the loudspeaker weight, size and mounting method.",
+      "Inspect the bracket body, arms, plates, pivots and adjustment points for cracks, corrosion, bending or wear.",
+      "Check that all bolts, screws, washers, locking nuts and fixings are present and tight.",
+      "Confirm that the loudspeaker is securely attached and correctly positioned.",
+      "Inspect the supporting wall, ceiling, truss, pole or structure for damage, movement or unsuitable fixings.",
+      "Check that secondary suspension is fitted correctly where required.",
+      "Check that cables are supported and not pulling on the speaker or bracket.",
+      "Look for signs of movement, vibration loosening, unauthorised modification or incorrect installation."
+    ]
+  },
+  {
+    id: "temporary_staging",
+    name: "Temporary Staging",
+    category: "General Equipment",
+    classId: "structural_support",
+    description: "Temporary stage platforms and their supporting structure.",
+    image: "images/temporary_staging.webp",
+    equipmentInfo: [
+      "Temporary staging is a modular or demountable platform system used to create performance, access or presentation areas.",
+      "The staging deck, legs, frames, braces, fixings, handrails, steps and supporting surface should be assessed as one complete system.",
+      "Temporary staging must only be used within its rated load capacity and manufacturer instructions.",
+      "Correct assembly, levelling, bracing and locking are essential for safe use.",
+      "Changes to layout, height, loading or use should be assessed before the staging is used."
+    ],
+    whatToCheck: [
+      "Check that the staging is correctly assembled, level, stable and suitable for the intended use.",
+      "Inspect decks, frames, legs, braces, connectors and locking parts for cracks, corrosion, distortion or damage.",
+      "Check that all locking mechanisms, clamps, pins and braces are correctly fitted and secure.",
+      "Inspect the deck surface for damage, trip hazards, loose panels, slippery areas or excessive movement.",
+      "Check steps, handrails, guardrails and edge protection where fitted.",
+      "Confirm that the staging is not overloaded and that loads are distributed appropriately.",
+      "Check the floor or ground surface for suitability, levelness and load-bearing capacity.",
+      "Look for missing components, unauthorised modification, poor repairs or signs of instability."
+    ]
+  },
+  {
+    id: "travelling_beam",
+    name: "Travelling Beam",
+    category: "Lifting Equipment",
+    classId: "structural_support",
+    description: "Movable beam used as part of a lifting or suspension arrangement.",
+    image: "images/travelling_beam.webp",
+    equipmentInfo: [
+      "A travelling beam is a beam or track arrangement used to allow a load, trolley or lifting appliance to move along a defined path.",
+      "The beam, supports, end stops, trolley, suspension point, fixings and lifting equipment should be assessed as one complete system.",
+      "The beam must be suitable for the imposed load, span, trolley movement and load direction.",
+      "Travelling beams should only be used within their rated capacity and any site-specific restrictions.",
+      "End stops, support condition and trolley compatibility are important to prevent over-travel or derailment."
+    ],
+    whatToCheck: [
+      "Check that the travelling beam is identified and that its rating or permitted use is known.",
+      "Inspect the beam for bending, corrosion, cracks, excessive deflection, impact damage or signs of overloading.",
+      "Check supports, brackets, fixings, welds, bolts and connections for movement, corrosion, cracking or missing parts.",
+      "Inspect the running surface or flange for wear, damage, obstruction or contamination.",
+      "Check that the trolley or moving equipment is compatible and travels smoothly without binding or excessive play.",
+      "Confirm that end stops are fitted, secure and suitable where required.",
+      "Look for signs of side loading, unauthorised modification, poor repairs or use beyond the intended travel path.",
+      "Remove from service or seek competent advice if rating, structure or condition is uncertain."
+    ]
+  }
+];
 complianceRules.equipmentTypes.push(...additionalEquipment);
 complianceRules.equipmentTypes.forEach(function (item) {
   item.isRote = roteEquipmentIds.has(item.id);
