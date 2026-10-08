@@ -648,7 +648,7 @@ button,
         <option value="">-- Select equipment --</option>
 
         <optgroup label="Lifting Equipment">
-          <option value="counterweight_set">Counterweight Set</option>
+          <option value="counterweight_set">Counterweight System</option>
           <option value="electric_chain_hoist">Electric Chain Hoist</option>
           <option value="manual_chain_hoist">Manual Chain Hoist</option>
           <option value="electric_winch">Electric Winch</option>
@@ -1225,9 +1225,13 @@ regulationGuides: {
        * INDIVIDUAL EQUIPMENT TYPES – mapped to classes
        ****************************************************/
       equipmentTypes: [
-        // Lifting Equipment
-        { id: "counterweight_set", name: "Counterweight Set", category: "Lifting Equipment", classId: "manual_lifting_machine",
-          description: "Counterweight flying set used to lift and balance bars, scenery or cloths.", image: "images/counterweight_set.webp",
+        {
+  id: "counterweight_set",
+  name: "Counterweight System",
+  category: "Lifting Equipment",
+  classId: "manual_lifting_machine",
+  description: "Counterweight flying system used to balance and move bars, scenery, curtains or other suspended loads.",
+  image: "images/counterweight_set.webp",
 
   images: [
     "images/counterweight_set.webp",
@@ -1235,35 +1239,60 @@ regulationGuides: {
     "images/counterweight_set_3.webp"
   ],
 
-equipmentInfo: [
-  "A counterweight set is a manually operated flying system used to balance and move scenery, bars, curtains or other suspended loads.",
-  "The system relies on correct loading, correct balancing and competent operation.",
-  "The arbor, weights, guide rails, ropes, head blocks, loft blocks, operating lines and terminations form one complete load path.",
-  "Loads should only be added, removed or altered by competent persons following site procedures.",
-  "The set should be clearly identified, and the operating limits and loading arrangements should be known."
-],
+  equipmentInfo: [
+    "A counterweight system is a manually operated flying system used to balance and move scenery, bars, curtains or other suspended loads.",
+    "The system relies on correct loading, correct balancing and competent operation.",
+    "The arbor, weights, guide rails, ropes, head blocks, loft blocks, operating lines and terminations form one complete load path.",
+    "Loads should only be added, removed or altered by competent persons following site procedures.",
+    "The system should be clearly identified, and the operating limits and loading arrangements should be known."
+  ],
 
-whatToCheck: [
-  "Check that the arbor, weights and retaining arrangements are secure and correctly fitted.",
-  "Inspect wire ropes, fibre ropes, terminations, clamps, thimbles and fixings for wear, damage, corrosion or distortion.",
-  "Check head blocks, loft blocks and pulleys for wear, free rotation, alignment and secure fixing.",
-  "Check that guide rails, tracks or guides are secure, aligned and free from obstruction.",
-  "Check that the set runs smoothly without abnormal noise, snatching, rubbing or uncontrolled movement.",
-  "Confirm that the load is correctly balanced and that loading procedures are being followed.",
-  "Check that identification, SWL/WLL information and inspection records are available where required.",
-  "Look for signs of unauthorised alteration, missing components, loose fixings or damaged operating lines."
-],
+  whatToCheck: [
+    "Check that the arbor, weights and retaining arrangements are secure and correctly fitted.",
+    "Inspect wire ropes, fibre ropes, terminations, clamps, thimbles and fixings for wear, damage, corrosion or distortion.",
+    "Check head blocks, loft blocks and pulleys for wear, free rotation, alignment and secure fixing.",
+    "Check that guide rails, tracks or guides are secure, aligned and free from obstruction.",
+    "Check that the system runs smoothly without abnormal noise, snatching, rubbing or uncontrolled movement.",
+    "Confirm that the load is correctly balanced and that loading procedures are being followed.",
+    "Check that identification, SWL/WLL information and inspection records are available where required.",
+    "Look for signs of unauthorised alteration, missing components, loose fixings or damaged operating lines."
+  ],
 
   documents: [
-  {
-    title: "Counterweight Set Datasheet",
-    file: "documents/counterweight_set_technical_datasheet.pdf"
-  }
-]
+    {
+      title: "Counterweight System Datasheet",
+      file: "documents/counterweight_set_technical_datasheet.pdf"
+    }
+  ]
 },
 
-        { id: "electric_chain_hoist", name: "Electric Chain Hoist", category: "Lifting Equipment", classId: "powered_lifting_machine",
-          description: "Powered chain hoist for lifting and suspending loads such as truss or bars.", image: "images/electric_chain_hoist.webp" },
+        {
+  id: "electric_chain_hoist",
+  name: "Electric Chain Hoist",
+  category: "Lifting Equipment",
+  classId: "powered_lifting_machine",
+  description: "Powered chain hoist for lifting and suspending loads such as truss or bars.",
+  image: "images/electric_chain_hoist.webp",
+
+  equipmentInfo: [
+    "An electric chain hoist is a powered lifting appliance used to raise, lower or suspend loads such as truss, lighting bars, scenery or equipment.",
+    "The hoist, hook, chain, controls, suspension point and any associated lifting accessories form one lifting arrangement.",
+    "The hoist must only be used within its rated capacity and manufacturer instructions.",
+    "Powered hoists should only be operated by competent persons familiar with the control system and emergency procedures.",
+    "The supporting structure and suspension point must be suitable for the imposed loads, including dynamic effects."
+  ],
+
+  whatToCheck: [
+    "Check that the hoist is correctly rated for the load and that SWL/WLL markings are legible.",
+    "Inspect the load chain for wear, twisting, corrosion, damaged links or contamination.",
+    "Check hooks, latches, shackles and suspension fittings for distortion, cracks, wear or incorrect fitting.",
+    "Check the body of the hoist for damage, missing covers, loose fixings or signs of impact.",
+    "Test controls, emergency stop, direction buttons and limit functions where appropriate and safe to do so.",
+    "Listen for abnormal noise, slipping, juddering or uneven movement during operation.",
+    "Check that power, control cables and connectors are not damaged or strained.",
+    "Confirm that the hoist has current inspection/thorough examination records and that defects have been actioned."
+  ]
+},
 
         { id: "manual_chain_hoist", name: "Manual Chain Hoist", category: "Lifting Equipment", classId: "manual_lifting_machine",
           description: "Hand chain hoist for lifting and suspending loads without a motor.", image: "images/manual_chain_hoist.webp",
@@ -1301,20 +1330,145 @@ whatToCheck: [
   ]
 },
 
-        { id: "electric_winch", name: "Electric Winch", category: "Lifting Equipment", classId: "powered_lifting_machine",
-          description: "Powered winch used to raise and lower loads via wire ropes or similar.", image: "images/electric_winch.webp" },
+        {
+  id: "electric_winch",
+  name: "Electric Winch",
+  category: "Lifting Equipment",
+  classId: "powered_lifting_machine",
+  description: "Powered winch used to raise and lower loads via wire ropes or similar.",
+  image: "images/electric_winch.webp",
 
-        { id: "manual_winch", name: "Manual Winch", category: "Lifting Equipment", classId: "manual_lifting_machine",
-          description: "Hand operated winch used to lift or tension loads.", image: "images/manual_winch.webp" },
+  equipmentInfo: [
+    "An electric winch is a powered lifting or pulling appliance used to raise, lower or move loads by rope, wire rope, belt or drum system.",
+    "In theatre environments, winches may be used for bars, scenery, curtains, screens or integrated lifting systems.",
+    "The winch, rope, drum, guides, pulleys, terminations, controls and supporting structure should be assessed as one system.",
+    "Electric winches must only be used within their rated capacity and intended duty cycle.",
+    "Control systems, limits, emergency stops and braking systems are safety-critical parts of the installation."
+  ],
 
-        { id: "drill_drive_winch", name: "Drill Drive Winch", category: "Lifting Equipment", classId: "powered_lifting_machine",
-          description: "Winch driven by a power drill or similar tool, used for lifting or moving loads.", image: "images/drill_drive_winch.webp" },
+  whatToCheck: [
+    "Check that SWL/WLL, duty rating and identification markings are legible and suitable for the application.",
+    "Inspect the winch body, drum, mounting bolts and support structure for damage, movement, corrosion or loose fixings.",
+    "Inspect wire rope, rope or belt for broken wires, wear, crushing, kinks, corrosion, contamination or incorrect winding.",
+    "Check terminations, clamps, sockets, thimbles and anchor points for correct fitting and damage.",
+    "Check brakes, limits, emergency stops and control functions where appropriate and safe to do so.",
+    "Check that ropes wind correctly on the drum without riding, crushing, bunching or crossing incorrectly.",
+    "Listen for abnormal noise, vibration, slipping or uneven movement during operation.",
+    "Confirm inspection records, maintenance records and any written scheme requirements are up to date."
+  ]
+},
 
-        { id: "integrated_lifting_system", name: "Integrated Lifting System", category: "Lifting Equipment", classId: "powered_lifting_machine",
-          description: "Integrated lifting or flying system, such as a motorised bar or multi-axis stage machinery.", image: "images/integrated_lifting_system.webp" },
+        {
+  id: "manual_winch",
+  name: "Manual Winch",
+  category: "Lifting Equipment",
+  classId: "manual_lifting_machine",
+  description: "Hand operated winch used to lift or tension loads.",
+  image: "images/manual_winch.webp",
 
-        { id: "internally_wired_bar", name: "48mm OD Internally Wired Bar", category: "Lifting Equipment", classId: "structural_support",
-          description: "Internally wired bar treated as part of a lifting system, supporting loads and power.", image: "images/internally_wired_bar.webp" },
+  equipmentInfo: [
+    "A manual winch is a hand-operated lifting or pulling appliance used to move loads by rope, wire rope or belt.",
+    "It may be used for curtains, scenery, bars, screens or other manually operated theatre systems.",
+    "The winch, handle, brake, drum, rope, guides, pulleys and terminations should be treated as one load path.",
+    "Manual winches must only be used within their rated capacity and manufacturer instructions.",
+    "The operator should understand the load, travel limits, locking/braking arrangements and safe operating procedure."
+  ],
+
+  whatToCheck: [
+    "Check that the winch is securely mounted and that fixings are tight and undamaged.",
+    "Inspect the drum, frame, gears, handle and casing for wear, deformation, corrosion or missing parts.",
+    "Check the rope or wire rope for broken wires, kinks, crushing, wear, corrosion or poor winding.",
+    "Inspect terminations, clamps, thimbles and anchor points for correct fitting and damage.",
+    "Check that the brake or locking mechanism holds the load securely.",
+    "Check that the handle operates smoothly and does not slip, bind or jump.",
+    "Check pulleys, guides and diverters for free movement, alignment and secure fixing.",
+    "Confirm inspection records are available and that defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "drill_drive_winch",
+  name: "Drill Drive Winch",
+  category: "Lifting Equipment",
+  classId: "powered_lifting_machine",
+  description: "Winch driven by a power drill or similar tool, used for lifting or moving loads.",
+  image: "images/drill_drive_winch.webp",
+
+  equipmentInfo: [
+    "A drill drive winch is a winch operated using a powered drill or similar drive tool.",
+    "Although portable power is used, the winch still forms part of a lifting or moving arrangement and must be assessed accordingly.",
+    "The winch, drive tool, attachment method, rope, drum, pulleys, terminations and supporting structure should all be considered.",
+    "Only approved drive tools and settings should be used, following manufacturer instructions.",
+    "Users should understand the risk of over-speed, overloading, poor control and unintended movement."
+  ],
+
+  whatToCheck: [
+    "Check that the winch and drive tool are compatible and used in accordance with manufacturer instructions.",
+    "Check that the winch rating and intended use are suitable for the load and travel required.",
+    "Inspect the drum, rope, wire rope, terminations, pulleys and anchor points for damage or incorrect fitting.",
+    "Check the drive connection for wear, damage, looseness or poor engagement.",
+    "Confirm that the system operates smoothly and that the load can be stopped and held safely.",
+    "Check that any brake, clutch, locking or anti-runback device works correctly.",
+    "Inspect the supporting structure and fixings for damage, movement or signs of overloading.",
+    "Confirm that users are trained and that inspection/maintenance records are available where required."
+  ]
+},
+
+        {
+  id: "integrated_lifting_system",
+  name: "Integrated Lifting System",
+  category: "Lifting Equipment",
+  classId: "powered_lifting_machine",
+  description: "Integrated lifting or flying system, such as a motorised bar or multi-axis stage machinery.",
+  image: "images/integrated_lifting_system.webp",
+
+  equipmentInfo: [
+    "An integrated lifting system is a complete installed system made up of lifting machinery, controls, supports, guides, limits and associated equipment.",
+    "It may include hoists, winches, bars, tracks, pulleys, control panels, emergency stops, load monitoring and supporting steelwork.",
+    "The system should be assessed as a complete lifting arrangement, not as individual components only.",
+    "Control systems, limits, emergency stops, brakes and load paths are safety-critical.",
+    "Any modification, repair or change of use should be assessed by competent persons before the system is returned to service."
+  ],
+
+  whatToCheck: [
+    "Check that the system identification, SWL/WLL and operating limits are known and clearly documented.",
+    "Inspect visible lifting machinery, supports, bars, tracks, pulleys, ropes, chains and fixings for damage or deterioration.",
+    "Check controls, emergency stops, limit switches, warning indicators and safety functions where appropriate and safe to do so.",
+    "Check for abnormal noise, uneven travel, drift, slipping, vibration or uncontrolled movement.",
+    "Confirm that supporting structures, suspension points and fixings show no signs of movement, corrosion, cracking or deformation.",
+    "Check that documentation, maintenance records, inspection reports and operating instructions are available.",
+    "Check that access for inspection and maintenance is safe and that guards or covers are present where required.",
+    "Confirm that defects, modifications or repairs have been recorded and assessed before continued use."
+  ]
+},
+
+        {
+  id: "internally_wired_bar",
+  name: "48mm OD Internally Wired Bar",
+  category: "Lifting Equipment",
+  classId: "structural_support",
+  description: "Internally wired bar treated as part of a lifting system, supporting loads and power.",
+  image: "images/internally_wired_bar.webp",
+
+  equipmentInfo: [
+    "An internally wired bar is a lighting or suspension bar containing electrical wiring, sockets or outlets within the bar.",
+    "It may be fixed, suspended or part of a lifting system depending on the installation.",
+    "The bar should be assessed both as a load-bearing item and as an item of electrical infrastructure.",
+    "Loads should not exceed the designed capacity of the bar, suspension points or supporting structure.",
+    "Electrical outlets, internal wiring and cable entry points should be protected from mechanical damage."
+  ],
+
+  whatToCheck: [
+    "Check that the bar is straight, secure and free from bending, dents, cracking, corrosion or deformation.",
+    "Inspect suspension points, brackets, drop rods, chains, wires or fixings for damage, looseness or corrosion.",
+    "Confirm that SWL/WLL or loading information is known and appropriate for the equipment fitted.",
+    "Check that luminaires and equipment are correctly clamped and fitted with secondary suspension where required.",
+    "Inspect socket outlets, cable entries, glands and covers for damage, looseness or missing parts.",
+    "Check that cables are not strained, trapped, abraded or unsupported.",
+    "Look for signs of unauthorised modification, drilled holes, non-standard fixings or damaged electrical containment.",
+    "Confirm that inspection and maintenance records cover both mechanical and electrical aspects where applicable."
+  ]
+},
 
         { id: "lighting_bar_grid", name: "Lighting Bar Grid", category: "Lifting Equipment", classId: "structural_support",
           description: "A grid of lighting bars used as a structural support for loads.", image: "images/lighting_bar_grid.webp",
@@ -1357,30 +1511,234 @@ whatToCheck: [
   ]
 },
 
-        { id: "unibar_system", name: "Unibar system", category: "Lifting Equipment", classId: "powered_lifting_machine",
-          description: "Motorised Unibar or similar system used for raising and lowering bars or tracks.", image: "images/unibar_system.webp" },
+        {
+  id: "unibar_system",
+  name: "Unibar system",
+  category: "Lifting Equipment",
+  classId: "powered_lifting_machine",
+  description: "Motorised Unibar or similar system used for raising and lowering bars or tracks.",
+  image: "images/unibar_system.webp",
 
-        { id: "pulley", name: "Pulley", category: "Lifting Equipment", classId: "lifting_accessory",
-          description: "Pulley or sheave used to change direction or path of ropes or wire ropes.", image: "images/pulley.webp" },
+  equipmentInfo: [
+    "A Unibar system is an integrated lifting or suspension system used to raise, lower or support lighting bars, curtain tracks or production equipment.",
+    "The system may include a bar, winch or motor unit, ropes, pulleys, guides, limits, controls and supporting structure.",
+    "The complete system should be assessed as one load path, not as separate components only.",
+    "Loads must remain within the stated SWL/WLL and any manufacturer or site-specific limits.",
+    "Only competent persons should operate, maintain, modify or inspect the system."
+  ],
 
-        { id: "rigging_point", name: "Rigging Point", category: "Lifting Equipment", classId: "lifting_accessory",
-          description: "Fixed or removable point from which lifting equipment or loads are suspended.", image: "images/rigging_point.webp" },
+  whatToCheck: [
+    "Check that the system identification, SWL/WLL and operating limits are known and legible.",
+    "Inspect the bar, ropes, pulleys, guides, winch or motor unit and support points for damage, wear or deterioration.",
+    "Check controls, emergency stops, limits and warning devices where appropriate and safe to do so.",
+    "Check that the system travels smoothly without abnormal noise, uneven movement, drift or vibration.",
+    "Inspect fixings, brackets and supporting structures for looseness, corrosion, cracking or deformation.",
+    "Check that attached loads are suitable, evenly distributed where possible and correctly secured.",
+    "Confirm that maintenance, inspection and thorough examination records are available.",
+    "Remove from service or isolate if movement, controls or load path condition is uncertain."
+  ]
+},
 
-        { id: "rope_set", name: "Rope Set", category: "Lifting Equipment", classId: "manual_lifting_machine",
-          description: "Line set using ropes to raise and lower bars or scenery.", image: "images/rope_set.webp" },
+        {
+  id: "pulley",
+  name: "Pulley",
+  category: "Lifting Equipment",
+  classId: "lifting_accessory",
+  description: "Pulley or sheave used to change direction or path of ropes or wire ropes.",
+  image: "images/pulley.webp",
 
-        { id: "flying_iron", name: "Flying Iron", category: "Lifting Equipment", classId: "lifting_accessory",
-          description: "Iron or bracket used to attach a flown piece to a lifting line or bar.", image: "images/flying_iron.webp" },
+  equipmentInfo: [
+    "A pulley or sheave is used to change the direction of a rope, wire rope or line within a lifting, suspension or flying system.",
+    "The pulley, axle, side plates, bearings, rope and support point form part of the load path.",
+    "The pulley must be suitable for the rope type, rope diameter, load and direction of pull.",
+    "Poor alignment, worn sheaves or incorrect rope size can damage the rope and reduce system safety.",
+    "Pulleys should only be used within their stated rating and intended application."
+  ],
 
-        // Accessories
-        { id: "beam_clamp", name: "Beam Clamp", category: "Accessory", classId: "lifting_accessory",
-          description: "Clamp used to create a lifting point on a suitable beam.", image: "images/beam_clamp.webp" },
+  whatToCheck: [
+    "Check that the pulley is correctly rated and suitable for the rope or wire rope diameter.",
+    "Inspect the sheave for wear, cracks, sharp edges, grooves, corrosion or damage.",
+    "Check that the sheave rotates freely without excessive play, binding or abnormal noise.",
+    "Inspect side plates, axle, bearings, pins, bolts and retaining parts for damage or missing components.",
+    "Check that the pulley is correctly aligned with the rope path and support point.",
+    "Inspect the rope at and around the pulley for wear, broken wires, abrasion, crushing or contamination.",
+    "Look for signs of overloading, rubbing, poor fleet angle or unauthorised modification.",
+    "Remove from service if the pulley is damaged, seized, misaligned or its rating is unknown."
+  ]
+},
 
-        { id: "round_slings", name: "Round Slings", category: "Accessory", classId: "lifting_accessory",
-          description: "Textile round slings used for wrapping or choking loads.", image: "images/round_slings.webp" },
+        {
+  id: "rigging_point",
+  name: "Rigging Point",
+  category: "Lifting Equipment",
+  classId: "lifting_accessory",
+  description: "Fixed or removable point from which lifting equipment or loads are suspended.",
+  image: "images/rigging_point.webp",
 
-        { id: "web_slings", name: "Web Slings", category: "Accessory", classId: "lifting_accessory",
-          description: "Flat webbing slings used to support or lift loads.", image: "images/web_slings.webp" },
+  equipmentInfo: [
+    "A rigging point is a fixed or temporary attachment point used to suspend lifting equipment, loads, truss, scenery or production equipment.",
+    "The point, its fixings, supporting structure and attached accessories should be assessed as one complete load path.",
+    "Rigging points must only be used within their rated capacity, approved direction of loading and intended use.",
+    "The suitability of the building structure or supporting steelwork is critical.",
+    "Only competent persons should approve, install, alter or inspect rigging points."
+  ],
+
+  whatToCheck: [
+    "Check that the rigging point is clearly identified and that the SWL/WLL is known.",
+    "Inspect visible fixings, bolts, welds, plates, eyes or brackets for corrosion, cracks, distortion or looseness.",
+    "Check the supporting structure for movement, cracking, corrosion, deformation or signs of distress.",
+    "Confirm that the load direction and attachment method are suitable for the point design.",
+    "Check that shackles, slings, hoists or other accessories are compatible and correctly fitted.",
+    "Look for unauthorised modification, added holes, damaged threads or non-standard repairs.",
+    "Confirm that inspection records, certificates or approval documentation are available where required.",
+    "Do not use the point if its rating, structure or condition is uncertain."
+  ]
+},
+
+        {
+  id: "rope_set",
+  name: "Rope Set",
+  category: "Lifting Equipment",
+  classId: "manual_lifting_machine",
+  description: "Line set using ropes to raise and lower bars or scenery.",
+  image: "images/rope_set.webp",
+
+  equipmentInfo: [
+    "A rope set is a manually operated line set that uses rope, pulleys and associated fittings to raise, lower or support theatre equipment or scenery.",
+    "The ropes, operating lines, terminations, pulleys, bars, cleats and supporting structure should be treated as one complete system.",
+    "Rope sets rely on correct operation, suitable terminations and appropriate load control.",
+    "The set should only be used within its intended load capacity and operating limits.",
+    "Operators should understand the line path, load, locking method and safe operating procedure."
+  ],
+
+  whatToCheck: [
+    "Inspect ropes for wear, cuts, glazing, broken fibres, contamination, stiffness or abrasion.",
+    "Check terminations, knots, clamps, thimbles, cleats and fixing points for damage or incorrect fitting.",
+    "Check pulleys and blocks for free movement, wear, alignment and secure fixing.",
+    "Confirm that the rope set runs smoothly without snagging, rubbing, slipping or uncontrolled movement.",
+    "Check that the load is suitable and correctly attached to the bar or line set.",
+    "Check that locking or securing arrangements hold the load safely.",
+    "Look for signs of unauthorised modification, missing parts, loose fixings or damaged operating lines.",
+    "Confirm that inspection records are available where required and defects have been actioned."
+  ]
+},
+
+        {
+  id: "flying_iron",
+  name: "Flying Iron",
+  category: "Lifting Equipment",
+  classId: "lifting_accessory",
+  description: "Iron or bracket used to attach a flown piece to a lifting line or bar.",
+  image: "images/flying_iron.webp",
+
+  equipmentInfo: [
+    "A flying iron is a fitting used to connect scenery, cloths, frames or other flown items to a line, bar or suspension system.",
+    "The flying iron, fixings, flown item, line and supporting system should be assessed as one load path.",
+    "Flying irons must be suitable for the weight, material and method of attachment of the flown item.",
+    "Correct fixing to the scenery or item is as important as the rating of the iron itself.",
+    "Loads should be balanced and secured to prevent twisting, slipping or accidental release."
+  ],
+
+  whatToCheck: [
+    "Check that the flying iron is suitable for the load and method of attachment.",
+    "Inspect the iron for cracks, bending, corrosion, distortion, worn holes or sharp edges.",
+    "Check bolts, screws, rivets, welds or other fixings for looseness, missing parts or damage.",
+    "Inspect the flown item where the iron is attached for splitting, cracking, weak material or movement.",
+    "Confirm that the line, shackle, hook or accessory connected to the iron is correctly fitted and suitable.",
+    "Check that the load is balanced and cannot rotate, slip or detach during use.",
+    "Look for signs of unauthorised modification, added holes, poor repairs or unsuitable fixings.",
+    "Remove from service if the attachment method or condition is uncertain."
+  ]
+},
+
+        {
+  id: "beam_clamp",
+  name: "Beam Clamp",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Clamp used to create a lifting point on a suitable beam.",
+  image: "images/beam_clamp.webp",
+
+  equipmentInfo: [
+    "A beam clamp is used to create a rated attachment point from a suitable structural beam or steel section.",
+    "The clamp must be compatible with the beam size, flange thickness, load direction and intended use.",
+    "The beam, clamp, fixing method and suspended load should be assessed as one complete load path.",
+    "Beam clamps should only be used within their stated WLL/SWL and in accordance with manufacturer instructions.",
+    "Where used for lifting or suspension, the supporting structure must be suitable for the imposed load."
+  ],
+
+  whatToCheck: [
+    "Check that the beam clamp is the correct type and rating for the application.",
+    "Confirm that the clamp is correctly fitted to a suitable beam or steel section.",
+    "Inspect the clamp body, jaws, spindle, bolts and locking parts for cracks, distortion, corrosion or wear.",
+    "Check that the clamp is seated squarely and cannot slip, rotate or loosen under load.",
+    "Confirm that the load direction is suitable for the clamp design.",
+    "Check that the WLL/SWL and identification markings are legible.",
+    "Look for signs of unauthorised modification, damaged threads, missing parts or incorrect fitting.",
+    "Remove from service if the rating, beam suitability or installation method is uncertain."
+  ]
+},
+
+        {
+  id: "round_slings",
+  name: "Round Slings",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Textile round slings used for wrapping or choking loads.",
+  image: "images/round_slings.webp",
+
+  equipmentInfo: [
+    "Round slings are textile lifting accessories used to connect, lift or suspend loads.",
+    "They must only be used within their stated WLL and in the correct configuration.",
+    "The sling material can be damaged by cuts, abrasion, heat, chemicals, UV exposure, sharp edges and contamination.",
+    "Round slings should be protected from sharp edges and unsuitable contact surfaces.",
+    "The sling colour, label and markings help identify capacity and traceability."
+  ],
+
+  whatToCheck: [
+    "Check that the sling label is present, legible and shows the correct WLL.",
+    "Inspect the outer sleeve for cuts, tears, abrasion, holes, stitching damage or exposed core fibres.",
+    "Check for chemical damage, heat damage, hardening, melting, contamination or UV degradation.",
+    "Check that the sling has not been knotted, shortened, twisted or misused.",
+    "Confirm that edge protection is used where the sling contacts sharp or abrasive surfaces.",
+    "Check that the sling configuration and angle are suitable for the load.",
+    "Remove from service if the label is missing or if internal damage is suspected.",
+    "Confirm that inspection records are available where required."
+  ]
+},
+
+        {
+  id: "web_slings",
+  name: "Web Slings",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Flat webbing slings used to support or lift loads.",
+  image: "images/web_slings.webp",
+
+  equipmentInfo: [
+    "Web slings are flat woven textile lifting accessories used to lift, support, choke or basket loads.",
+    "They must only be used within their stated WLL and in the correct lifting configuration.",
+    "The sling label is essential because it confirms the WLL, material, length, standard, manufacturer and traceability.",
+    "Web slings are vulnerable to cuts, edge damage, abrasion, heat, chemicals, UV exposure and contamination.",
+    "Flat webbing can be damaged very quickly by sharp edges or rough surfaces, so suitable edge protection should be used where required.",
+    "The method of use, sling angle and contact area can significantly affect the load on the sling.",
+    "Web slings should not be knotted, twisted, shortened, dragged under loads or used if their condition or identification is uncertain."
+  ],
+
+  whatToCheck: [
+    "Check that the sling label is present, legible and suitable for the intended use.",
+    "Confirm that the WLL, length and sling type are appropriate for the load and lifting configuration.",
+    "Inspect the full length of the webbing for cuts, tears, holes, fraying, abrasion, pulled threads or crushed areas.",
+    "Inspect the eyes, stitching and reinforced areas for broken stitching, wear, stretching or distortion.",
+    "Check for chemical damage, heat damage, melting, hardening, contamination, UV degradation or discolouration.",
+    "Check that the sling has not been knotted, twisted, shortened, overloaded or used in an unsuitable configuration.",
+    "Confirm that edge protection is fitted where the sling passes over sharp, rough or abrasive surfaces.",
+    "Check that the load is stable and that the sling angle does not overload the sling.",
+    "Remove from service if the label is missing, unreadable, detached or if the sling condition is uncertain.",
+    "Confirm that inspection records are available where required."
+  ]
+},
+
         {
   id: "line_array_suspension",
   name: "Line Array Suspension",
@@ -1440,7 +1798,8 @@ documents: [
     }
   ]
 },
-{
+
+        {
   id: "dee_shackles",
   name: "Dee Shackles",
   category: "Accessory",
@@ -1474,6 +1833,7 @@ images: [
     }
   ]
 },
+
         {
   id: "safety_bow_shackles",
   name: "Safety Bow Shackles",
@@ -1509,10 +1869,36 @@ images: [
     }
   ]
 },
-        { id: "half_coupler", name: "Half Coupler", category: "Accessory", classId: "lifting_accessory",
-          description: "Half Coupler used to connect tubes, truss or bars in rigging systems.", image: "images/half_coupler.webp" },
 
-{
+        {
+  id: "half_coupler",
+  name: "Half Coupler",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Half Coupler used to connect tubes, truss or bars in rigging systems.",
+  image: "images/half_coupler.webp",
+
+  equipmentInfo: [
+    "A half coupler is used to attach equipment or fittings to a suitable tube, bar or truss chord.",
+    "The coupler must be compatible with the tube diameter and rated for the intended load.",
+    "Half couplers are commonly used in entertainment rigging, lighting and scenic applications.",
+    "The coupler, bolt, wing nut or locking nut, tube and attached equipment should be considered together.",
+    "Half couplers should not be overloaded, modified or used on unsuitable tube."
+  ],
+
+  whatToCheck: [
+    "Check that the coupler is the correct size and rating for the tube or truss chord.",
+    "Inspect the coupler body for cracks, distortion, corrosion, wear or impact damage.",
+    "Check the bolt, nut, washer and hinge parts for damage, wear, missing parts or poor thread condition.",
+    "Confirm that the coupler closes correctly and sits squarely on the tube.",
+    "Check that the tube or chord is not damaged, crushed or unsuitable for clamping.",
+    "Confirm that the attached equipment is secure and correctly supported.",
+    "Check that safety bonds or secondary suspensions are fitted where required.",
+    "Remove from service if the rating, condition or compatibility is uncertain."
+  ]
+},
+
+        {
   id: "hanging_clamp",
   name: "Hanging Clamp with Eye Nut",
   category: "Accessory",
@@ -1549,7 +1935,7 @@ images: [
   ]
 },
 
-{
+        {
   id: "hanging_clamp_with_pink_eye",
   name: "Hanging Clamp with Pink Eye",
   category: "Accessory",
@@ -1586,99 +1972,770 @@ images: [
     }
   ]
 },
-        { id: "ceiling_saddle", name: "Ceiling Saddle", category: "Accessory", classId: "lifting_accessory",
-          description: "Ceiling saddle used to support bars or pipes from structural members.", image: "images/ceiling_saddle.webp" },
 
-        { id: "pipe_hanging_clamp", name: "Pipe Hanging Clamp", category: "Accessory", classId: "lifting_accessory",
-          description: "Clamp used for suspending pipe or bar from structure.", image: "images/pipe_hanging_clamp.webp" },
+        {
+  id: "ceiling_saddle",
+  name: "Ceiling Saddle",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Ceiling saddle used to support bars or pipes from structural members.",
+  image: "images/ceiling_saddle.webp",
 
-        { id: "pipe_wall_bracket", name: "Pipe Wall Bracket", category: "Accessory", classId: "general_support",
-          description: "Bracket used to fix a bar or pipe to a wall.", image: "images/pipe_wall_bracket.webp" },
+  equipmentInfo: [
+    "A ceiling saddle is a fixed support or suspension fitting used to attach bars, tracks, pipework or equipment to a ceiling or overhead structure.",
+    "The saddle and its fixings must be suitable for the load, structure and direction of loading.",
+    "The ceiling structure, saddle, fixings and suspended item should be assessed as one complete load path.",
+    "Ceiling saddles should only be installed into suitable material using appropriate fixings.",
+    "Any suspended load should remain within the rated capacity of the saddle and supporting structure."
+  ],
 
-        { id: "beam_trolley", name: "Lifting Beam Trolley", category: "Accessory", classId: "lifting_accessory",
-          description: "Trolley running on a beam to provide a movable lifting or suspension point.", image: "images/beam_trolley.webp" },
+  whatToCheck: [
+    "Check that the ceiling saddle is securely fixed and correctly aligned.",
+    "Inspect the saddle for cracks, distortion, corrosion, wear or signs of movement.",
+    "Check that all bolts, screws, anchors or fixings are present, tight and suitable.",
+    "Inspect the supporting structure for cracking, movement, corrosion or damage.",
+    "Confirm that the saddle is suitable for the load and direction of loading.",
+    "Check that any connected pipe, bar or track is secure and correctly supported.",
+    "Look for signs of unauthorised modification, added holes or non-standard repairs.",
+    "Seek competent advice if the structure, fixing type or rating is uncertain."
+  ]
+},
 
-        { id: "stand", name: "Lighting Stand", category: "Accessory", classId: "general_support",
-          description: "Stand or support used to hold equipment such as luminaires or projectors.", image: "images/stand.webp" },
+        {
+  id: "pipe_hanging_clamp",
+  name: "Pipe Hanging Clamp",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Clamp used for suspending pipe or bar from structure.",
+  image: "images/pipe_hanging_clamp.webp",
 
-        { id: "wedge_sockets", name: "Wedge Sockets", category: "Accessory", classId: "lifting_accessory",
-          description: "End terminations for wire ropes using a wedge socket fitting.", image: "images/wedge_sockets.webp" },
+  equipmentInfo: [
+    "A pipe hanging clamp is used to suspend or support pipe, tube, bar or similar equipment from a suitable structure.",
+    "The clamp must be compatible with the pipe or tube diameter and the intended load.",
+    "The clamp, pipe, fixings and supporting structure should be considered as one complete load path.",
+    "Pipe hanging clamps should only be used within their stated rating and intended configuration.",
+    "Incorrect tube size, poor seating or unsuitable loading can reduce the safety of the installation."
+  ],
 
-        { id: "wire_rope_clamps", name: "Wire Rope Clamps", category: "Accessory", classId: "lifting_accessory",
-          description: "Clamps used to form terminations in wire ropes where permitted.", image: "images/wire_rope_clamps.webp" },
+  whatToCheck: [
+    "Check that the clamp is the correct size and type for the pipe or tube.",
+    "Inspect the clamp body, bolts, nuts, threads and fixing points for wear, corrosion, cracks or distortion.",
+    "Confirm that the clamp closes correctly and grips the pipe or tube securely.",
+    "Check that the pipe, tube or bar is not crushed, cracked, distorted or unsuitable for clamping.",
+    "Check that all fixings are tight and correctly fitted.",
+    "Confirm that the load direction is suitable for the clamp design.",
+    "Look for signs of slipping, movement, overloading or unauthorised modification.",
+    "Remove from service or seek advice if rating or compatibility is uncertain."
+  ]
+},
 
-        { id: "hook_clamps", name: "Hook Clamps", category: "Accessory", classId: "lifting_accessory",
-          description: "Clamps used to attach equipment such as luminaires to bars or truss.", image: "images/hook_clamps.webp" },
+        {
+  id: "pipe_wall_bracket",
+  name: "Pipe Wall Bracket",
+  category: "Accessory",
+  classId: "general_support",
+  description: "Bracket used to fix a bar or pipe to a wall.",
+  image: "images/pipe_wall_bracket.webp",
 
-        { id: "boom_arms", name: "Boom Arm", category: "Accessory", classId: "lifting_accessory",
-          description: "Arms clamped to bars to carry side-lighting or other loads.", image: "images/boom_arms.webp" },
+  equipmentInfo: [
+    "A pipe wall bracket is used to support a pipe, bar or tube from a wall or vertical structure.",
+    "The wall, bracket, fixings and supported item should be assessed as one complete support system.",
+    "The bracket must be suitable for the load, projection, fixing surface and direction of loading.",
+    "Wall brackets should only be fixed into suitable structural material using appropriate fixings.",
+    "Any load added to the supported pipe or bar must remain within the capacity of the bracket and structure."
+  ],
 
-        { id: "u_bolt", name: "U Bolt", category: "Accessory", classId: "lifting_accessory",
-          description: "U-bolt used as a fixing or attachment point in rigging assemblies.", image: "images/u_bolt.webp" },
+  whatToCheck: [
+    "Check that the bracket is securely fixed to a suitable wall or structure.",
+    "Inspect the bracket for cracks, bending, corrosion, distortion or signs of overloading.",
+    "Check all fixings, bolts, anchors and washers for damage, looseness or missing parts.",
+    "Inspect the wall or supporting structure for cracking, movement, deterioration or damage.",
+    "Confirm that the supported pipe or bar is secure and correctly seated.",
+    "Check that the load has not changed or increased beyond the intended use.",
+    "Look for unauthorised modification, added holes, poor repairs or non-standard fixings.",
+    "Seek competent advice if the wall structure or fixing method is uncertain."
+  ]
+},
 
-        { id: "twisted_boom_arm", name: "Twisted Boom Arm", category: "Accessory", classId: "lifting_accessory",
-          description: "Boom arm arrangement allowing twisted or angled positions for mounting equipment.", image: "images/twisted_boom_arm.webp" },
+        {
+  id: "beam_trolley",
+  name: "Lifting Beam Trolley",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Trolley running on a beam to provide a movable lifting or suspension point.",
+  image: "images/beam_trolley.webp",
 
-        // General Equipment
-        { id: "gantry", name: "Gantry", category: "General Equipment", classId: "structural_support",
-          description: "Gantry structure used to support lifting machines, truss or loads.", image: "images/gantry.webp" },    
+  equipmentInfo: [
+    "A lifting beam trolley is used to travel along a suitable beam and provide a movable suspension point for lifting equipment.",
+    "The trolley must be compatible with the beam size, flange profile, load rating and intended use.",
+    "The trolley, beam, end stops, suspension point and lifting equipment should be considered as one complete lifting arrangement.",
+    "Beam trolleys should only be used within their stated WLL/SWL and manufacturer instructions.",
+    "The supporting beam must be suitable for both the load and trolley movement."
+  ],
 
-        { id: "pantograph", name: "Pantograph", category: "General Equipment", classId: "general_support",
-          description: "Pantograph used to support and position equipment such as luminaires or microphones.", image: "images/pantograph.webp" },
+  whatToCheck: [
+    "Check that the trolley is correctly rated and suitable for the beam size and profile.",
+    "Inspect trolley wheels, side plates, axles, pins, spacers and adjustment parts for wear, damage or distortion.",
+    "Check that the trolley runs smoothly along the beam without binding, excessive play or derailment risk.",
+    "Inspect the beam flange and running surface for wear, damage, corrosion or obstruction.",
+    "Check that end stops are fitted and secure where required.",
+    "Confirm that the suspension point and any attached hoist or accessory are correctly fitted.",
+    "Check for signs of side loading, overload, impact damage or unauthorised modification.",
+    "Confirm that inspection records are available and that defects have been actioned."
+  ]
+},
 
-        { id: "projector_bracket", name: "Projector Bracket", category: "General Equipment", classId: "general_support",
-          description: "Bracket used to mount projectors to ceilings, walls or bars.", image: "images/projector_bracket.webp" },
+        {
+  id: "stand",
+  name: "Lighting Stand",
+  category: "Accessory",
+  classId: "general_support",
+  description: "Stand or support used to hold equipment such as luminaires or projectors.",
+  image: "images/stand.webp",
 
-        { id: "projector_screen_bracket", name: "Projector Screen Suspension/Bracket", category: "General Equipment", classId: "general_support",
-          description: "Support or bracket used to suspend or mount projection screens.", image: "images/projector_screen_bracket.webp" },
+  equipmentInfo: [
+    "A lighting stand is a portable support used to hold luminaires, small bars or production equipment.",
+    "The stand must be suitable for the equipment weight, height, loading arrangement and floor condition.",
+    "The stand should only be used within its rated capacity and manufacturer instructions.",
+    "Stability is critical, especially when equipment is mounted high, offset or used in public areas.",
+    "Where required, additional ballast, outriggers or restraint should be used."
+  ],
 
-        { id: "studio_rail", name: "Studio Rail", category: "General Equipment", classId: "curtain_track",
-          description: "Studio or lighting rail used for suspending and moving equipment or soft goods.", image: "images/studio_rail.webp" },
+  whatToCheck: [
+    "Check that the stand is suitable for the equipment weight and intended height.",
+    "Inspect legs, tubes, collars, clamps, pins and locking mechanisms for damage, wear or missing parts.",
+    "Check that all locks, knobs, pins and height adjustments hold securely.",
+    "Confirm that the stand sits level and stable on the floor.",
+    "Check for bent tubes, cracks, corrosion, damaged threads or loose fittings.",
+    "Confirm that any mounted equipment is correctly attached and secured.",
+    "Check that cables do not create trip hazards or pull the stand over.",
+    "Do not use if the stand is unstable, overloaded, damaged or missing locking parts."
+  ]
+},
 
-        { id: "swivel_leg_bar", name: "Swivel Leg Bar", category: "General Equipment", classId: "structural_support",
-          description: "Bar with swivel legs providing a structural support for equipment.", image: "images/swivel_leg_bar.webp" },
+        {
+  id: "wedge_sockets",
+  name: "Wedge Sockets",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "End terminations for wire ropes using a wedge socket fitting.",
+  image: "images/wedge_sockets.webp",
 
-        // Aluminium Truss
-        { id: "box_truss", name: "Box Truss", category: "Aluminium Truss", classId: "structural_support",
-          description: "Box section aluminium truss used to support loads or form grids.", image: "images/box_truss.webp" },
+  equipmentInfo: [
+    "A wedge socket is used as a wire rope termination where the rope is secured by a wedge inside a socket body.",
+    "The socket, wedge, rope size and installation method must be compatible.",
+    "Correct assembly is essential, as incorrect rope routing or wedge fitting can significantly reduce safety.",
+    "The live rope and dead end must be positioned correctly according to manufacturer instructions.",
+    "Wedge sockets should be inspected as part of the complete wire rope and lifting arrangement."
+  ],
 
-        { id: "triangle_truss", name: "Triangle Truss", category: "Aluminium Truss", classId: "structural_support",
-          description: "Triangular aluminium truss used as a structural support or part of a grid.", image: "images/triangle_truss.webp" },
+  whatToCheck: [
+    "Check that the wedge socket is the correct size and type for the wire rope.",
+    "Inspect the socket body and wedge for cracks, distortion, corrosion, wear or impact damage.",
+    "Confirm that the wire rope is correctly seated and routed through the socket.",
+    "Check that the wedge is correctly fitted and fully seated.",
+    "Inspect the wire rope near the socket for broken wires, crushing, kinks, corrosion or wear.",
+    "Check that the dead end is secured in accordance with manufacturer instructions.",
+    "Look for signs of slippage, incorrect assembly or unauthorised modification.",
+    "Remove from service if the assembly or compatibility is uncertain."
+  ]
+},
 
-        { id: "ladder_truss", name: "Ladder Truss", category: "Aluminium Truss", classId: "structural_support",
-          description: "Ladder truss used as a light duty structural element or edge member.", image: "images/ladder_truss.webp" },
+        {
+  id: "wire_rope_clamps",
+  name: "Wire Rope Clamps",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Clamps used to form terminations in wire ropes where permitted.",
+  image: "images/wire_rope_clamps.webp",
 
-        { id: "box_truss_grid", name: "Box truss grid", category: "Aluminium Truss", classId: "structural_support",
-          description: "Grid built from box truss supporting multiple loads across an area.", image: "images/box_truss_grid.webp" },
+  equipmentInfo: [
+    "Wire rope clamps are used to secure wire rope terminations where permitted by the design and manufacturer guidance.",
+    "The clamp size, number, spacing and orientation must be correct for the rope diameter and application.",
+    "Incorrectly fitted clamps can reduce the strength of the termination significantly.",
+    "Wire rope clamps should not be used as a substitute for a properly designed termination unless specifically allowed.",
+    "Terminations should be assessed as part of the complete lifting or suspension arrangement."
+  ],
 
-        { id: "ladder_truss_grid", name: "Ladder truss grid", category: "Aluminium Truss", classId: "structural_support",
-          description: "Grid built from ladder truss for lighter duty applications.", image: "images/ladder_truss_grid.webp" },
+  whatToCheck: [
+    "Check that the clamp size matches the wire rope diameter.",
+    "Confirm that the correct number of clamps has been fitted.",
+    "Check that clamps are correctly oriented and spaced in accordance with manufacturer guidance.",
+    "Inspect clamp bodies, nuts, U-bolts and saddles for cracks, corrosion, distortion or damaged threads.",
+    "Check that nuts are tight and that there are no signs of slippage.",
+    "Inspect the wire rope around the termination for broken wires, crushing, kinks, corrosion or wear.",
+    "Look for incorrect mixed clamp types, missing thimbles or poor termination layout.",
+    "Remove from service or seek competent advice if the termination is uncertain."
+  ]
+},
 
-        { id: "triangle_truss_grid", name: "Triangle truss grid", category: "Aluminium Truss", classId: "structural_support",
-          description: "Grid built from triangle truss supporting distributed loads.", image: "images/triangle_truss_grid.webp" },
+        {
+  id: "hook_clamps",
+  name: "Hook Clamps",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Clamps used to attach equipment such as luminaires to bars or truss.",
+  image: "images/hook_clamps.webp",
 
-        { id: "truss_adaptor", name: "Truss Adaptor", category: "Aluminium Truss", classId: "lifting_accessory",
-          description: "Adaptor used to connect truss to lifting devices such as stands or hoists.", image: "images/truss_adaptor.webp" },
+  equipmentInfo: [
+    "A hook clamp is used to attach equipment to a suitable bar, tube or truss chord.",
+    "It must be compatible with the tube diameter, load rating and intended use.",
+    "Hook clamps are commonly used for luminaires, accessories or lightweight production equipment.",
+    "The clamp, tube, attached equipment and any secondary suspension should be considered together.",
+    "Hook clamps should only be used within their rated capacity and manufacturer instructions."
+  ],
 
-        // Curtain Track
-        { id: "doughty_six_curtain_track", name: "Doughty Six curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Doughty Six curtain track system for soft goods.", image: "images/doughty_six_curtain_track.webp" },
+  whatToCheck: [
+    "Check that the hook clamp is the correct size and rating for the application.",
+    "Inspect the hook body, bolt, nut, washer and thread for cracks, corrosion, distortion or wear.",
+    "Check that the clamp seats correctly on the tube or bar.",
+    "Confirm that the tube or bar is suitable and not damaged or overloaded.",
+    "Check that the attached equipment is secure and correctly supported.",
+    "Confirm that secondary suspension is fitted where required.",
+    "Look for signs of slipping, loose fittings, damaged threads or unauthorised modification.",
+    "Remove from service if the clamp condition, rating or compatibility is uncertain."
+  ]
+},
 
-        { id: "doughty_six_overlap_curtain_track", name: "Doughty Six overlap curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Doughty Six overlap track with overlapping curtains.", image: "images/doughty_six_overlap_curtain_track.webp", hideFromGallery: true },
+        {
+  id: "boom_arms",
+  name: "Boom Arm",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Arms clamped to bars to carry side-lighting or other loads.",
+  image: "images/boom_arms.webp",
 
-        { id: "doughty_rail_curtain_track", name: "Doughty Rail curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Doughty Rail curtain track system.", image: "images/doughty_rail_curtain_track.webp" },
+  equipmentInfo: [
+    "A boom arm is a projecting support used to position luminaires, speakers, scenic items or other approved equipment away from a main support.",
+    "The boom arm creates leverage, so the support, fixing and base structure must be suitable for the additional moment load.",
+    "The boom arm must only be used within its rated capacity and intended configuration.",
+    "Loads should be kept as close to the intended fixing point as possible unless the arm is designed for offset loading.",
+    "The boom arm, clamp, fixing, tube and supported equipment should be assessed as one complete support arrangement."
+  ],
 
-        { id: "doughty_rail_overlap_curtain_track", name: "Doughty Rail overlap curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Doughty Rail overlap curtain track system.", image: "images/doughty_rail_overlap_curtain_track.webp", hideFromGallery: true },
+  whatToCheck: [
+    "Check that the boom arm is suitable for the load, projection and application.",
+    "Inspect the arm for bending, twisting, cracks, corrosion, dents or signs of overloading.",
+    "Check all clamps, bolts, collars, pins and locking parts for damage, looseness or missing components.",
+    "Confirm that the supporting tube, wall, structure or stand is suitable for the offset load.",
+    "Check that the equipment attached to the boom arm is secure and correctly positioned.",
+    "Confirm that safety bonds or secondary suspensions are fitted where required.",
+    "Look for signs of movement, rotation, slipping or unauthorised modification.",
+    "Remove from service if the boom arm is bent, overloaded or unstable."
+  ]
+},
 
-        { id: "hall_t400_curtain_track", name: "Hall Stage T400 curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Hall Stage T400 curtain track system.", image: "images/hall_t400_curtain_track.webp" },
+        {
+  id: "u_bolt",
+  name: "U Bolt",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "U-bolt used as a fixing or attachment point in rigging assemblies.",
+  image: "images/u_bolt.webp",
 
-        { id: "hall_t400_overlap_curtain_track", name: "Hall Stage T400 overlap curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Hall Stage T400 overlap curtain track.", image: "images/hall_t400_overlap_curtain_track.webp",
-  hideFromGallery: true },
+  equipmentInfo: [
+    "A U bolt is a fixing component used to clamp, restrain or attach equipment to a tube, bar, beam or other structure.",
+    "The U bolt must be suitable for the load, tube size, material and direction of loading.",
+    "U bolts should not be used for lifting or suspension unless specifically designed and rated for that purpose.",
+    "The U bolt, nuts, washers, saddle plate and supporting structure should be considered together.",
+    "Incorrect size, poor seating or over-tightening can damage the supported tube or reduce capacity."
+  ],
+
+  whatToCheck: [
+    "Check that the U bolt is the correct size, material and rating for the application.",
+    "Inspect the U bolt for bending, cracks, corrosion, thread damage or wear.",
+    "Check that nuts and washers are present, correctly fitted and tight.",
+    "Inspect the supported tube or structure for crushing, distortion, corrosion or damage.",
+    "Confirm that the U bolt is seated correctly and not pulling at an unsuitable angle.",
+    "Look for signs of slipping, movement, overloading or unauthorised modification.",
+    "Check that the U bolt is not being used for lifting unless it is designed and rated for that use.",
+    "Remove from service if there is uncertainty over rating, condition or suitability."
+  ]
+},
+
+        {
+  id: "twisted_boom_arm",
+  name: "Twisted Boom Arm",
+  category: "Accessory",
+  classId: "lifting_accessory",
+  description: "Boom arm arrangement allowing twisted or angled positions for mounting equipment.",
+  image: "images/twisted_boom_arm.webp",
+
+  equipmentInfo: [
+    "A twisted boom arm is a projecting support designed to position equipment at an offset or rotated angle from the main support.",
+    "The twist or offset creates additional loading effects, so the fixing and support structure must be suitable.",
+    "The arm must only be used within its intended rating and manufacturer guidance.",
+    "Loads should be suitable for the arm geometry and should not create excessive leverage or twisting forces.",
+    "The arm, clamp, support tube and attached equipment should be assessed as one complete support arrangement."
+  ],
+
+  whatToCheck: [
+    "Check that the twisted boom arm is suitable for the load, angle and intended application.",
+    "Inspect the arm for cracks, bending, twisting beyond design, corrosion, dents or signs of overloading.",
+    "Check clamps, bolts, collars, pins and locking parts for damage, looseness or missing components.",
+    "Confirm that the supporting tube, bar, wall or stand is suitable for the offset loading.",
+    "Check that attached equipment is secure and correctly positioned.",
+    "Confirm that safety bonds or secondary suspensions are fitted where required.",
+    "Look for signs of slipping, rotation, movement or unauthorised modification.",
+    "Remove from service if the arm is distorted, unstable, overloaded or incorrectly fitted."
+  ]
+},
+
+        {
+  id: "gantry",
+  name: "Gantry",
+  category: "General Equipment",
+  classId: "structural_support",
+  description: "Gantry structure used to support lifting machines, truss or loads.",
+  image: "images/gantry.webp",
+
+  equipmentInfo: [
+    "A gantry is a structural support system used to support, suspend or provide access around equipment, scenery, lighting, sound or production installations.",
+    "The gantry structure, fixings, access points, guardrails, platforms and any suspended loads should be considered as one complete system.",
+    "Any load applied to a gantry must remain within the designed Safe Working Load / Working Load Limit and any site-specific restrictions.",
+    "Gantry systems may be fixed, temporary or demountable, and their suitability depends on design, installation and use.",
+    "Only competent persons should inspect, load, modify or approve changes to a gantry arrangement."
+  ],
+
+  whatToCheck: [
+    "Check that the gantry is stable, secure and free from obvious movement or distortion.",
+    "Inspect main structural members for cracks, corrosion, bending, dents, impact damage or signs of overloading.",
+    "Check all bolts, pins, welds, joints, brackets and fixings for looseness, damage, corrosion or missing components.",
+    "Check platforms, walkways, access points, ladders, guardrails and toe boards where fitted.",
+    "Confirm that any suspended loads are correctly attached and within the gantry’s rated capacity.",
+    "Check that load markings, identification or site-specific limitations are available where required.",
+    "Look for signs of unauthorised modification, added holes, non-standard repairs or changes to the original design.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "pantograph",
+  name: "Pantograph",
+  category: "General Equipment",
+  classId: "general_support",
+  description: "Pantograph used to support and position equipment such as luminaires or microphones.",
+  image: "images/pantograph.webp",
+
+  equipmentInfo: [
+    "A pantograph is an extendable suspension device used to raise, lower or position equipment such as luminaires, microphones, cameras or other production items.",
+    "The pantograph mechanism, suspension point, springs or counterbalance, cables and attached equipment should be assessed as one complete arrangement.",
+    "The pantograph must only be used within its rated capacity and intended travel range.",
+    "Correct balancing and smooth movement are important to prevent uncontrolled travel or instability.",
+    "Any attached equipment should be suitable for the pantograph and secured against accidental release."
+  ],
+
+  whatToCheck: [
+    "Check that the pantograph is correctly rated for the attached equipment.",
+    "Inspect the scissor arms, pivots, springs, cables, fixings and suspension point for wear, cracks, distortion or corrosion.",
+    "Check that the pantograph moves smoothly through its travel without sticking, snatching or uncontrolled movement.",
+    "Check that locking, braking or friction devices operate correctly where fitted.",
+    "Confirm that the attached equipment is securely fixed and correctly balanced.",
+    "Check any cables for strain, trapping, abrasion or poor routing during movement.",
+    "Look for signs of overloading, bent arms, loose pivots, missing fasteners or unauthorised modification.",
+    "Remove from service if movement is unstable, uncontrolled or if the condition is uncertain."
+  ]
+},
+
+        {
+  id: "projector_bracket",
+  name: "Projector Bracket",
+  category: "General Equipment",
+  classId: "general_support",
+  description: "Bracket used to mount projectors to ceilings, walls or bars.",
+  image: "images/projector_bracket.webp",
+
+  equipmentInfo: [
+    "A projector bracket is a fixed or adjustable support used to mount a projector to a ceiling, wall, frame, truss or other suitable structure.",
+    "The bracket, projector, fixings, safety suspension and supporting structure should be considered as one complete load path.",
+    "The bracket must be suitable for the weight, fixing pattern and orientation of the projector.",
+    "Any adjustable parts should be locked off to prevent movement during use.",
+    "Where required, a secondary suspension or safety bond should be fitted to protect against accidental failure."
+  ],
+
+  whatToCheck: [
+    "Check that the bracket is suitable for the projector weight and fixing arrangement.",
+    "Inspect the bracket body, arms, plates, joints and adjustment points for cracks, bending, corrosion or wear.",
+    "Check that all bolts, screws, washers, locking nuts and fixings are present and tight.",
+    "Confirm that the projector is securely attached to the bracket.",
+    "Inspect the supporting ceiling, wall, frame, truss or structure for damage, movement or unsuitable fixings.",
+    "Check that any secondary suspension or safety bond is fitted correctly where required.",
+    "Check that cables are supported and not pulling on the projector or bracket.",
+    "Look for signs of unauthorised modification, loose parts, missing fixings or incorrect installation."
+  ]
+},
+
+        {
+  id: "projector_screen_bracket",
+  name: "Projector Screen Suspension/Bracket",
+  category: "General Equipment",
+  classId: "general_support",
+  description: "Support or bracket used to suspend or mount projection screens.",
+  image: "images/projector_screen_bracket.webp",
+
+  equipmentInfo: [
+    "A projector screen suspension or bracket is used to support a fixed, manual or motorised projection screen.",
+    "The screen, brackets, suspension points, fixings and supporting structure should be assessed as one complete load path.",
+    "Motorised screens may also include moving parts, limit settings, controls and electrical components.",
+    "The screen must only be supported from suitable structural points and within the manufacturer’s installation guidance.",
+    "Any change in screen size, weight, mounting position or operation should be assessed before use."
+  ],
+
+  whatToCheck: [
+    "Check that the screen and brackets are securely fixed to a suitable structure.",
+    "Inspect brackets, suspension points, bolts, anchors, clamps and fixings for damage, looseness, corrosion or missing parts.",
+    "Check the screen casing or frame for distortion, cracks, movement or signs of impact damage.",
+    "Operate the screen where safe to do so and check for smooth travel, abnormal noise, jamming or uneven movement.",
+    "Check cables, controls, limit settings and electrical containment where applicable.",
+    "Confirm that any safety bonds, secondary supports or retaining devices are fitted where required.",
+    "Look for signs of overloading, poor alignment, unauthorised modification or unsuitable fixings.",
+    "Remove from service or isolate if the screen movement is unsafe or if the support condition is uncertain."
+  ]
+},
+
+        {
+  id: "studio_rail",
+  name: "Studio Rail",
+  category: "General Equipment",
+  classId: "curtain_track",
+  description: "Studio or lighting rail used for suspending and moving equipment or soft goods.",
+  image: "images/studio_rail.webp",
+
+  equipmentInfo: [
+    "Studio rail is a fixed or suspended rail system used to support and position lighting, pantographs, curtains, scenery or production equipment.",
+    "The rail, suspension points, runners, end stops, brackets and supporting structure should be considered as one complete system.",
+    "Loads should only be applied within the rated capacity of the rail and its support arrangement.",
+    "Moving components such as runners, trolleys or pantographs must be compatible with the rail system.",
+    "The system should remain level, secure and free from obstruction throughout its working travel."
+  ],
+
+  whatToCheck: [
+    "Check that the studio rail is securely fixed or suspended and correctly aligned.",
+    "Inspect rail sections for bending, twisting, cracks, corrosion, damaged running surfaces or signs of overloading.",
+    "Check all brackets, suspension rods, clamps, bolts and fixings for looseness, damage or missing parts.",
+    "Inspect runners, trolleys, carriers or moving fittings for wear, damage and smooth movement.",
+    "Check that end stops are fitted and secure where required.",
+    "Confirm that attached equipment is correctly fitted and within the rail system’s rated capacity.",
+    "Check for cable snagging, obstructions, poor alignment or excessive movement.",
+    "Confirm that inspection records are available and defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "swivel_leg_bar",
+  name: "Swivel Leg Bar",
+  category: "General Equipment",
+  classId: "structural_support",
+  description: "Bar with swivel legs providing a structural support for equipment.",
+  image: "images/swivel_leg_bar.webp",
+
+  equipmentInfo: [
+    "A swivel leg bar is a support bar with adjustable or swivelling legs used to support equipment, scenery, drapes or production items.",
+    "The bar, legs, locking mechanisms, fixings and supported load should be considered together.",
+    "The equipment must only be used within its intended load capacity and configuration.",
+    "Stability depends on correct leg positioning, locking and the condition of the floor or support surface.",
+    "Any attached equipment should be evenly distributed where possible and secured against movement."
+  ],
+
+  whatToCheck: [
+    "Check that the swivel leg bar is suitable for the load and intended use.",
+    "Inspect the bar and legs for bending, dents, cracks, corrosion, distortion or signs of overloading.",
+    "Check hinges, pivots, locking pins, collars, clamps and adjustment points for wear, looseness or missing parts.",
+    "Confirm that the legs lock securely and the unit stands stable without rocking or leaning.",
+    "Check that the supported equipment is correctly attached and evenly distributed where possible.",
+    "Inspect the floor or support surface for suitability and stability.",
+    "Look for signs of unauthorised modification, damaged threads, missing fasteners or poor repairs.",
+    "Do not use if the bar is unstable, damaged or if locking parts do not secure properly."
+  ]
+},
+
+        {
+  id: "box_truss",
+  name: "Box Truss",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Box section aluminium truss used to support loads or form grids.",
+  image: "images/box_truss.webp",
+
+  equipmentInfo: [
+    "Box truss is a four-chord aluminium truss section used to support lighting, sound, scenic or production equipment.",
+    "The truss, connectors, suspension points, bracing and supporting structure should be assessed as one complete load path.",
+    "The truss must only be used within its rated capacity, span limits and manufacturer guidance.",
+    "Loads should be correctly distributed and attached using suitable clamps or suspension methods.",
+    "Any damage, incorrect connection or unauthorised modification can significantly reduce the truss capacity."
+  ],
+
+  whatToCheck: [
+    "Check that the truss section is suitable for the span, load and intended use.",
+    "Inspect chords, diagonals and end plates for cracks, dents, bending, corrosion or impact damage.",
+    "Check welded joints for cracking, separation or signs of fatigue.",
+    "Inspect connectors, pins, bolts, spigots, clips and locking parts for damage, wear or missing components.",
+    "Check that loads are attached correctly and do not exceed the rated capacity or point-load limits.",
+    "Confirm that the truss is correctly supported or suspended from suitable points.",
+    "Look for signs of unauthorised drilling, grinding, welding, repair or modification.",
+    "Remove from service if the truss is damaged, distorted or if its rating is uncertain."
+  ]
+},
+
+        {
+  id: "triangle_truss",
+  name: "Triangle Truss",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Triangular aluminium truss used as a structural support or part of a grid.",
+  image: "images/triangle_truss.webp",
+
+  equipmentInfo: [
+    "Triangle truss is a three-chord aluminium truss section used to support lighting, scenic or production equipment.",
+    "The truss, connectors, suspension points, bracing and supporting structure should be assessed as one complete load path.",
+    "The truss must only be used within its rated capacity, span limits and manufacturer guidance.",
+    "Loads should be correctly distributed and attached using suitable clamps or suspension methods.",
+    "The orientation of triangle truss is important and must follow manufacturer guidance for the intended loading arrangement.",
+    "Incorrect orientation, damaged members or poor connections can reduce the safe capacity of the system."
+  ],
+
+  whatToCheck: [
+    "Check that the truss section is suitable for the span, load and intended use.",
+    "Inspect chords, diagonals and end plates for cracks, dents, bending, corrosion or impact damage.",
+    "Check welded joints for cracking, separation or signs of fatigue.",
+    "Inspect connectors, pins, bolts, spigots, clips and locking parts for damage, wear or missing components.",
+    "Confirm that the truss is installed in the correct orientation for the loading arrangement.",
+    "Check that loads are attached correctly and do not exceed the rated capacity or point-load limits.",
+    "Confirm that the truss is correctly supported or suspended from suitable points.",
+    "Look for signs of unauthorised drilling, grinding, welding, repair or modification.",
+    "Remove from service if the truss is damaged, distorted or if its rating is uncertain."
+  ]
+},
+
+        {
+  id: "ladder_truss",
+  name: "Ladder Truss",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Ladder truss used as a light duty structural element or edge member.",
+  image: "images/ladder_truss.webp",
+
+  equipmentInfo: [
+    "Ladder truss is a two-chord aluminium truss section used to support lighting, scenic or production equipment.",
+    "The truss, connectors, suspension points, bracing and supporting structure should be assessed as one complete load path.",
+    "The truss must only be used within its rated capacity, span limits and manufacturer guidance.",
+    "Loads should be correctly distributed and attached using suitable clamps or suspension methods.",
+    "It is generally more direction-sensitive than box truss, so orientation and loading must follow manufacturer guidance.",
+    "Loads should be applied in a way that does not twist or overload the truss section."
+  ],
+
+  whatToCheck: [
+    "Check that the truss section is suitable for the span, load and intended use.",
+    "Inspect chords, diagonals and end plates for cracks, dents, bending, corrosion or impact damage.",
+    "Check welded joints for cracking, separation or signs of fatigue.",
+    "Inspect connectors, pins, bolts, spigots, clips and locking parts for damage, wear or missing components.",
+    "Confirm that the truss is correctly oriented and supported.",
+    "Check that attached loads are suitable and do not introduce excessive twist or side loading.",
+    "Check that loads are attached correctly and do not exceed the rated capacity or point-load limits.",
+    "Confirm that the truss is correctly supported or suspended from suitable points.",
+    "Look for signs of unauthorised drilling, grinding, welding, repair or modification.",
+    "Remove from service if the truss is damaged, distorted or if its rating is uncertain."
+  ]
+},
+
+        {
+  id: "box_truss_grid",
+  name: "Box truss grid",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Grid built from box truss supporting multiple loads across an area.",
+  image: "images/box_truss_grid.webp",
+
+  equipmentInfo: [
+    "A box truss grid is a structural arrangement made from box truss sections used to support lighting, sound, scenic or production equipment.",
+    "The grid should be assessed as a complete system, including truss sections, corners, connectors, suspension points, bracing and supporting structure.",
+    "The grid must only be loaded within the design capacity, span limits, point-load limits and manufacturer guidance.",
+    "Loads should be distributed appropriately and attached using suitable clamps or rigging methods.",
+    "Any change to layout, support points, loading or configuration should be checked by a competent person."
+  ],
+
+  whatToCheck: [
+    "Check that the grid is correctly assembled, supported and suitable for the intended loading.",
+    "Inspect truss sections, chords, diagonals, corners and connection points for cracks, dents, bending, corrosion or impact damage.",
+    "Check all connectors, pins, bolts, spigots, clips and locking parts for correct fitting and condition.",
+    "Confirm that suspension points and supporting structures are suitable and show no signs of movement or damage.",
+    "Check that loads are correctly attached and distributed within the grid capacity.",
+    "Look for missing bracing, unsupported spans, overloaded areas or excessive deflection.",
+    "Check for unauthorised drilling, welding, grinding, repair or modification.",
+    "Confirm that inspection records and any design/loading information are available."
+  ]
+},
+
+        {
+  id: "ladder_truss_grid",
+  name: "Ladder truss grid",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Grid built from ladder truss for lighter duty applications.",
+  image: "images/ladder_truss_grid.webp",
+
+  equipmentInfo: [
+    "A ladder truss grid is a structural arrangement made from ladder truss sections used to support lighting, scenic or production equipment.",
+    "Because ladder truss is direction-sensitive, the grid layout, orientation and load direction must be suitable for the intended use.",
+    "The grid should be assessed as a complete system including truss sections, connectors, corners, suspension points and supporting structure.",
+    "Loads must remain within the design capacity, span limits and manufacturer guidance.",
+    "Any change to support points, load position or configuration should be assessed by a competent person."
+  ],
+
+  whatToCheck: [
+    "Check that the ladder truss grid is correctly assembled, oriented and supported.",
+    "Inspect chords, cross members, corners and connection points for cracks, dents, bends, corrosion or impact damage.",
+    "Check welded joints for cracking, separation or fatigue.",
+    "Inspect all connectors, pins, bolts, spigots, clips and locking parts for correct fitting and condition.",
+    "Confirm that loads are correctly attached and do not create excessive twisting or side loading.",
+    "Check support points and suspension points for suitability, damage or movement.",
+    "Look for unsupported spans, excessive deflection, missing parts or unauthorised modification.",
+    "Remove from service or seek competent advice if configuration or rating information is uncertain."
+  ]
+},
+
+        {
+  id: "triangle_truss_grid",
+  name: "Triangle truss grid",
+  category: "Aluminium Truss",
+  classId: "structural_support",
+  description: "Grid built from triangle truss supporting distributed loads.",
+  image: "images/triangle_truss_grid.webp",
+
+  equipmentInfo: [
+    "A triangle truss grid is a structural arrangement made from triangle truss sections used to support lighting, scenic or production equipment.",
+    "The orientation of triangle truss within the grid is important and must suit the intended loading arrangement.",
+    "The grid should be assessed as a complete system including truss sections, connectors, corners, suspension points and supporting structure.",
+    "Loads must remain within the design capacity, span limits, point-load limits and manufacturer guidance.",
+    "Any change to loading, layout, support points or orientation should be checked by a competent person."
+  ],
+
+  whatToCheck: [
+    "Check that the triangle truss grid is correctly assembled, oriented and supported.",
+    "Inspect chords, diagonals, corners and connection points for cracks, dents, bending, corrosion or impact damage.",
+    "Check welded joints for cracking, separation or fatigue.",
+    "Inspect all connectors, pins, bolts, spigots, clips and locking parts for correct fitting and condition.",
+    "Confirm that loads are correctly attached and suitable for the grid orientation.",
+    "Check support points and suspension points for suitability, movement or damage.",
+    "Look for excessive deflection, unsupported spans, missing components or unauthorised modification.",
+    "Remove from service or seek competent advice if the configuration or rating is uncertain."
+  ]
+},
+
+        {
+  id: "truss_adaptor",
+  name: "Truss Adaptor",
+  category: "Aluminium Truss",
+  classId: "lifting_accessory",
+  description: "Adaptor used to connect truss to lifting devices such as stands or hoists.",
+  image: "images/truss_adaptor.webp",
+
+  equipmentInfo: [
+    "A truss adaptor is used to connect, support or interface truss with another item such as a stand, hoist, bracket, base, clamp or suspension point.",
+    "The adaptor must be compatible with the truss type, chord size, connection method and load direction.",
+    "The adaptor, truss, fixings, support point and attached equipment should be assessed as one complete load path.",
+    "Truss adaptors must only be used within their stated WLL/SWL and manufacturer guidance.",
+    "Incorrect adaptor selection or fitting can overload the truss, support or connection point."
+  ],
+
+  whatToCheck: [
+    "Check that the truss adaptor is the correct type and rating for the truss and application.",
+    "Inspect the adaptor body, plates, tubes, welds and fixing points for cracks, distortion, corrosion or wear.",
+    "Check all bolts, pins, clips, clamps and locking parts for damage, correct fitting and missing components.",
+    "Confirm that the adaptor is compatible with the truss chord size and connection method.",
+    "Check that the load direction is suitable and does not introduce unintended bending or twisting.",
+    "Inspect the connected truss and support point for damage, crushing or signs of overload.",
+    "Look for unauthorised modification, drilled holes, poor repairs or non-standard parts.",
+    "Remove from service if rating, compatibility or condition is uncertain."
+  ]
+},
+
+        {
+  id: "doughty_six_curtain_track",
+  name: "Doughty Six curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Doughty Six curtain track system for soft goods.",
+  image: "images/doughty_six_curtain_track.webp",
+
+  equipmentInfo: [
+    "Doughty Six curtain track is a stage curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "doughty_rail_curtain_track",
+  name: "Doughty Rail curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Doughty Rail curtain track system.",
+  image: "images/doughty_rail_curtain_track.webp",
+
+  equipmentInfo: [
+    "Doughty Rail curtain track is a stage or venue curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "hall_t400_curtain_track",
+  name: "Hall Stage T400 curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Hall Stage T400 curtain track system.",
+  image: "images/hall_t400_curtain_track.webp",
+
+  equipmentInfo: [
+    "Hall Stage T400 curtain track is a heavy-duty stage curtain track system used to support and operate larger curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
 
         {
   id: "hall_t60_curtain_track",
@@ -1768,41 +2825,295 @@ whatToCheck: [
 ]
 },
 
+        {
+  id: "triple_e_2way_curtain_track",
+  name: "Triple E 2-way curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Triple E 2-way curtain track system.",
+  image: "images/triple_e_2way_curtain_track.webp",
 
-        { id: "hall_t60_overlap_curtain_track", name: "Hall Stage T60 overlap curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Hall Stage T60 overlap curtain track.", image: "images/hall_t60_overlap_curtain_track.webp",
-  hideFromGallery: true },
+  equipmentInfo: [
+    "Triple E 2-way curtain track is a curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
 
-        { id: "triple_e_2way_curtain_track", name: "Triple E 2-way curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Triple E 2-way curtain track system.", image: "images/triple_e_2way_curtain_track.webp" },
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
 
-        { id: "triple_e_erail_curtain_track", name: "Triple E E-rail curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Triple E E-rail curtain track system.", image: "images/triple_e_erail_curtain_track.webp" },
+        {
+  id: "triple_e_erail_curtain_track",
+  name: "Triple E E-rail curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Triple E E-rail curtain track system.",
+  image: "images/triple_e_erail_curtain_track.webp",
 
-        { id: "triple_e_unitrack_curtain_track", name: "Triple E Unitrack curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Triple E Unitrack curtain track system.", image: "images/triple_e_unitrack_curtain_track.webp" },
+  equipmentInfo: [
+    "Triple E E-Rail curtain track is a stage curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
 
-        { id: "triple_e_unibeam_curtain_track", name: "Triple E Unibeam curtain track", category: "Curtain Track", classId: "curtain_track",
-          description: "Triple E Unibeam curtain track system.", image: "images/triple_e_unibeam_curtain_track.webp" },
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
 
-        { id: "stage_track_easy_track", name: "Stage Track Easy Track", category: "Curtain Track", classId: "curtain_track",
-          description: "Stage Track Easy curtain track system.", image: "images/stage_track_easy_track.webp" },
+        {
+  id: "triple_e_unitrack_curtain_track",
+  name: "Triple E Unitrack curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Triple E Unitrack curtain track system.",
+  image: "images/triple_e_unitrack_curtain_track.webp",
 
-        { id: "stage_track_easy_track_lite", name: "Stage Track Easy Track Lite", category: "Curtain Track", classId: "curtain_track",
-          description: "Light duty Stage Track Easy Track Lite system.", image: "images/stage_track_easy_track_lite.webp" },
+  equipmentInfo: [
+    "Triple E Unitrack curtain track is a stage curtain track system used to support and operate curtains, scenery or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
 
-        { id: "stage_track_sta", name: "Stage Track STA", category: "Curtain Track", classId: "curtain_track",
-          description: "Stage Track STA curtain track system.", image: "images/stage_track_sta.webp" },
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
 
-        { id: "stage_track_stb", name: "Stage Track STB", category: "Curtain Track", classId: "curtain_track",
-          description: "Stage Track STB curtain track system.", image: "images/stage_track_stb.webp" },
+        {
+  id: "triple_e_unibeam_curtain_track",
+  name: "Triple E Unibeam curtain track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Triple E Unibeam curtain track system.",
+  image: "images/triple_e_unibeam_curtain_track.webp",
 
-        { id: "stage_track_stc", name: "Stage Track STC", category: "Curtain Track", classId: "curtain_track",
-          description: "Stage Track STC curtain track system.", image: "images/stage_track_stc.webp" },
+  equipmentInfo: [
+    "Triple E Unibeam curtain track is a heavier-duty track or beam system used to support and operate curtains, scenery or production equipment.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
 
-        // Lighting Bars
-        { id: "bar_48mm_plain_steel", name: "48mm OD Plain Steel Bar", category: "Lighting Bar", classId: "structural_support",
-          description: "48mm diameter plain steel lighting or suspension bar.", image: "images/bar_48mm_plain_steel.webp" },
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "stage_track_easy_track",
+  name: "Stage Track Easy Track",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Stage Track Easy curtain track system.",
+  image: "images/stage_track_easy_track.webp",
+
+  equipmentInfo: [
+    "Stage Track Easy Track is a curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "stage_track_easy_track_lite",
+  name: "Stage Track Easy Track Lite",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Light duty Stage Track Easy Track Lite system.",
+  image: "images/stage_track_easy_track_lite.webp",
+
+  equipmentInfo: [
+    "Stage Track Easy Track Lite is a lighter-duty curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "stage_track_sta",
+  name: "Stage Track STA",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Stage Track STA curtain track system.",
+  image: "images/stage_track_sta.webp",
+
+  equipmentInfo: [
+    "Stage Track STA is a curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "stage_track_stb",
+  name: "Stage Track STB",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Stage Track STB curtain track system.",
+  image: "images/stage_track_stb.webp",
+
+  equipmentInfo: [
+    "Stage Track STB is a curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "stage_track_stc",
+  name: "Stage Track STC",
+  category: "Curtain Track",
+  classId: "curtain_track",
+  description: "Stage Track STC curtain track system.",
+  image: "images/stage_track_stc.webp",
+
+  equipmentInfo: [
+    "Stage Track STC is a curtain track system used to support and operate curtains, drapes or soft goods.",
+    "The track, runners, brackets, joints, suspension points and supporting structure should be considered as one complete system.",
+    "The track should only be used within the manufacturer’s recommended load capacity and installation guidance.",
+    "Curtain loads should be distributed correctly using suitable runners, carriers or hooks.",
+    "Any bends, overlaps, cord operation or motorised operation should be assessed as part of the complete installation."
+  ],
+
+  whatToCheck: [
+    "Check that the curtain track is securely fixed or suspended along its full length.",
+    "Inspect the track for bending, dents, twisting, cracks, corrosion or damaged running surfaces.",
+    "Check brackets, suspension rods, clamps, bolts and fixings for looseness, corrosion, distortion or missing parts.",
+    "Check that all joints are aligned and securely fixed so runners can pass smoothly.",
+    "Inspect runners, carriers, hooks and operating components for wear, damage, missing parts or poor movement.",
+    "Operate the curtain where safe to do so and check for smooth travel, jamming, abnormal noise or derailing.",
+    "Check that curtains or drapes are correctly attached and that the load is evenly distributed where possible.",
+    "Look for signs of overloading, unauthorised modification, damaged stops or unsuitable fixings.",
+    "Confirm that inspection records are available and that any defects have been recorded and actioned."
+  ]
+},
+
+        {
+  id: "bar_48mm_plain_steel",
+  name: "48mm OD Plain Steel Bar",
+  category: "Lighting Bar",
+  classId: "structural_support",
+  description: "48mm diameter plain steel lighting or suspension bar.",
+  image: "images/bar_48mm_plain_steel.webp",
+
+  equipmentInfo: [
+    "A 48mm OD plain steel bar is commonly used as a lighting or suspension bar for luminaires and other approved production equipment.",
+    "The bar should only be loaded within its designed Safe Working Load / Working Load Limit and any site-specific loading limits.",
+    "The bar, suspension points, brackets, clamps, fixings and supporting structure should be considered as one complete load path.",
+    "Loads should be evenly distributed where possible, and concentrated loads should be checked against the bar design and support arrangement.",
+    "The bar should not be drilled, cut, welded, repaired or modified unless assessed and approved by a competent person."
+  ],
+
+  whatToCheck: [
+    "Check that the bar is straight and free from bending, twisting, dents, cracks or other deformation.",
+    "Inspect the surface for corrosion, deep scratches, gouges, impact damage or excessive wear.",
+    "Confirm that the bar diameter and wall condition remain suitable for the clamps or fittings being used.",
+    "Check that the Safe Working Load / Working Load Limit is known and suitable for the intended load.",
+    "Inspect suspension points, brackets, clamps, couplers, drop rods, chains or wires for damage, looseness or corrosion.",
+    "Check that luminaires and suspended equipment are correctly attached using suitable clamps and secondary suspensions where required.",
+    "Check that loads are not concentrated in one area unless the bar and support arrangement have been designed for that use.",
+    "Look for signs of unauthorised modification, drilled holes, cuts, non-standard repairs or added fixings.",
+    "Confirm that inspection records are available and defects have been recorded and actioned."
+  ]
+},
 
         { id: "bar_48mm_plain_aluminium", name: "48mm OD Plain Aluminium Bar", category: "Lighting Bar", classId: "structural_support",
           description: "48mm diameter plain aluminium lighting bar.", image: "images/bar_48mm_plain_aluminium.webp",
@@ -1841,7 +3152,6 @@ whatToCheck: [
   }
 ]
 }
-
       ]
     };
 
@@ -1852,7 +3162,6 @@ const roteEquipmentIds = new Set([
   "bar_25mm_plain_steel",
   "bar_32mm_plain_steel",
   "bar_48mm_plain_steel",
-  "bar_60mm_plain_steel",
   "bar_48mm_plain_aluminium",
   "internally_wired_bar",
   "bar_48mm_internally_wired_grid",
@@ -1866,7 +3175,6 @@ const roteEquipmentIds = new Set([
   "ladder_truss_grid",
   "triangle_truss_grid",
   "doughty_six_curtain_track",
-  "doughty_six_overlap_curtain_track",
   "doughty_rail_curtain_track",
   "hall_t400_curtain_track",
   "hall_t60_curtain_track",
@@ -1894,7 +3202,7 @@ const roteEquipmentIds = new Set([
   "electric_chain_hoist",
   "manual_chain_hoist",
   "rope_set",
-  "counterweight_system",
+  "counterweight_set",
   "lifting_stand",
   "stand",
   "unibar_system",
@@ -1906,167 +3214,12 @@ const roteEquipmentIds = new Set([
   "beam_trolley"
 ]);
 const additionalEquipment = [
-  {
-    "id": "bar_25mm_plain_steel",
-    "name": "25mm OD Plain Steel Bar",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "25mm outside-diameter plain steel bar used to support production equipment.",
-    "image": "images/bar_25mm_plain_steel.webp",
-    "images": [
-      "images/bar_25mm_plain_steel.webp",
-      "images/bar_25mm_plain_steel_2.webp",
-      "images/bar_25mm_plain_steel_3.webp"
-    ]
-  },
-  {
-    "id": "bar_32mm_plain_steel",
-    "name": "32mm OD Plain Steel Bar",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "32mm outside-diameter plain steel bar used to support production equipment.",
-    "image": "images/bar_32mm_plain_steel.webp",
-    "images": [
-      "images/bar_32mm_plain_steel.webp",
-      "images/bar_32mm_plain_steel_2.webp",
-      "images/bar_32mm_plain_steel_3.webp"
-    ]
-  },
-  {
-    "id": "bar_60mm_plain_steel",
-    "name": "60mm OD Plain Steel Bar",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "60mm outside-diameter plain steel bar used to support production equipment.",
-    "image": "images/bar_60mm_plain_steel.webp"
-  },
-  {
-    "id": "bar_48mm_internally_wired_grid",
-    "name": "48mm OD Internally Wired Bar Grid",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "Grid formed from 48mm outside-diameter internally wired bars.",
-    "image": "images/bar_48mm_internally_wired_grid.webp",
-    "images": [
-      "images/bar_48mm_internally_wired_grid.webp",
-      "images/bar_48mm_internally_wired_grid_2.webp",
-      "images/bar_48mm_internally_wired_grid_3.webp"
-    ]
-  },
-  {
-    "id": "bar_38mm_plain_steel_grid",
-    "name": "38mm OD Plain Steel Bar",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "38mm outside-diameter plain steel bar used to support production equipment.",
-    "image": "images/bar_38mm_plain_steel_grid.webp",
-    "images": [
-      "images/bar_38mm_plain_steel_grid.webp",
-      "images/bar_38mm_plain_steel_grid_2.webp",
-      "images/bar_38mm_plain_steel_grid_3.webp"
-    ]
-  },
-  {
-    "id": "bar_48mm_plain_steel_grid",
-    "name": "48mm OD Plain Steel Bar Grid",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "Grid formed from 48mm outside-diameter plain steel bars.",
-    "image": "images/bar_48mm_plain_steel_grid.webp",
-    "images": [
-      "images/bar_48mm_plain_steel_grid.webp",
-      "images/bar_48mm_plain_steel_grid_2.webp",
-      "images/bar_48mm_plain_steel_grid_3.webp"
-    ]
-  },
-  {
-    "id": "bar_48mm_aluminium_grid",
-    "name": "48mm OD Aluminium Bar Grid",
-    "category": "Lighting Bar",
-    "classId": "structural_support",
-    "description": "Grid formed from 48mm outside-diameter aluminium bars.",
-    "image": "images/bar_48mm_aluminium_grid.webp",
-    "images": [
-      "images/bar_48mm_aluminium_grid.webp",
-      "images/bar_48mm_aluminium_grid_2.webp",
-      "images/bar_48mm_aluminium_grid_3.webp"
-    ]
-  },
-  {
-    "id": "counterweight_system",
-    "name": "Counterweight System",
-    "category": "Lifting Equipment",
-    "classId": "manual_lifting_machine",
-    "description": "Complete counterweight flying installation, including its supporting structure, ropes, blocks, guides and counterweight sets.",
-    "image": "images/counterweight_system.webp"
-  },
-  {
-    "id": "lifting_stand",
-    "name": "Lifting Stand",
-    "category": "Lifting Equipment",
-    "classId": "manual_lifting_machine",
-    "description": "Stand with a manually operated lifting mechanism for raising and supporting production equipment. The installed mechanism and intended use determine the applicable requirements.",
-    "image": "images/lifting_stand.webp",
-    "images": [
-      "images/lifting_stand.webp",
-      "images/lifting_stand_2.webp",
-      "images/lifting_stand_3.webp"
-    ]
-  },
-  {
-    "id": "mole_richardson_curtain_track",
-    "name": "Mole-Richardson Curtain Track",
-    "category": "Curtain Track",
-    "classId": "curtain_track",
-    "description": "Mole-Richardson curtain track and its supporting arrangement.",
-    "image": "images/mole_richardson_curtain_track.webp",
-    "images": [
-      "images/mole_richardson_curtain_track.webp",
-      "images/mole_richardson_curtain_track_2.webp",
-      "images/mole_richardson_curtain_track_3.webp"
-    ]
-  },
-  {
-    "id": "speaker_bracket",
-    "name": "Speaker Bracket",
-    "category": "General Equipment",
-    "classId": "general_support",
-    "description": "Bracket used to mount a loudspeaker to a suitable support.",
-    "image": "images/speaker_bracket.webp",
-    "images": [
-      "images/speaker_bracket.webp",
-      "images/speaker_bracket_2.webp",
-      "images/speaker_bracket_3.webp"
-    ]
-  },
-  {
-    "id": "temporary_staging",
-    "name": "Temporary Staging",
-    "category": "General Equipment",
-    "classId": "structural_support",
-    "description": "Temporary stage platforms and their supporting structure.",
-    "image": "images/temporary_staging.webp"
-  },
-  {
-    "id": "travelling_beam",
-    "name": "Travelling Beam",
-    "category": "Lifting Equipment",
-    "classId": "structural_support",
-    "description": "Movable beam used as part of a lifting or suspension arrangement.",
-    "image": "images/travelling_beam.webp"
-  }
-];
+        
+      ];
 complianceRules.equipmentTypes.push(...additionalEquipment);
 complianceRules.equipmentTypes.forEach(function (item) {
   item.isRote = roteEquipmentIds.has(item.id);
 });
-getEquipmentById("doughty_six_overlap_curtain_track").hideFromGallery = false;
-// The cradle and weights remain a distinct component for future related-asset links.
-getEquipmentById("counterweight_set").description = "Counterweight cradle (arbor) and weights forming a component of a counterweight system.";
-getEquipmentById("counterweight_set").equipmentInfo[0] = "A counterweight set is the cradle (arbor), weights and retaining arrangements within a counterweight system.";
-getEquipmentById("counterweight_set").equipmentInfo[2] = "When installed, the arbor and weights work with guide rails, ropes, head blocks, loft blocks, operating lines and terminations as one complete system load path.";
-getEquipmentById("counterweight_set").componentOf = "counterweight_system";
-getEquipmentById("counterweight_system").componentIds = ["counterweight_set"];
 
 /****************************************************
  * HELPERS
