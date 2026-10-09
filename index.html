@@ -3543,6 +3543,112 @@ const additionalEquipment = [
   }
 ];
 complianceRules.equipmentTypes.push(...additionalEquipment);
+
+// Completed technical datasheets uploaded to the GitHub documents folder.
+// These are attached in one place to reduce the risk of comma/bracket errors inside individual equipment records.
+const completedDatasheetDocuments = {
+  electric_chain_hoist: {
+    title: "Electric Chain Hoist Technical Datasheet",
+    file: "documents/electric_chain_hoist_technical_datasheet.pdf"
+  },
+  electric_winch: {
+    title: "Electric Winch Technical Datasheet",
+    file: "documents/electric_winch_technical_datasheet.pdf"
+  },
+  manual_winch: {
+    title: "Manual Winch Technical Datasheet",
+    file: "documents/manual_winch_technical_datasheet.pdf"
+  },
+  drill_drive_winch: {
+    title: "Drill Drive Winch Technical Datasheet",
+    file: "documents/drill_drive_winch_technical_datasheet.pdf"
+  },
+  integrated_lifting_system: {
+    title: "Integrated Lifting System Technical Datasheet",
+    file: "documents/integrated_lifting_system_technical_datasheet.pdf"
+  },
+  internally_wired_bar: {
+    title: "48mm OD Internally Wired Bar Technical Datasheet",
+    file: "documents/internally_wired_bar_technical_datasheet.pdf"
+  },
+  unibar_system: {
+    title: "Unibar System Technical Datasheet",
+    file: "documents/unibar_system_technical_datasheet.pdf"
+  },
+  pulley: {
+    title: "Pulley Technical Datasheet",
+    file: "documents/pulley_technical_datasheet.pdf"
+  },
+  rigging_point: {
+    title: "Rigging Point Technical Datasheet",
+    file: "documents/rigging_point_technical_datasheet.pdf"
+  },
+  rope_set: {
+    title: "Rope Set Technical Datasheet",
+    file: "documents/rope_set_technical_datasheet.pdf"
+  },
+  flying_iron: {
+    title: "Flying Iron Technical Datasheet",
+    file: "documents/flying_iron_technical_datasheet.pdf"
+  },
+  lifting_stand: {
+    title: "Lifting Stand Technical Datasheet",
+    file: "documents/lifting_stand_technical_datasheet.pdf"
+  },
+  travelling_beam: {
+    title: "Travelling Beam Technical Datasheet",
+    file: "documents/travelling_beam_technical_datasheet.pdf"
+  },
+  beam_clamp: {
+    title: "Beam Clamp Technical Datasheet",
+    file: "documents/beam_clamp_technical_datasheet.pdf"
+  },
+  round_slings: {
+    title: "Round Slings Technical Datasheet",
+    file: "documents/round_slings_technical_datasheet.pdf"
+  },
+  web_slings: {
+    title: "Web Slings Technical Datasheet",
+    file: "documents/web_slings_technical_datasheet.pdf"
+  }
+};
+
+function imagePathWithSuffix(imagePath, suffix) {
+  if (!imagePath) return null;
+  var dotIndex = imagePath.lastIndexOf(".");
+  if (dotIndex === -1) return imagePath + suffix;
+  return imagePath.slice(0, dotIndex) + suffix + imagePath.slice(dotIndex);
+}
+
+function ensureSupplementalImages(item) {
+  if (!item || !item.image) return;
+
+  var images = Array.isArray(item.images) ? item.images.slice() : [item.image];
+  if (images.indexOf(item.image) === -1) images.unshift(item.image);
+
+  ["_2", "_3"].forEach(function (suffix) {
+    var candidate = imagePathWithSuffix(item.image, suffix);
+    if (candidate && images.indexOf(candidate) === -1) images.push(candidate);
+  });
+
+  item.images = images;
+}
+
+complianceRules.equipmentTypes.forEach(function (item) {
+  var completedDoc = completedDatasheetDocuments[item.id];
+  if (completedDoc) {
+    item.documents = Array.isArray(item.documents) ? item.documents : [];
+    var alreadyLinked = item.documents.some(function (doc) {
+      return doc.file === completedDoc.file;
+    });
+    if (!alreadyLinked) item.documents.push(completedDoc);
+  }
+
+  // If extra images are uploaded using the standard _2 / _3 naming pattern,
+  // the portal will try them automatically and hide any that do not exist.
+  ensureSupplementalImages(item);
+});
+
 complianceRules.equipmentTypes.forEach(function (item) {
   item.isRote = roteEquipmentIds.has(item.id);
 });
@@ -3847,12 +3953,12 @@ if (result.equipment.images && result.equipment.images.length > 1) {
     thumb.style.border = "2px solid var(--border)";
 
     thumb.onerror = function () {
-
-  thumb.onerror = null;
-
-  thumb.src = PLACEHOLDER_IMAGE;
-
-};
+      thumb.onerror = null;
+      if (thumb.parentNode) thumb.parentNode.removeChild(thumb);
+      if (thumbRow && thumbRow.children.length === 0 && thumbRow.parentNode) {
+        thumbRow.parentNode.removeChild(thumbRow);
+      }
+    };
 
     thumb.addEventListener("click", function () {
       img.src = imagePath;
