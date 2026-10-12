@@ -3241,6 +3241,76 @@ whatToCheck: [
       ]
     };
 
+// Universal Suspension Clamp: general guidance; no assumed load rating.
+complianceRules.equipmentClasses.push({
+  "id": "universal_suspension_support",
+  "name": "Universal suspension clamp - assess actual use",
+  "description": "Suspension support requiring product-specific and use-specific assessment.",
+  "regulationRules": [
+    {
+      "regulationId": "PUWER_1998",
+      "appliesIf": [],
+      "appliesResult": "always",
+      "notes": "As work equipment, the clamp must be suitable for its actual use, maintained and inspected where necessary.",
+      "education": [
+        {
+          "part": "Suitability and maintenance",
+          "summary": "Verify the product, support and connections against the manufacturer instructions; withdraw damaged or incompatible components."
+        }
+      ]
+    },
+    {
+      "regulationId": "LOLER_1998",
+      "appliesIf": [
+        {
+          "field": "context.usedToSuspendLoads",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "appliesResult": "conditional",
+      "notes": "Confirm whether the clamp is an accessory used in lifting, or supports, fixes or anchors lifting equipment. Static suspension alone does not determine whether LOLER applies. A competent person should establish scope and examination requirements.",
+      "education": [
+        {
+          "part": "Scope and examination",
+          "summary": "Where LOLER applies, confirm the correct classification, rated loading, examination regime and records for the actual installation."
+        }
+      ]
+    }
+  ]
+});
+complianceRules.equipmentTypes.push({
+  "id": "universal_suspension_clamp",
+  "name": "Universal Suspension Clamp",
+  "category": "Accessory",
+  "classId": "universal_suspension_support",
+  "description": "A suspension clamp connects a compatible support to a suspended item or connecting assembly; the permitted arrangement depends on the exact product.",
+  "image": "images/universal_suspension_clamp.webp",
+  "equipmentInfo": [
+    "A suspension clamp connects a compatible support to a suspended item or connecting assembly; the permitted arrangement depends on the exact product.",
+    "Universal is a product description, not approval for every tube size, support profile, load direction or use.",
+    "Confirm the manufacturer, model, compatible support dimensions, rated load and permitted orientation from the actual product documentation. No load rating is assumed here.",
+    "Assess the clamp, connecting hardware, supported equipment and supporting structure as one complete load path.",
+    "Use the specified fastener grades, thread engagement, locking method and tightening instructions. Do not substitute components or guess a torque.",
+    "PUWER applies to use as work equipment. Assess LOLER against the actual lifting function or role in supporting lifting equipment; static suspension alone does not establish its applicability."
+  ],
+  "whatToCheck": [
+    "Confirm product identity, instructions, permitted loading and compatibility with the actual support and connection.",
+    "Inspect for cracks, bending, corrosion, excessive wear and signs of slipping or poor seating.",
+    "Check specified bolts, nuts, pins and retainers are present; threads are undamaged and engagement/locking meet instructions.",
+    "Check correct seating and engagement; tighten only by the specified method. Do not use improvised packing or extensions.",
+    "Inspect the support and mating hardware for damage; confirm capacity, load direction and any required secondary retention.",
+    "Check for overload, impact, loose parts or unauthorised alteration; resolve outstanding defects before use.",
+    "If identification, permitted loading or condition is uncertain, prevent use pending competent assessment."
+  ],
+  "documents": [
+    {
+      "title": "Universal Suspension Clamp - Technical Data / Extra Information",
+      "file": "documents/universal_suspension_clamp_technical_datasheet.pdf"
+    }
+  ]
+});
+
 // ROTE membership is transcribed from ROTE Equipment.docx.
 // Keep existing IDs so images, datasheets and existing references remain valid.
 const roteEquipmentIds = new Set([
