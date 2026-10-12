@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Stage Electrics – Mechanical Theatre Equipment Compliance</title>
 
+<link rel="icon" type="image/png" href="images/portal-icon.png" />
+<link rel="apple-touch-icon" href="images/portal-icon-180.png" />
 <style>
   :root{
     --bg:#f6f8fa;
@@ -596,6 +598,11 @@ button,
 .gallery-card:focus-visible { outline:3px solid var(--primary); outline-offset:3px; }
 </style>
 
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#005a8f" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Compliance" />
+<script src="portal-app.js" defer></script>
 </head>
 <body>
     <div class="topbar">
@@ -607,6 +614,19 @@ button,
   </div>
 </div>
 
+<div id="portalAppControls" style="max-width:1100px;margin:12px auto;padding:0 16px;">
+  <button type="button" id="installPortalApp" aria-controls="portalInstallHelp" aria-expanded="false">Install App</button>
+  <span id="portalInstallStatus" role="status"></span>
+  <div id="portalInstallHelp" hidden>
+    <p>Open the published portal website to install the app. Installation is not available from a file opened directly on your computer.</p>
+    <ul>
+      <li><strong>Windows (Edge or Chrome):</strong> use the install icon in the address bar, or the browser menu option to install this site as an app.</li>
+      <li><strong>iPhone or iPad:</strong> open the portal in Safari, tap Share, then Add to Home Screen. Enable Open as Web App if offered.</li>
+      <li><strong>Android (Chrome):</strong> open the browser menu and choose Install app or Add to Home screen.</li>
+    </ul>
+    <p>The app needs an internet connection to load the portal, images and documents.</p>
+  </div>
+</div>
 <div class="hero">
   <h1>Mechanical Theatre<br>Equipment Compliance</h1>
   <p>LOLER · PUWER · BS EN 17206 · ABTT <br>Guidance Portal</p>
