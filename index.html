@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stage Electrics – Mechanical Theatre Equipment Compliance</title>
+<title>Stage Electrics – Theatre Equipment Hub</title>
 
 <link rel="icon" type="image/png" href="images/portal-icon.png" />
 <link rel="apple-touch-icon" href="images/portal-icon-180.png" />
@@ -596,12 +596,41 @@ button,
 .gallery-filters button { flex:1; width:auto; margin:0; background:var(--surface); color:var(--primary); border:1px solid var(--primary); }
 .gallery-filters button[aria-pressed="true"] { background:var(--primary); color:var(--surface); }
 .gallery-card:focus-visible { outline:3px solid var(--primary); outline-offset:3px; }
+/* Theatre Equipment Hub: logo colours and section buttons */
+.hero {
+  text-align:left;
+  background:rgba(0,0,0,.94);
+  border-left:6px solid #dc1915;
+  border-radius:3px;
+  padding:clamp(24px,4vw,40px);
+  margin:20px 0;
+}
+.hero h1 {
+  color:#dc1915;
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:650;
+  line-height:1.15;
+  text-shadow:none;
+  letter-spacing:-.025em;
+}
+.hero p, [data-theme="dark"] .hero p {
+  color:#f1f1f1;
+  font-size:clamp(1rem,2.4vw,1.15rem);
+  letter-spacing:0;
+  margin:14px 0 0;
+}
+.hero p small {display:inline-block;color:#ccc;font-size:.8rem;margin-top:8px;letter-spacing:.04em;}
+button.secondary.equipment-info {background:#e1effb;color:#153e60;border-color:#9ebfda;}
+button.secondary.equipment-info:hover {background:#cce3f6;border-color:#648eaf;}
+button.secondary.equipment-check {background:#e3f2e5;color:#204b2a;border-color:#a0c6a7;}
+button.secondary.equipment-check:hover {background:#cde8d2;border-color:#648e6c;}
+button.secondary.equipment-info:focus-visible,button.secondary.equipment-check:focus-visible {outline:3px solid currentColor;outline-offset:3px;}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest" />
 <meta name="theme-color" content="#005a8f" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-title" content="Compliance" />
+<meta name="apple-mobile-web-app-title" content="Equipment Hub" />
 <script src="portal-app.js" defer></script>
 </head>
 <body>
@@ -628,8 +657,8 @@ button,
   </div>
 </div>
 <div class="hero">
-  <h1>Mechanical Theatre<br>Equipment Compliance</h1>
-  <p>LOLER · PUWER · BS EN 17206 · ABTT <br>Guidance Portal</p>
+  <h1>Theatre Equipment Hub</h1>
+  <p>Compliance guidance &amp; technical information<br><small>LOLER · PUWER · BS EN 17206 · ABTT</small></p>
 </div>
 
   <p class="muted intro-text">
@@ -4201,7 +4230,7 @@ if (result.equipment.images && result.equipment.images.length > 1) {
     if (!lines || lines.length === 0) return;
 
     var toggleBtn = document.createElement("button");
-    toggleBtn.className = "secondary";
+    toggleBtn.className = "secondary " + (titleText === "What to check" ? "equipment-check" : "equipment-info");
     toggleBtn.textContent = icon + " " + showText;
     toggleBtn.style.margin = "0.2rem 0.5rem 0.6rem 0";
 

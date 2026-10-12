@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Mechanical Theatre Equipment Compliance",
-  "short_name": "Compliance",
+  "name": "Theatre Equipment Hub",
+  "short_name": "Equipment Hub",
   "description": "Theatre equipment compliance guidance, images and technical documents.",
   "lang": "en-GB",
   "start_url": "./index.html",
