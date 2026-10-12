@@ -654,6 +654,14 @@ button.secondary.equipment-info {background:#e1effb;color:#153e60;border-color:#
 button.secondary.equipment-info:hover {background:#cce3f6;color:#153e60;border-color:#648eaf;}
 button.secondary.equipment-check {background:#e3f2e5;color:#204b2a;border-color:#a0c6a7;}
 button.secondary.equipment-check:hover {background:#cde8d2;color:#204b2a;border-color:#648e6c;}
+/* Button outlines and light-mode guidance contrast */
+#checkButton, #checkButton:hover,
+.gallery-filters button[aria-pressed="true"],
+.gallery-filters button[aria-pressed="true"]:hover {
+  border-color:#000000;
+}
+.intro-text {color:#424850;}
+[data-theme="dark"] .intro-text {color:var(--muted);}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest" />
