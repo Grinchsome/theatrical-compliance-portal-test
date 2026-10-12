@@ -625,6 +625,35 @@ button.secondary.equipment-info:hover {background:#cce3f6;border-color:#648eaf;}
 button.secondary.equipment-check {background:#e3f2e5;color:#204b2a;border-color:#a0c6a7;}
 button.secondary.equipment-check:hover {background:#cde8d2;border-color:#648e6c;}
 button.secondary.equipment-info:focus-visible,button.secondary.equipment-check:focus-visible {outline:3px solid currentColor;outline-offset:3px;}
+/* Selected button design: red action and black supporting buttons */
+button, button.secondary, .gallery-filters button {
+  background:#080808;
+  color:#ffffff;
+  border:2px solid #dc1915;
+  border-radius:8px;
+  min-height:44px;
+  font-weight:600;
+}
+button:hover, button.secondary:hover, .gallery-filters button:hover {
+  background:#35100f;
+  color:#ffffff;
+  border-color:#f45c58;
+}
+#checkButton, .gallery-filters button[aria-pressed="true"] {
+  background:#dc1915;
+  color:#ffffff;
+  border-color:#dc1915;
+}
+#checkButton:hover, .gallery-filters button[aria-pressed="true"]:hover {
+  background:#b91411;
+  border-color:#b91411;
+}
+button:focus-visible {outline:3px solid #f59e0b;outline-offset:3px;}
+button:disabled {opacity:.6;cursor:wait;transform:none;}
+button.secondary.equipment-info {background:#e1effb;color:#153e60;border-color:#9ebfda;}
+button.secondary.equipment-info:hover {background:#cce3f6;color:#153e60;border-color:#648eaf;}
+button.secondary.equipment-check {background:#e3f2e5;color:#204b2a;border-color:#a0c6a7;}
+button.secondary.equipment-check:hover {background:#cde8d2;color:#204b2a;border-color:#648e6c;}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest" />
